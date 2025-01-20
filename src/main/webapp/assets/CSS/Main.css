@@ -1,0 +1,118 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+   
+}
+
+/* Intro Page */
+.intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff; 
+    color: #9b59b6; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 2rem;
+    z-index: 10;
+    transition: opacity 1s ease;
+}
+
+.intro.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Header 전체 레이아웃 설정 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Spark-mini는 왼쪽 */
+.spark-mini {
+    font-size: 1.5rem; /* 텍스트 크기 조정 */
+}
+
+/* header-top은 오른쪽 */
+.header-top {
+    display: flex;
+    gap: 20px; /* span 요소 사이 간격 */
+}
+
+.header-top span {
+    cursor: pointer; /* 클릭 가능한 요소로 만들기 */
+}
+
+.spark {
+    font-size: 6rem;
+    font-weight: bold;
+    letter-spacing: 0.3rem;
+}
+
+.spark-sub {
+    margin-top: 10px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+/* Main Page */
+.main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fcfbfc; 
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.search-bar {
+    margin-bottom: 30px;
+}
+
+.search-bar input {
+    width: 300px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Categories Navigation */
+.categories {
+    position: relative; /* 초기에는 일반 위치 */
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.categories.fixed {
+    position: fixed; /* 화면에 고정 */
+    top: 0; /* 화면 상단에 위치 */
+    left: 0;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 고정 시 강조 */
+}
+
+
+
+
