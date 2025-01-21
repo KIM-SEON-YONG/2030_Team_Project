@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Page with Intro</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="./Main.css">
+</head>
+
+<body>
+    <!-- Intro Page -->
+    <div class="intro" id="intro">
+        <div class="spark">
+            <span>S.</span>
+            <span>P.</span>
+            <span>A.</span>
+            <span>R.</span>
+            <span>K.</span>
+        </div>
+        <div class="spark-sub">
+            <span>Support.</span>
+            <span>Prepare.</span>
+            <span>Achieve.</span>
+            <span>Reach.</span>
+            <span>Keep.</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="spark-mini">
+            <span>S.P.A.R.K</span>
+        </div>
+        <div class="header-top">
+            <span>취업</span>
+            <span>결혼</span>
+            <span>출산</span>
+            <span>축제</span>
+            <span>커뮤니티</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main">
+        <h1>S.P.A.R.K</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="지역을 입력해주세요" />
+            <button>검색</button>
+            <div class="categories" id="categories">
+                <button class="category-box" data-target="section1">취업</button>
+                <button class="category-box" data-target="section2">결혼</button>
+                <button class="category-box" data-target="section3">출산</button>
+            </div>
+
+        </div>
+        
+        <!-- 카테고리 -->
+    </div>
+
+    <!-- Sections -->
+    <section id="section1" >
+        <h1>어어어어----===</h1>
+        <p>취업 관련 내용...</p>
+    </section>
+
+    <section id="section2">
+        <h1>결혼 섹션</h1>
+        <p>결혼 관련 내용...</p>
+    </section>
+
+    <section id="section3">
+        <h1>출산 섹션</h1>
+        <p>출산 관련 내용...</p>
+    </section>
+
+  
+
+    <!-- JavaScript -->
+     <script>
+        const categories = document.getElementById("categories");
+
+        // Hide the intro page after 1 second
+        window.addEventListener('load', () => {
+            const intro = document.getElementById('intro');
+            setTimeout(() => {
+                intro.classList.add('hidden');
+            }, 1000);
+        });
+
+        // Handle scroll behavior
+        window.addEventListener("scroll", () => {
+            const categoriesTop = categories.offsetTop; // 카테고리의 초기 위치
+            const scrollPosition = window.scrollY; // 현재 스크롤 위치
+
+            if (scrollPosition >= categoriesTop) {
+                categories.classList.add("fixed"); // 고정 클래스 추가
+            } else {
+                categories.classList.remove("fixed"); // 고정 클래스 제거
+            }
+        });
+
+        // Scroll to section on button click
+        document.querySelectorAll('.category-box').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.dataset.target;
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+         
+     
+    </script>
+</body>
+
+</html>
