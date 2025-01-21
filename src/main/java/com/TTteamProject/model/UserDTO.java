@@ -1,6 +1,6 @@
 package com.TTteamProject.model;
 
-public class User_VO {
+public class UserDTO {
 	
 	 	private String Id;
 	    private String Pw;
