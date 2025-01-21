@@ -1,3 +1,6 @@
+<%@page import="com.TTteamProject.model.WelfareDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.TTteamProject.model.WelfareDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -52,6 +55,14 @@
 </head>
 <body>
 	<div class="container"> 
+	
+		<%
+			WelfareDAO dao = new WelfareDAO();
+			List<WelfareDTO> jobList = dao.selectJob();
+		%>
+		
+		<p><%=jobList.get(0).getWelfare_title() %></p>
+		
 		<div class="welfare-content">  <!-- welfare 박스(옵션+결과) -->
 			<div class="welfare-option"> 
 				<form action="welfareJoin" method="get">
