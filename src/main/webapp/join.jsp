@@ -63,7 +63,7 @@
 </head>
 <body>
    <h2 style="text-align: center;">회원가입</h2>
-   <form action="login(실험).jsp">
+   <form action="login.jsp">
    <table>
       <tr>
          <td></td>
