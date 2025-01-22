@@ -7,25 +7,26 @@
 	rel="stylesheet">
 <title>Insert title here</title>
 <style>
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
 body {
-	background: #fcfcfc;
-	font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 화면의 최소 높이를 100vh로 설정 */
 }
-
+.main-content {
+    flex-grow: 1; /* 본문 콘텐츠가 남는 공간을 채우도록 설정 */
+}
 footer {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background-color: rgb(234, 197, 245);
-	height: 150px;
-	color: black;
+	position: relative; /* 페이지 하단에 고정 */
+    background-color: rgb(234, 197, 245);
+    color: black;
+    height: 150px; /* 푸터 높이 설정 */
+    width: 100%; /* 푸터 너비 100% 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0; /* 항상 하단에 고정 */
 }
 
 .footer-content {
@@ -42,10 +43,12 @@ footer {
 	text-transform: capitalize;
 	line-height: 2rem;
 }
+
 .footer-content p {
 	font-size: 14px;
 	color: black;
 }
+
 .socials {
 	list-style: none;
 	display: flex;
@@ -53,22 +56,27 @@ footer {
 	justify-content: center;
 	margin: 10px 0;
 }
+
 .socials li {
 	margin: 0 10px;
 }
+
 .socials a {
 	text-decoration: none;
 	color: black;
 	padding: 5px;
 }
+
 .socials a i {
 	font-size: 1.1rem;
 	width: 20px;
 	transition: color .4s ease;
 }
+
 .socials a:hover i {
 	color: aqua;
 }
+
 @media ( max-width :500px) {
 	.footer-menu ul {
 		display: flex;

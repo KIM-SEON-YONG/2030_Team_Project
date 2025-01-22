@@ -22,7 +22,8 @@
 		</div>
 	</div>
 
-	
+	<div id="header"></div>
+
 	<!-- Main Content -->
 	<div class="main-box">
 		<div class="main" id="main">
@@ -36,19 +37,19 @@
 
 
 	<!-- 카테고리 -->
-	<footer>
-		<div class="categories" id="categories">
-			<button class="category-box" data-target="#list-item-1">취업</button>
-			<button class="category-box" data-target="#list-item-2">결혼</button>
-			<button class="category-box" data-target="#list-item-3">출산</button>
-			<button class="category-box" data-target="#list-item-4">커뮤니티게시판</button>
+	<div id="categories">
+		<div class="category">
+			<button class="box" data-target="#list-item-1">취업</button>
+			<button class="box" data-target="#list-item-2">결혼</button>
+			<button class="box" data-target="#list-item-3">출산</button>
+			<button class="box" data-target="#list-item-4">커뮤니티게시판</button>
 		</div>
-	</footer>
+	</div>
 
+	<!-- Sections -->
 	<div class="col-8">
 		<h4 id="list-item-1">취업</h4>
-		<!-- Sections -->
-		<section id="section1">
+		<section class="section1">
 			<div class="card">
 				<div class="card-header">취업</div>
 				<div class="card-icons">아이콘</div>
@@ -106,7 +107,7 @@
 		</section>
 
 		<h4 id="list-item-2">결혼</h4>
-		<section id="section2">
+		<section class="section2">
 			<div class="card">
 				<div class="card-header">결혼</div>
 				<div class="card-icons">아이콘</div>
@@ -162,8 +163,9 @@
 				<!-- 지역혜택 더보기 -->
 			</div>
 		</section>
+
 		<h4 id="list-item-3">출산</h4>
-		<section id="section3">
+		<section class="section3">
 			<div class="card">
 				<div class="card-header">출산</div>
 				<div class="card-icons">아이콘</div>
@@ -214,15 +216,14 @@
 			</div>
 			<input type="checkbox" class="more-btn">
 			<!-- 더보기 -->
-		</section>
-		<div>
-			<div class="region">지역혜택 더보기</div>
-			<!-- 지역혜택 더보기 -->
-		</div>
+			<div>
+				<div class="region">지역혜택 더보기</div>
+				<!-- 지역혜택 더보기 -->
+			</div>
 		</section>
 
 		<h4 id="list-item-4">커뮤니티 게시판</h4>
-		<section id="section4">
+		<section class="section4">
 			<div class="board-box">
 				<div class="board">
 					커뮤니티
@@ -231,25 +232,42 @@
 					<div class="board-content">~~~~~~~</div>
 					<div class="board-content">~~~~~!!!</div>
 				</div>
+			</div>
 		</section>
+	</div>
 
 
 
 
+<div id="footer"></div>
 
+	<!-- 부트스트랩 코드 -->
 
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+		rel="stylesheet"></script>
+	<!-- JavaScript -->
+	<script>
+	
+		 // header.html 파일을 #header div에 로드
+	    fetch('header.html')
+	      .then(response => response.text())
+	      .then(data => {
+	        document.getElementById('header').innerHTML = data;
+	      })
+	      .catch(error => console.error('Error loading header:', error));
 
-
-		<!-- 부트스트랩 코드 -->
-
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-			rel="stylesheet"></script>
-		<!-- JavaScript -->
-		<script>
+	    // footer.html 파일을 #footer div에 로드
+	    fetch('footer.html')
+	      .then(response => response.text())
+	      .then(data => {
+	        document.getElementById('footer').innerHTML = data;
+	      })
+	      .catch(error => console.error('Error loading footer:', error));
+		
 	
 		// 버튼 클릭 시 해당 섹션으로 이동
-    document.querySelectorAll('.category-box').forEach(button => {
+    document.querySelectorAll('.box').forEach(button => {
         button.addEventListener('click', function () {
             const targetId = this.getAttribute('data-target');
             const targetElement = document.querySelector(targetId);
