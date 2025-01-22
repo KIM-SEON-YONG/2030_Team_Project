@@ -115,7 +115,7 @@ a {
 				onclick="alert('로그인 성공!')"></td>
 		</tr>
 		<tr>
-			<td class="join"><a href="join.html">회원가입</a></td>
+			<td class="join"><a href="join.jsp">회원가입</a></td>
 		</tr>
 	</table>
 	<!-- 카카오톡 -->

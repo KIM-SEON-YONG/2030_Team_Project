@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.TTteamProject.database.UserMapper">
+	
+<!-- join mapper.xml -->
+	<select id="joinList" resultType="com.TTteamProject.model.UserDTO">
+		SELECT
+				USER_ID, 
+				USER_PW, 
+				USER_NAME, 
+				USER_BIRTHDATE,
+				USER_GENDER, 
+				USER_PHONE, 
+				FAV_WELFARE, 
+				FAV_REGION,
+				JOIN_DT, WELFARE_POINT
+			FROM USERS
+	</select>
+
+
+	
+
+</mapper>

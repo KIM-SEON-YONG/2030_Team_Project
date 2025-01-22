@@ -1,57 +1,30 @@
 package com.TTteamProject.model;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+// 회원정보
 public class UserDTO {
 	
-	 	private String Id;
-	    private String Pw;
-	    private String Name;
-	    private String Birthdate;
-	    private String Gender;
-	    private int Phone;
+	    private String user_id;           // 사용자 ID 기본키
+	    private String user_Pw;           // 비밀번호
+	    private String user_Name;         // 사용자 이름
+	    private String user_Birthdate;      // 생년월일
+	    private String user_Gender;       // 성별
+	    private String user_Phone;        // 전화번호
+	    private String fav_Welfare;       // 선호 복지
+	    private String fav_Region;        // 선호 지역
+	    private String join_Dt;             // 가입 날짜
+	    private int welfare_Point;        // 복지 포인트
+
 	    
 	  
 
-	    // Getter
-	    public String getId() {
-	    	return Id;
-	    }
-	    public String getPw() {
-	    	return Pw;
-	    }
-	    public String getName() {
-	    	return Name;
-	    }
-	    public String getBirthdate() {
-	    	return Birthdate;
-	    }
-	    public String getGender() {
-	    	return Gender;
-	    }
-	    public int getPhone() {
-	    	return Phone;
-	    }
-	    
-	    //Setter 메서드
-	    public void setId(String id) {
-	    	Id = id;
-	    }
-	    public void setPw(String pw) {
-	    	Pw = pw;
-	    }
-	    public void setName(String name) {
-	    	Name = name;
-	    }
-	    public void setBirthdate(String birthdate) {
-	    	Birthdate = birthdate;
-	    }
-	    public void setGender(String gender) {
-	    	Gender = gender;
-	    }
-	    public void setPhone(int phone) {
-	    	Phone = phone;
-	    }
-	    
-	    
-	
 	    
 }
