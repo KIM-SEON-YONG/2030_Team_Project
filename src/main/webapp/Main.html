@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interactive Page with Intro</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<title>청년복지몰</title>
 <!-- Link to external CSS file -->
 <link rel="stylesheet" href="assets/Main.css">
 </head>
@@ -22,247 +24,278 @@
 
 	<!-- Header -->
 	<header>
-		<div class="mini">S.P.A.R.K</div>
-		<div class="header-top">
-			<p>취업</p>
-			<p>결혼</p>
-			<p>출산</p>
-			<p>지역혜택</p>
-		</div>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">S.P.A.R.K</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarNav">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="#">취업</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">결혼</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">출산</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">지역혜택</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 	</header>
 
 	<!-- Main Content -->
-	<div class="main">
-		<h1>S.P.A.R.K</h1>
-		<div class="search-bar">
-			<input type="text" placeholder="지역을 입력해주세요" />
-			<button>검색</button>
-			<br> <br> <br> <br> <br> <br>
-
+	<div class="main-box">
+		<div class="main" id="main">
+			<h1>S.P.A.R.K</h1>
+			<div class="search-bar">
+				<input type="text" placeholder="지역을 입력해주세요" />
+				<button>검색</button>
+			</div>
 		</div>
-		<!-- 카테고리 -->
-		<footer>
-			<div class="categories" id="categories">
-				<button class="category-box" data-target="section1">취업</button>
-				<button class="category-box" data-target="section2">결혼</button>
-				<button class="category-box" data-target="section3">출산</button>
-			</div>
-		</footer>
-
-		<!-- Sections -->
-
-		<section id="section1">
-			<div class="card">
-				<div class="card-header">취업</div>
-				<div class="icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="main-description">
-					내용
-					<p>취업 관련 내용...</p>
-					<p>취업 관련 내용...</p>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-header">취업</div>
-				<div class="icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="main-description">
-					내용
-					<p>취업 관련 내용...</p>
-					<p>취업 관련 내용...</p>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-header">취업</div>
-				<div class="icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="main-description">
-					내용
-					<p>취업 관련 내용...</p>
-					<p>취업 관련 내용...</p>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-header">취업</div>
-				<div class="icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="main-description">
-					내용
-					<p>취업 관련 내용...</p>
-					<p>취업 관련 내용...</p>
-				</div>
-			</div>
-		</section>
-
-		<section id="section2">
-			<div class="card">
-				<div class="card-header">결혼</div>
-				<div class="icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="main-description">
-					내용
-					<p>결혼 관련 내용...</p>
-					<p>결혼 관련 내용...</p>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-header">결혼</div>
-				<div class="icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="main-description">
-					내용
-					<p>결혼 관련 내용...</p>
-					<p>결혼 관련 내용...</p>
-				</div>
-			</div>
-
-			<div class="card">
-				<div class="card-header">결혼</div>
-				<div class="icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="main-description">
-					내용
-					<p>결혼 관련 내용...</p>
-					<p>결혼 관련 내용...</p>
-				</div>
-			</div>
-
-			<div class="card">
-				<div class="card-header">결혼</div>
-				<div class="icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="main-description">
-					내용
-					<p>결혼 관련 내용...</p>
-					<p>결혼 관련 내용...</p>
-				</div>
-			</div>
-		</section>
-
-		<section id="section3">
-			<div class="card">
-				<div class="card-header">출산</div>
-				<div class="icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="main-description">
-					내용
-					<p>출산 관련 내용...</p>
-					<p>출산 관련 내용...</p>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-header">출산</div>
-				<div class="icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="main-description">
-					내용
-					<p>출산 관련 내용...</p>
-					<p>출산 관련 내용...</p>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-header">출산</div>
-				<div class="icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="main-description">
-					내용
-					<p>출산 관련 내용...</p>
-					<p>출산 관련 내용...</p>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-header">출산</div>
-				<div class="icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="main-description">
-					내용
-					<p>출산 관련 내용...</p>
-					<p>출산 관련 내용...</p>
-				</div>
-			</div>
-
-
-		</section>
-
 	</div>
 
 
+	<!-- 카테고리 -->
+	<footer>
+		<div class="categories" id="categories">
+			<button class="category-box" data-target="#list-item-1">취업</button>
+			<button class="category-box" data-target="#list-item-2">결혼</button>
+			<button class="category-box" data-target="#list-item-3">출산</button>
+			<button class="category-box" data-target="#list-item-4">커뮤니티게시판</button>
+		</div>
+	</footer>
+
+	<div class="col-8">
+		<h4 id="list-item-1">취업</h4>
+		<!-- Sections -->
+		<section id="section1">
+			<div class="card">
+				<div class="card-header">취업</div>
+				<div class="card-icons">아이콘</div>
+				<div class="card-title">제목 제목</div>
+				<div class="card-date">날짜</div>
+				<br>
+				<div class="card-description">
+					내용
+					<p>취업 관련 내용...</p>
+					<p>취업 관련 내용...</p>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">취업</div>
+				<div class="card-icons">아이콘</div>
+				<div class="card-title">제목 제목</div>
+				<div class="card-date">날짜</div>
+				<br>
+				<div class="card-description">
+					내용
+					<p>취업 관련 내용...</p>
+					<p>취업 관련 내용...</p>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">취업</div>
+				<div class="card-icons">아이콘</div>
+				<div class="card-title">제목 제목</div>
+				<div class="card-date">날짜</div>
+				<br>
+				<div class="card-description">
+					내용
+					<p>취업 관련 내용...</p>
+					<p>취업 관련 내용...</p>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">취업</div>
+				<div class="card-icons">아이콘</div>
+				<div class="card-title">제목 제목</div>
+				<div class="card-date">날짜</div>
+				<br>
+				<div class="card-description">
+					내용
+					<p>취업 관련 내용...</p>
+					<p>취업 관련 내용...</p>
+				</div>
+			</div>
+			<input type="checkbox" class="more-btn">
+			<!-- 더보기 -->
+			<div>
+				<div class="region">지역혜택 더보기</div>
+				<!-- 지역혜택 더보기 -->
+			</div>
+		</section>
+
+		<h4 id="list-item-2">결혼</h4>
+		<section id="section2">
+			<div class="card">
+				<div class="card-header">결혼</div>
+				<div class="card-icons">아이콘</div>
+				<div class="card-title">제목 제목</div>
+				<div class="card-date">날짜</div>
+				<br>
+				<div class="card-description">
+					내용
+					<p>결혼 관련 내용...</p>
+					<p>결혼 관련 내용...</p>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">결혼</div>
+				<div class="card-icons">아이콘</div>
+				<div class="card-title">제목 제목</div>
+				<div class="card-date">날짜</div>
+				<br>
+				<div class="card-description">
+					내용
+					<p>결혼 관련 내용...</p>
+					<p>결혼 관련 내용...</p>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">결혼</div>
+				<div class="card-icons">아이콘</div>
+				<div class="card-title">제목 제목</div>
+				<div class="card-date">날짜</div>
+				<br>
+				<div class="card-description">
+					내용
+					<p>결혼 관련 내용...</p>
+					<p>결혼 관련 내용...</p>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">결혼</div>
+				<div class="card-icons">아이콘</div>
+				<div class="card-title">제목 제목</div>
+				<div class="card-date">날짜</div>
+				<br>
+				<div class="card-description">
+					내용
+					<p>결혼 관련 내용...</p>
+					<p>결혼 관련 내용...</p>
+				</div>
+			</div>
+			<input type="checkbox" class="more-btn">
+			<!-- 더보기 -->
+			<div>
+				<div class="region">지역혜택 더보기</div>
+				<!-- 지역혜택 더보기 -->
+			</div>
+		</section>
+		<h4 id="list-item-3">출산</h4>
+		<section id="section3">
+			<div class="card">
+				<div class="card-header">출산</div>
+				<div class="card-icons">아이콘</div>
+				<div class="card-title">제목 제목</div>
+				<div class="card-date">날짜</div>
+				<br>
+				<div class="card-description">
+					내용
+					<p>출산 관련 내용...</p>
+					<p>출산 관련 내용...</p>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">출산</div>
+				<div class="card-icons">아이콘</div>
+				<div class="card-title">제목 제목</div>
+				<div class="card-date">날짜</div>
+				<br>
+				<div class="card-description">
+					내용
+					<p>출산 관련 내용...</p>
+					<p>출산 관련 내용...</p>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">출산</div>
+				<div class="card-icons">아이콘</div>
+				<div class="card-title">제목 제목</div>
+				<div class="card-date">날짜</div>
+				<br>
+				<div class="card-description">
+					내용
+					<p>출산 관련 내용...</p>
+					<p>출산 관련 내용...</p>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">출산</div>
+				<div class="card-icons">아이콘</div>
+				<div class="card-title">제목 제목</div>
+				<div class="card-date">날짜</div>
+				<br>
+				<div class="card-description">
+					내용
+					<p>출산 관련 내용...</p>
+					<p>출산 관련 내용...</p>
+				</div>
+			</div>
+			<input type="checkbox" class="more-btn">
+			<!-- 더보기 -->
+		</section>
+		<div>
+			<div class="region">지역혜택 더보기</div>
+			<!-- 지역혜택 더보기 -->
+		</div>
+		</section>
+
+		<h4 id="list-item-4">커뮤니티 게시판</h4>
+		<section id="section4">
+			<div class="board-box">
+				<div class="board">
+					커뮤니티
+					<div class="board-content">정책추천하기!!!!</div>
+					<div class="board-content">설명설명</div>
+					<div class="board-content">~~~~~~~</div>
+					<div class="board-content">~~~~~!!!</div>
+				</div>
+		</section>
 
 
-	<!-- JavaScript -->
-	<script>
+
+
+
+
+
+
+		<!-- 부트스트랩 코드 -->
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+			rel="stylesheet"></script>
+		<!-- JavaScript -->
+		<script>
 	
-	/* 푸터 스크롤 */
-	const footer = document.getElementById('footer');
-	const threshold = 1000; // 특정 스크롤 위치 (여기서는 300px)
-
-	window.addEventListener('scroll', () => {
-	  if (window.scrollY > threshold) {
-	    footer.classList.add('hidden'); // 스크롤이 threshold 값을 넘으면 푸터 숨기기
-	  } else {
-	    footer.classList.remove('hidden'); // 다시 threshold 이하로 내려가면 푸터 표시
-	  }
-	});
-
-
-
-        // Intro 페이지 숨기기
-        window.addEventListener('load', () => {
-            const intro = document.getElementById('intro');
-            setTimeout(() => {
-                intro.classList.add('hidden');
-            }, 1000);
-        });
-
-        // 스크롤시 카테고리 고정
-        window.addEventListener("scroll", () => {
-            const categoriesTop = categories.offsetTop; // 카테고리의 초기 위치
-            const scrollPosition = window.scrollY; // 현재 스크롤 위치
-
-            if (scrollPosition >= categoriesTop) {
-                categories.classList.add("fixed"); // 고정 클래스 추가
-            } else {
-                categories.classList.remove("fixed"); // 고정 클래스 제거
+		// 버튼 클릭 시 해당 섹션으로 이동
+    document.querySelectorAll('.category-box').forEach(button => {
+        button.addEventListener('click', function () {
+            const targetId = this.getAttribute('data-target');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
             }
         });
+    });
 
-        // 카테고리 버튼 클릭 시 섹션스크롤 이동
-        document.querySelectorAll('.category-box').forEach(button => {
-            button.addEventListener('click', () => {
-                const targetId = button.dataset.target;
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
 	
+	
+		// Intro 페이지 숨기기
+		window.addEventListener('load', () => {
+			const intro = document.getElementById('intro');
+			setTimeout(() => {
+				intro.classList.add('hidden');
+			}, 1000);
+		});
+		
+		
+		
 
-    </script>
+
+
+
+	</script>
 </body>
-
 </html>
