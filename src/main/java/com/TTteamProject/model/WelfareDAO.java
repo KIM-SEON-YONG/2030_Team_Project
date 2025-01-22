@@ -23,5 +23,13 @@ public class WelfareDAO {
 		sqlSession.close();
 		return result;
 	}
+    public int insertWelfare(WelfareDTO dto) {
+        int result = 0;
+        try (SqlSession session = SqlSessionManager.getSqlSession().openSession()) {
+            result = session.insert("com.TTteamProject.database.welfareMapper.insertWelfare", dto);
+            session.commit(); // INSERT/UPDATE/DELETE 후에는 commit() 필요
+        }
+        return result;
+    }
 
 }
