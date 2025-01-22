@@ -41,17 +41,6 @@ body, html {
 	letter-spacing: 0.1rem;
 }
 
-/* Header 전체 */
-header {
-	width: 100vh;
-	position: relative;  /* header에 상대적인 위치를 설정 */
-    height: 100px;
-    background-color: white;
-    padding: 0 50px;
-    font-weight: bold;
-}
-
-
 
 /* 메인 */
 .main-box{
