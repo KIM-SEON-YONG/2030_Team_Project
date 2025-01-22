@@ -19,7 +19,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <!-- sql문들을 정의해주는 mapper.xml을 계속해서 만들건데(회원관리, 게시글 관리 등) 어디에 있는지 경로를 지정해주기  -->
     <mappers>
     	
-    	<mapper resource="com/TTteamProject/database/welfareMapper.xml"/>
+    	<mapper resource="com/TTteamProject/database/policyMapper.xml"/>
+    	<mapper resource="com/TTteamProject/database/regionMapper.xml"/>
     	
     </mappers>
     

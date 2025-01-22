@@ -10,13 +10,16 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 // 복지정책 
-public class WelfareDTO {
+public class PolicyDTO {
 
 	// 정책 식별자
 	private Double policy_idx;
 
 	// 지역 식별자
 	private Double region_idx;
+	
+	// 복지 분류
+	private String welfare_name;
 
 	// 복지 제목
 	private String welfare_title;
@@ -32,6 +35,8 @@ public class WelfareDTO {
 
 	// 복지 첨부파일
 	private String policy_file;
+	
+	
 
 //	    public Double getPolicyIdx() {
 //	        return POLICY_IDX;
