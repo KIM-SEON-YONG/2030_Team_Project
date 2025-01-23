@@ -60,7 +60,7 @@ input[type="text"], input[type="password"] {
 
 .icons-grid {
 	display: flex;
-	justify-content:center;
+	justify-content: center;
 	gap: 25px;
 	margin-top: 20px;
 }
@@ -96,54 +96,56 @@ a {
 </style>
 <body>
 	<%@ page contentType="text/html; charset=UTF-8"%>
-	<table>
-		<tr>
-			<td><h2>로그인</h2></td>
-		</tr>
-		<tr>
-			<td><input type="text" placeholder="ID"></td>
-		</tr>
-		<tr>
-			<td><input type="password" placeholder=Password></td>
-		</tr>
+	<form action="LoginCon" method="POST">
+		<table>
+			<tr>
+				<td><h2>로그인</h2></td>
+			</tr>
+			<tr>
+				<td><input type="text" placeholder="ID" name="USER_ID"></td>
+			</tr>
+			<tr>
+				<td><input type="password" placeholder=Password name="USER_PW"></td>
+			</tr>
 
-		<tr>
-			<td><input type="checkbox"> 로그인 정보 저장</td>
-		</tr>
-		<tr>
-			<td><input type="submit" value="로그인 " class="btn"
-				onclick="alert('로그인 성공!')"></td>
-		</tr>
-		<tr>
-			<td class="join"><a href="join.jsp">회원가입</a></td>
-		</tr>
-	</table>
-	<!-- 카카오톡 -->
-	<div class="icons-grid">
-		<a href="https://accounts.kakao.com/" target="_blank">
-		<div class="icon">
-			<img src="https://test.codemshop.com/wp-content/plugins/mshop-mcommerce-premium-s2/lib/mshop-members-s2/assets/images/social/icon_1/Kakao.png" alt="카카오톡"> <span>카카오톡</span>
+			<tr>
+				<td><input type="checkbox"> 로그인 정보 저장</td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="로그인 " class="btn"></td>
+			</tr>
+		</table>
+	</form>
+		<p class="join"><a href="join.jsp">회원가입</a></p>
+
+		<!-- 카카오톡 -->
+		<div class="icons-grid">
+			<a href="https://accounts.kakao.com/" target="_blank">
+				<div class="icon">
+					<img
+						src="https://test.codemshop.com/wp-content/plugins/mshop-mcommerce-premium-s2/lib/mshop-members-s2/assets/images/social/icon_1/Kakao.png"
+						alt="카카오톡"> <span>카카오톡</span>
+				</div>
+			</a>
+
+			<!-- 구글 -->
+			<a href="https://accounts.google.com/signin" target="_blank">
+				<div class="icon">
+					<img
+						src="https://test.codemshop.com/wp-content/plugins/mshop-mcommerce-premium-s2/lib/mshop-members-s2/assets/images/social/logo/Google.png"
+						alt="구글"> <span>구글</span>
+				</div>
+			</a>
+
+			<!-- 네이버 -->
+			<a href="https://nid.naver.com/nidlogin.login" target="_blank">
+				<div class="icon">
+					<img
+						src="https://test.codemshop.com/wp-content/plugins/mshop-mcommerce-premium-s2/lib/mshop-members-s2/assets/images/social/icon_1/Naver.png"
+						alt="네이버"> <span>네이버</span>
+				</div>
+			</a>
 		</div>
-		</a>
-		
-		<!-- 구글 -->
-		<a href="https://accounts.google.com/signin" target="_blank">
-		<div class="icon">
-			<img src="https://test.codemshop.com/wp-content/plugins/mshop-mcommerce-premium-s2/lib/mshop-members-s2/assets/images/social/logo/Google.png" alt="구글"> <span>구글</span>
-		</div>
-		</a>
-		
-		<!-- 네이버 -->
-		<a href="https://nid.naver.com/nidlogin.login" target="_blank">
-		<div class="icon">
-			<img src="https://test.codemshop.com/wp-content/plugins/mshop-mcommerce-premium-s2/lib/mshop-members-s2/assets/images/social/icon_1/Naver.png" alt="네이버"> <span>네이버</span>
-		</div>
-	</a>
-	</div>
-	
-
-
-
 </body>
 </html>
 

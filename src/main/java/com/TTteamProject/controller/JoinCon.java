@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,42 +15,56 @@ import com.TTteamProject.model.UserDAO;
 import com.TTteamProject.model.UserDTO;
 
 @WebServlet("/JoinCon")
-public class JoinCon implements Command {
-	    
+    
 
-	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public class JoinCon extends HttpServlet {
+		private static final long serialVersionUID = 1L;
+
+
+		protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// 1. 인코딩
 		request.setCharacterEncoding("UTF-8");
 		
 		// 2. requset객체에서 데이터 가져오기
-		String user_id = request.getParameter("user_id");
-		String user_Pw = request.getParameter("user_Pw");
-		String user_Name = request.getParameter("user_Name");
-		String user_Birthdate = request.getParameter("user_Birthdate");
-		String user_Gender = request.getParameter("user_Gender");
-		String user_Phone = request.getParameter("user_Phone");
-		String fav_Welfare = request.getParameter("fav_Welfare");
-		String fav_Region = request.getParameter("fav_Region");
-		String join_Dt = request.getParameter("join_Dt");
-		int welfare_Point = Integer.parseInt(request.getParameter("welfare_Point"));
+		String user_id = request.getParameter("USER_ID");
+		String user_pw = request.getParameter("USER_PW");
+		String user_name = request.getParameter("USER_NAME");
+		String user_birthdate = request.getParameter("USER_BIRTHDATE");
+		String user_gender = request.getParameter("USER_GENDER");
+		String user_phone = request.getParameter("USER_PHONE");
+		String fav_welfare = request.getParameter("FAV_WELFARE");
+		String fav_region = request.getParameter("FAV_REGION");
+		
+		System.out.println(user_id);
+		System.out.println(user_pw);
+		System.out.println(user_name);
+		System.out.println(user_birthdate);
+		
 		
 
 		// 3. DAO의 메서드 호출
 		UserDAO dao = new UserDAO();
-		UserDTO dto = new UserDTO(user_id, user_Pw,user_Name, user_Birthdate, user_Gender, user_Phone, fav_Welfare, fav_Region, join_Dt,welfare_Point);
+		UserDTO dto = new UserDTO(user_id, user_pw,user_name, user_birthdate, user_gender, user_phone, fav_welfare, fav_region);
 		
-		int result = dao.register(dto);		
+		int result = dao.joinList(dto);		
 		
 		// 4. 결과 처리하기
 				if(result>0) {
-					return "redirect:/join.jsp";
+					// 성공하면
+					System.out.print("회원가입 성공!");
+					response.sendRedirect("login.jsp");
+					
 				}else {
-					return "redirect:/join.jsp";			
+					// 실패시
+					System.out.println("회원가입 실패");
+							
 				}
 				
 		
 	}
+		
+		
 
-}
+	}
+

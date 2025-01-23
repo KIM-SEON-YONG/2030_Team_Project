@@ -3,20 +3,29 @@
 <mapper namespace="com.TTteamProject.database.UserMapper">
 	
 <!-- join mapper.xml -->
-	<select id="joinList" resultType="com.TTteamProject.model.UserDTO">
-		SELECT
-				USER_ID, 
-				USER_PW, 
-				USER_NAME, 
-				USER_BIRTHDATE,
-				USER_GENDER, 
-				USER_PHONE, 
-				FAV_WELFARE, 
-				FAV_REGION,
-				JOIN_DT, WELFARE_POINT
-			FROM USERS
-	</select>
+	<insert id="joinList" parameterType="com.TTteamProject.model.UserDTO">
+    INSERT INTO TB_USER (
+        USER_ID, USER_PW, USER_NAME, USER_BIRTHDATE, USER_GENDER, USER_PHONE, FAV_WELFARE, FAV_REGION, JOIN_DT
+    ) 
+    VALUES (
+        #{user_id}, #{user_pw}, #{user_name}, #{user_birthdate}, #{user_gender}, #{user_phone}, #{fav_welfare}, #{fav_region}, CURRENT_TIMESTAMP
+    )
+</insert>
 
+
+	
+<!-- Login mapper.xml  -->
+	<select id="login" parameterType="com.TTteamProject.model.UserDTO" resultType="com.TTteamProject.model.UserDTO">
+		SELECT * FROM TB_USER 
+		WHERE USER_ID=#{user_id} AND USER_PW=#{user_pw}
+	</select>
+	
+<!-- pw중복 확인 -->	
+	<select id="checkId" resultType="int">
+	    SELECT COUNT(*) 
+	    FROM TB_USER
+	    WHERE USER_ID = #{user_id, jdbcType=VARCHAR}
+	</select>
 
 	
 
