@@ -1,5 +1,7 @@
 package com.TTteamProject.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,28 +12,42 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 // 복지정책 
-public class WelfareDTO {
+public class PolicyDTO {
 
+	// @SerializedName 사용이유 : AJAX로 데이터 가져올 때 필드이름과 JSON필드 이름을 명확히 매핑하기 위함
 	// 정책 식별자
+	@SerializedName("policy_idx")
 	private Double policy_idx;
 
 	// 지역 식별자
-	private Double region_idx;
+	@SerializedName("region_name")
+	private String region_name;
+	
+	// 복지 분류
+	@SerializedName("welfare_name")
+	private String welfare_name;
 
 	// 복지 제목
+	@SerializedName("welfare_title")
 	private String welfare_title;
 
 	// 복지 내용
+	@SerializedName("welfare_content")
 	private String welfare_content;
 
 	// 복지 URL
+	@SerializedName("welfare_url")
 	private String welfare_url;
 
 	// 복지 신청기간
+	@SerializedName("welfare_period")
 	private String welfare_period;
 
 	// 복지 첨부파일
+	@SerializedName("policy_file")
 	private String policy_file;
+	
+	
 
 //	    public Double getPolicyIdx() {
 //	        return POLICY_IDX;

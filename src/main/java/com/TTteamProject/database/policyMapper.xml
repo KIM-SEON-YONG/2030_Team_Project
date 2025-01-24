@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.TTteamProject.database.welfareMapper">
+
+
+	<!-- 취업지원 모두 조회 -->
+	<select id="jobList" resultType="com.TTteamProject.model.PolicyDTO">
+		SELECT * FROM TB_POLICY WHERE WELFARE_NAME = '취업'
+	</select>
+	
+	<!-- 결혼지원 모두 조회 -->
+	<select id="weddingList" resultType="com.TTteamProject.model.PolicyDTO">
+		SELECT * FROM TB_POLICY WHERE WELFARE_NAME = '결혼'
+	</select>
+	
+	<!-- 출산지원 모두 조회 -->
+	<select id="pregList" resultType="com.TTteamProject.model.PolicyDTO">
+		SELECT * FROM TB_POLICY WHERE WELFARE_NAME = '출산'
+	</select>
+	
+	<!-- 지역 선택 시 조회 -->
+	<!-- 취업 해당 지역 조회 -->
+	<select id="selecJobList" resultType="com.TTteamProject.model.PolicyDTO" parameterType="java.util.List">
+		SELECT welfare_name, welfare_title, welfare_content, welfare_url, welfare_period FROM TB_POLICY WHERE WELFARE_NAME ='취업' AND (REGION_NAME IN
+		<foreach item="regionNm" index="index" collection="list" open="(" separator="," close=")">
+			#{regionNm}
+		</foreach>
+		)
+	</select>
+	
+	<!-- 결혼 해당 지역 조회 -->
+	<select id="selecWeddingList" resultType="com.TTteamProject.model.PolicyDTO" parameterType="java.util.List">
+		SELECT welfare_name, welfare_title, welfare_content, welfare_url, welfare_period FROM TB_POLICY WHERE WELFARE_NAME ='결혼' AND (REGION_NAME IN
+		<foreach item="regionNm" index="index" collection="list" open="(" separator="," close=")">
+			#{regionNm}
+		</foreach>
+		)
+	</select>
+	
+	
+	<!-- 출산 해당 지역 조회 -->
+	<select id="selecPregList" resultType="com.TTteamProject.model.PolicyDTO" parameterType="java.util.List">
+		SELECT welfare_name, welfare_title, welfare_content, welfare_url, welfare_period FROM TB_POLICY WHERE WELFARE_NAME ='출산' AND REGION_NAME IN
+		<foreach item="regionNm" index="index" collection="list" open="(" separator="," close=")">
+			#{regionNm}
+		</foreach>
+	</select>
+</mapper>

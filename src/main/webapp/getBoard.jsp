@@ -146,7 +146,7 @@ body {
 			<h1 id="post-title"><%=(post != null) ? post.getB_title() : "게시글을 찾을 수 없습니다."%></h1>
 			<p id="post-meta"><%=(post != null) ? post.getUserId() + " | " + post.getCreate_dt() : ""%></p>
 		</div>
-
+		<form id="write-form">
 		<!-- 게시글 내용 -->
 		<div class="post-content">
 			<p id="post-content"><%=(post != null) ? post.getB_content() : "해당 게시글은 존재하지 않습니다."%></p>
@@ -167,8 +167,9 @@ body {
 		<!-- 목록으로 버튼 -->
 		<div class="btn-group mb-3">
 			<button class="btn btn-secondary"
-				onclick="location.href='boardList.html'">목록으로</button>
+				onclick="location.href='boardList.jsp'">목록으로</button>
 		</div>
+		</form>
 	</div>
 
 	<script>

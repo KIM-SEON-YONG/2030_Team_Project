@@ -1,10 +1,12 @@
 /* 전체체 Styles */
 body, html {
+	width: 100%;
+    overflow-x: hidden;
+    height: 100%;
 	margin: 10px;
 	padding: 0;
-	height:100%;
-    width: 100vw;
 	font-family: sans-serif;
+	word-wrap: break-word;
 }
 	
 /* 인트로 Page */
@@ -51,12 +53,15 @@ body, html {
 	align-items: center;      /* 수직 중앙 정렬 */
 }
 h1 {
+	height:200px;
+	align-content:end;
 	font-size: 5.0rem;	/* 텍스트 크기 조정 */
 	margin-bottom: 20px;
 	color: #333;
 }
 .search-bar {
 	margin-bottom: 30px;
+	height: 170px;
 }
 .search-bar input {
 	width: 300px;
@@ -73,19 +78,17 @@ h1 {
 }
  /* 카테고리 */
 .category{
-	gap: 50px;	/* 요소들 간 간격 설정 */
-	display: grid;
+	display: flex; 
+	flex-wrap: wrap; /* 줄 바꿈 가능 */
+    gap: 20px; /* 각 항목 간 간격 */
 	background-color: #E6E6FA;
-	grid-template-row: repeat(4, 1fr); /* 4개의 열로 배치 */
 	width: 100vw;
 	height: 150px;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	display: flex;
+	position: relative;
 	justify-content: center;
 	align-items: center;
 	transition: transform 0.3s ease;
+	align-content:center;
 }
 .box{
 	font-size: 18px;  /* 글자 크기 */
@@ -100,27 +103,26 @@ h1 {
     cursor: pointer;  /* 마우스 커서 모양 */
     transition: background-color 0.3s ease;  /* 마우스 오버 시 배경색 변화 */
 }
-.categories.hidden {
-	  transform: translateY(100%); /* 푸터를 화면 밖으로 숨김 */
-}
 /* 섹션 전체 */
 
 .section1, .section2, .section3, .section4 {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-gap: 10px;
-	justify-content: flex-start; /* 왼쪽 정렬 */
-	gap: 20px;  /* 카드 간 간격 설정 */
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 4개의 카드가 가로로 배치 */
+	grid-gap: 20px;  /* 카드 간 간격 설정 */
 	padding: 20px;
+	height: 600px;
 }
 
 .card {
-	width: 200px;  /* 카드의 너비 설정 */
-	height: 300px; /* 카드의 높이 설정 */
-	flex-direction: column; /* 카드 내 요소들이 세로로 정렬되도록 */
+	width: 100%;  /* 카드의 너비 설정 */
 	border: 2px solid black;
-	box-sizing: border-box; /* padding, border 포함해서 크기 계산 */
-	display: inline-block;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+    height: 300px; /* 카드 높이 설정 */
 }
 .card-header {
 	font-weight: bold;
@@ -155,18 +157,10 @@ h1 {
 
 
 /* 더보기  */
-.more-btn{
-	appearance: none;
-	border: 1px solid black;
-	padding: 0.5em;
-	border-radius: 0.25em;
-	cursor: pointer;
-	margin: 1rem;
-}
-.more-btn::before {
-	content: '더보기';
-}
+
+
 .region{
+	display: grid;
     height: 150px;
     width: 100vw;
     background-color: #D6AEDD;

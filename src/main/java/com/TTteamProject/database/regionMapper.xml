@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.TTteamProject.database.welfareMapper">
-
-	<select id="jobList" resultType="com.TTteamProject.model.WelfareDTO">
-		SELECT * FROM TB_POLICY
+<mapper namespace="com.TTteamProject.database.regionMapper">
+	<select id="regionList" resultType="com.TTteamProject.model.RegionDTO">
+		SELECT * FROM TB_REGION
 	</select>
 </mapper>

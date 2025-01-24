@@ -71,14 +71,23 @@
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc8</artifactId>
 			<version>23.2.0.0</version> <!-- 사용하는 버전에 맞게 변경 -->
+
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.json/json -->
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20231013</version>
+
 		</dependency>
 
+		<!-- GSON 라이브러리 - (비동기 통신)JSON반환을 위해 추가 -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.10.1</version>
+		</dependency>
+		<!-- 필요시 Servlet, JDBC 등 기타 의존성 -->
 
 	</dependencies>
 
