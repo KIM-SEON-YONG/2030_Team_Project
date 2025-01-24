@@ -96,16 +96,18 @@ a {
 </style>
 <body>
 	<%@ page contentType="text/html; charset=UTF-8"%>
-	<form name="login" action="LoginCon" method="post">
+	<form name="loginCheck" action="LoginCon" method="post">
 		<table>
 			<tr>
 				<td><h2>로그인</h2></td>
 			</tr>
 			<tr>
-				<td><input type="text" required maxlength="15" placeholder="ID" id="id" name="USER_ID" ></td>
+				<td><input type="text" required maxlength="15" placeholder="ID"
+					id="id" name="USER_ID"></td>
 			</tr>
 			<tr>
-				<td><input type="password" placeholder="PW" id="pw" name="USER_PW"></td>
+				<td><input type="password" placeholder="PW" id="pw"
+					name="USER_PW"></td>
 			</tr>
 
 			<tr>
@@ -114,6 +116,9 @@ a {
 			<tr>
 				<td><input type="submit" value="로그인" class="loginBtn"></td>
 			</tr>
+			<!-- 로그인 실패 시 메시지 출력 -->
+			<div id="error-message" style="color: red; font-weight: bold;">
+			</div>
 			<tr>
 				<td class="join"><a href="join.jsp">회원가입</a></td>
 			</tr>
@@ -149,26 +154,22 @@ a {
 		</a>
 	</div>
 	<script>
-
-		function login() {
-			let id = document.querySelector('#id');
-			let pw = document.querySelector('#pw');
-			
-			if(id.value == "" || pw.value == ""){
-				alert("로그인을 할 수 없습니다.")
-			}else{
-				location.href = 'Main.html';
-			}
-		}
-		
-		
-		
-
-
-	
-	
-	
-	
+	/* 로그인 실패시 알림창 띄우기!!! */
+			<%
+				String errorMessage = (String) request.getAttribute("errorMessage");
+				String successMessage = (String) request.getAttribute("successMessage");
+				
+				if (errorMessage != null) {
+			%>
+		    	alert("<%=errorMessage%>");
+			<%
+				} else if (successMessage != null) {
+			%>
+				 alert("<%= successMessage %>");
+				
+		    <%
+		        }
+		    %>
 	</script>
 
 

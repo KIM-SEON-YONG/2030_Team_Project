@@ -48,15 +48,17 @@ public class UserDAO {
 		}
 
 	// 단일조회
-		public UserDTO loginCheck(String user_id) {
+		public UserDTO loginCheck(String user_id,String user_pw) {
 			// 1. db에 접근 할 수 있는 sqlSeeeion생성
 			SqlSession sqlSession = sqlSessionFactory.openSession(true);	
-			// 2. mapper의 check id를 가진 sql쿼리문 실행
-			UserDTO result = sqlSession.selectOne("loginCheck",user_id);
-			// 3. sqlSession 반납
-			sqlSession.close();				
-			// 4. 결과값 리턴
-			return result;
+			// DB에서 사용자 정보 조회
+			UserDTO user = sqlSession.selectOne("loginCheck", user_id);
+		    sqlSession.close();
+		    // 비밀번호 비교
+		    if (user != null && user.getUser_pw().equals(user_pw)) {
+		        return user; // 로그인 성공
+		    }
+		    return null; // 로그인 실패
 		}
 		
 
