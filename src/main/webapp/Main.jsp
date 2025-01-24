@@ -1,11 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	rel="stylesheet">
+	
 <title>청년복지몰</title>
 <!-- Link to external CSS file -->
 <link rel="stylesheet" href="assets/Main.css">
@@ -23,7 +27,7 @@
 	</div>
 
 	<div id="header"></div>
-
+	
 	<!-- Main Content -->
 	<div class="main-box">
 		<div class="main" id="main">
@@ -238,19 +242,22 @@
 
 
 
-
-<div id="footer"></div>
+	<div id="footer"></div>
 
 	<!-- 부트스트랩 코드 -->
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 		rel="stylesheet"></script>
+
+
 	<!-- JavaScript -->
+
 	<script>
 	
-		 // header.html 파일을 #header div에 로드
-	    fetch('header.html')
+	
+		// header.html 파일을 #header div에 로드
+	    fetch('Header.jsp')
 	      .then(response => response.text())
 	      .then(data => {
 	        document.getElementById('header').innerHTML = data;
@@ -258,7 +265,7 @@
 	      .catch(error => console.error('Error loading header:', error));
 
 	    // footer.html 파일을 #footer div에 로드
-	    fetch('footer.html')
+	    fetch('Footer.jsp')
 	      .then(response => response.text())
 	      .then(data => {
 	        document.getElementById('footer').innerHTML = data;

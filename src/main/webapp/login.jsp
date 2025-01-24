@@ -116,9 +116,7 @@ a {
 			<tr>
 				<td><input type="submit" value="로그인" class="loginBtn"></td>
 			</tr>
-			<!-- 로그인 실패 시 메시지 출력 -->
-			<div id="error-message" style="color: red; font-weight: bold;">
-			</div>
+									
 			<tr>
 				<td class="join"><a href="join.jsp">회원가입</a></td>
 			</tr>
@@ -170,6 +168,9 @@ a {
 		    <%
 		        }
 		    %>
+
+		
+		    
 	</script>
 
 
