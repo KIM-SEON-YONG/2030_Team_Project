@@ -1,5 +1,6 @@
 package com.TTteamProject.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -9,19 +10,34 @@ import com.TTteamProject.database.SqlSessionManager;
 
 public class PolicyDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+	
 
-	public List<PolicyDTO> selectJob() {
+	// 여기까지
+	
+	public List<PolicyDTO> jobList() {
+		 SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		 
+		 List<PolicyDTO> jobList = sqlSession.selectList("jobList");
+		 
+		 sqlSession.close();
+		 return jobList;
+		 
+	}
+	
+	// AJAX 검색을 위한 메서드
+	public List<PolicyDTO> selecJobList(List<String> regionSplit) {
 		
-		System.out.print("DAO접속!!!");
 		// DB에 접근할 수 있도록 하는 권한(입장권)인 SqlSession
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		List<PolicyDTO> result = sqlSession.selectList("jobList");
+		List<PolicyDTO> selecJobList = sqlSession.selectList("selecJobList", regionSplit);
 
-		System.out.print("DB접근 후:" + result);
+		System.out.println("DB접근 후:" + selecJobList);
 
 		sqlSession.close();
-		return result;
+		return selecJobList;
+		
+		
 	}
 
 }
