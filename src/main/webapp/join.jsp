@@ -3,160 +3,208 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+        $(document).ready(function() {
+            // jQuery 코드
+        });
+    </script>
+</head>
+
 <meta charset="UTF-8">
 <title>회원가입</title>
 <style>
-table {
-	width: 600px;
-	height: 500px;
-	margin: auto;
-	font-size: 15px;
-	background-color: #f0f0f0;
-	border-radius: 20%;
-	text-align: left; /* 기존 입력 필드 정렬 유지 */
+body, html {
+	margin: 10px;
+	padding: 0;
+	height: 100%;
+	width: 100vw;
+	font-family: sans-serif;
 }
 
-tr>td:first-child {
-	text-align: right; /* 라벨 텍스트 오른쪽 정렬 */
-	padding-right: 20px;
+/* 전체 폼을 감싸는 div */
+div {
+	width: 400px;
+	margin: 0 auto; /* 가운데 정렬 */
+	padding: 20px;
+	background-color: #f9f9f9;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-input[type="text"], input[type="password"] {
-	width: 250px;
-	height: 32px;
-	font-size: 15px;
-	border: 0;
-	border-radius: 15px;
-	outline: none;
+/* 각 입력 필드와 버튼들의 스타일 */
+input[type="text"], input[type="password"], button {
+	width: 100%; /* 입력 필드가 div 전체 너비를 차지 */
+	height: 35px;
+	margin-bottom: 15px; /* 입력 필드 사이 간격 */
 	padding-left: 10px;
-	background-color: rgb(233, 233, 233);
-	margin: 5px 0; /* 위아래 간격 */
-}
-
-.btn {
-	width: 100px;
-	height: 32px;
-	font-size: 20px;
-	border: 0;
-	border-radius: 15px;
+	font-size: 14px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
 	outline: none;
-	background-color: rgb(233, 233, 233);
+	background-color: #f0f0f0;
 }
 
-.btn:active {
-	background-color: rgb(61, 135, 255);
+/* 라디오 버튼들을 가로로 배치 */
+input[type="radio"] {
+	width: auto;
+	margin-right: 10px; /* 라디오 버튼 사이 간격 */
+}
+
+/* 버튼의 스타일 */
+.btn {
+	width: 250px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 .button-container {
-	display: flex;
-	justify-content: center; /* 버튼 중앙 정렬 */
-	align-items: center; /* 세로 중앙 정렬 */
-	gap: 20px; /* 버튼 간격 */
-	margin-top: 20px;
-}
-
-.inputtag {
-	width: 400px;
+	display: flex; /* Flexbox 사용 */
+	justify-content: center; /* 가로축 중앙 정렬 */
+	gap: 10px; /* 버튼 간 간격 */
+	margin-top: 20px; /* 입력 필드와의 간격 */
 }
 </style>
 
+</style>
 </head>
 <body>
 	<h2 style="text-align: center;">회원가입</h2>
 	<table>
-		<form action="JoinCon" method="post">
-		<tr>
-			<td></td>
-			<td class="inputtag">
-			<input type="text" name="USER_NAME"
-				size="20" placeholder="이름"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td class="inputtag">
-			<input type="radio" name="USER_GENDER"
-				value="m">남자 <input type="radio" name="USER_GENDER"
-				value="f">여자</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td class="inputtag"><input type="text" name="USER_BIRTHDATE"
-				size="20" placeholder="생년월일"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td class="inputtag">
-				<input type="text" name="USER_ID" size="20"	id="userid" placeholder="아이디"> 
-				<input type="submit" value="아이디 중복 확인" onclick="idCheck()">
-			</td>
-		</tr>
-	</form>
-	<p id="idCheckResult"></p>
-	<form action="JoinCon" method="post">
-		<tr>
-			<td></td>
-			<td class="inputtag"><input type="password" name="USER_PW"
-				size="20" placeholder="비밀번호"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td class="inputtag"><input type="password" name="PW_CHECK"
-				size="20" placeholder="비밀번호재확인"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td class="inputtag"><input type="text" name="USER_PHONE"
-				size="20" placeholder="전화번호"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td class="inputtag"><input type="text" name="FAV_WELFARE"
-				size="20" placeholder="관심분야"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td class="inputtag"><input type="text" name="FAV_REGION"
-				size="20" placeholder="관심지역"></td>
-		</tr>
-		<tr>
-			<td colspan="2" style="padding-bottom: 20px;">
-				<div class="button-container">
-					<input type="submit" class="btn" value="확인"
-						onclick="return joinCheck()"> <input type="reset"
-						class="btn" value="취소">
-				</div>
-			</td>
-		</tr>
-
+		<form name="join" action="JoinCon" method="post" onsubmit="return sendIt();">
+			<div>
+				<input type="text" name="USER_NAME" size="20" placeholder="이름">
+				<input type="radio" name="USER_GENDER" value="m">남자 <input
+					type="radio" name="USER_GENDER" value="f">여자 <input
+					type="text" name="USER_BIRTHDATE" size="20" placeholder="생년월일">
+				<input type="text" name="USER_ID" id="USER_ID" size="20"placeholder="아이디">
+				<button type="button" class="btn" id="ID_CHECK"onclick="return checkId()">ID 중복 확인</button>
+				<input type="password" name="USER_PW" size="20" placeholder="비밀번호">
+				<input type="password" name="USER_PW_CHECK" size="20"placeholder="비밀번호확인"> 
+				<input type="text" name="USER_PHONE"size="20" placeholder="전화번호"> 
+				<input type="text"name="FAV_WELFARE" size="20" placeholder="관심분야"> 
+				<input type="text" name="FAV_REGION" size="20" placeholder="관심지역">
+			</div>
+			<div class="button-container">
+				<input type="submit" value="가입하기" class="btn">
+				<input type="reset" value="취소">
+			</div>
+			<div id="idCheckResult" style="display: none;"></div>
+		</form>
 	</table>
-	</form>
-	<script>
-	 // 아이디 중복 확인 함수
-    function checkId() {
-        var user_id = document.getElementById("userid").value; // 입력한 아이디 값 가져오기
-        
-        if (user_id === "") {
-            alert("아이디를 입력해주세요.");
-            return;
-        }
 
-        // AJAX 요청 보내기
-        $.ajax({
-            url: "CheckId.jsp",  // 중복 확인을 위한 JSP 파일
-            type: "POST",
-            data: { user_id: user_id },
-            success: function(response) {
-                // 중복 확인 결과 처리
-                if (response === "이미 존재하는 아이디입니다.") {
-                    document.getElementById("idCheckResult").textContent = "이미 존재하는 아이디입니다.";
-                    document.getElementById("idCheckResult").style.color = "red";
-                } else {
-                    document.getElementById("idCheckResult").textContent = "사용 가능한 아이디입니다.";
-                    document.getElementById("idCheckResult").style.color = "green";
-                }
-            }
-        });
-    }
+	<script>
+	let idCheck = 0;// ID 중복 체크 상태 (0: 미확인, 1: 사용 가능)
+	
+/* email중복확인 버튼 클릭 시 > 실행되는 함수 */ 
+	function checkId() {
+		let user_id = $('#USER_ID').val();
+		// intput태그의 id값이 emailCheck인 데이터(입력된 이메일 값)가져오기
+		// 이메일 입력 안 된 경우
+		if (user_id == null) {
+			alert("아이디를 입력해주세요!");
+			return; // 함수 종료
+		}// if절 끝
+		//Ajex(Asynchronous javascript and xml), 비동기적인 webapp을 제작 할 때 사용
+		$.ajax({
+			url : "CheckIdCon", // 이메일 중복체크를 처리할 서버 url
+			type : "post",
+			data : {
+				USER_ID : user_id
+			},// 서버로 전송할 데이터
+			success : function(response) {
+				if (response == "duplicate") {
+					alert("이미 사용중인 아이디입니다.")
+				} else if (response == "available") {
+					alert("사용 가능한 아이디입니다.")
+				} else {
+					alert("알 수 없는 오류가 발생했습니다.")
+				}
+			},
+			error : function() {
+				alert("서버와의 통신 오류가 발생했습니다.")
+			}
+		});
+	}
+	document.join.onsubmit = function(event) {
+	    console.log('submit 이벤트 호출');
+	    return sendIt();
+	};
+
+	const sendIt = () => {  // 회원가입 형식 체크하고 전송하는 함수
+		const USER_NAME = document.forms['join'].USER_NAME;
+	    const USER_GENDER = document.join.USER_GENDER;
+	    const USER_BIRTHDATE = document.join.USER_BIRTHDATE;
+	    const USER_PW = document.join.USER_PW;
+	    const USER_PW_CHECK = document.join.USER_PW_CHECK;
+	    const USER_PHONE = document.join.USER_PHONE;
+	    const FAV_REGION = document.join.FAV_REGION;
+	    
+	 	// 이름 검사
+	    if (USER_NAME.value.trim() === '') {
+	        alert('이름을 입력해주세요.');
+	        USER_NAME.focus();
+	        return false;
+	    }
+	   
+	    // 성별 검사
+	    if (!USER_GENDER.value) {
+	        alert('성별을 선택해주세요.');
+	        USER_GENDER[0].focus(); // 라디오 버튼의 첫 번째를 포커스
+	        return false;
+	    }
+
+	    // 생년월일 검사
+	    if (USER_BIRTHDATE.value.trim() === '') {
+	        alert('생년월일을 입력해주세요.');
+	        USER_BIRTHDATE.focus();
+	        return false;
+	    }
+
+	    // ID 검사
+	    if (USER_ID.value.trim() === '') {
+	        alert('아이디를 입력해주세요.');
+	        USER_ID.focus();
+	        return false;
+	    }
+	 
+	    // 비밀번호 검사
+	    if (USER_PW.value.trim() === '') {
+	        alert('비밀번호를 입력해주세요.');
+	        USER_PW.focus();
+	        return false;
+	    }
+	    if (USER_PW.value.length < 6 || USER_PW.value.length > 20) {
+	        alert('비밀번호는 6~20자 사이로 입력해주세요.');
+	        USER_PW.focus();
+	        return false;
+	    }
+	    if (USER_PW.value !== USER_PW_CHECK.value) {
+	        alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+	        USER_PW_CHECK.focus();
+	        return false;
+	    }
+	    // 전화번호 검사
+	    const expPhone = /^\d{3}-\d{3,4}-\d{4}$/;
+	    if (!expPhone.test(USER_PHONE.value.trim())) {
+	        alert('전화번호 형식이 올바르지 않습니다. 예: 010-1234-5678');
+	        USER_PHONE.focus();
+	        return false;
+	    }
+	    // 선호 지역 검사
+	    if (!FAV_REGION.value) {
+	        alert('선호 지역을 선택해주세요.');
+	        FAV_REGION.focus();
+	        return false;
+	    }
+	    // 모든 검사 통과 시 true 반환
+	return true;
+};
+
+
 	</script>
 </body>
 </html>

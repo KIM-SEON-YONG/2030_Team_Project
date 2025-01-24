@@ -2,6 +2,9 @@ package com.TTteamProject.model;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -10,6 +13,7 @@ import com.TTteamProject.database.SqlSessionManager;
 public class UserDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	private Object dto;
+	private Object user_id;
 
 	
 	// 회원정보 
@@ -31,25 +35,47 @@ public class UserDAO {
 		}
 		
 	// ID중복확인
-		public boolean checkId(String user_id) {
-			if (user_id == null || user_id.trim().isEmpty()) {
-		        // 아이디가 null이거나 빈 값일 경우 처리
-		        return false;  // 중복도 아니라고 처리
-		    }
+		public UserDTO checkId(String user_id) {
+			// 1. db에 접근 할 수 있는 sqlSeeeion생성
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);	
+			// 2. mapper의 check id를 가진 sql쿼리문 실행
+			UserDTO result = sqlSession.selectOne("checkId",user_id);
+			// 3. sqlSession 반납
+			sqlSession.close();				
+			// 4. 결과값 리턴
+			return result;
+			
+		}
 
-		    SqlSession sqlSession = sqlSessionFactory.openSession(true);
-		    try {
-		        int count = sqlSession.selectOne("checkId", user_id);
-		        return count > 0;  // 중복된 아이디가 있으면 true, 없으면 false
-		    } finally {
-		        sqlSession.close();  // 리소스 반환
-		    }
+	// 단일조회
+		public UserDTO loginCheck(String user_id) {
+			// 1. db에 접근 할 수 있는 sqlSeeeion생성
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);	
+			// 2. mapper의 check id를 가진 sql쿼리문 실행
+			UserDTO result = sqlSession.selectOne("loginCheck",user_id);
+			// 3. sqlSession 반납
+			sqlSession.close();				
+			// 4. 결과값 리턴
+			return result;
 		}
 		
+
+	
+
+
+		
+		
+		
+		
+	// 회원정보수정
 	
 	// 회원탈퇴
-	
-	// 회원정보수정
+		
+
+
+
+		
+		
 	
 	
 	

@@ -28,6 +28,9 @@ public class UserDTO {
 			this.user_id = user_id;
 			this.user_pw = user_pw;
 		}
+	  		
+	  		
+	  	
 	    
 	    
 }

@@ -14,7 +14,6 @@ import com.TTteamProject.model.UserDAO;
 import com.TTteamProject.model.UserDTO;
 
 @WebServlet("/LoginCon")
-
 public class LoginCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
