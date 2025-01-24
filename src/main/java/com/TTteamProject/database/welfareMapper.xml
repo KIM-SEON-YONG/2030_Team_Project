@@ -5,11 +5,4 @@
 	<select id="jobList" resultType="com.TTteamProject.model.WelfareDTO">
 		SELECT * FROM TB_POLICY
 	</select>
-	  
-	<insert id="insertWelfare" parameterType="com.TTteamProject.model.WelfareDTO">
-        INSERT INTO welfare (title, content, created_at)
-        VALUES (#{title}, #{content}, NOW())
-    </insert>
-	
-	
 </mapper>

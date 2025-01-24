@@ -52,7 +52,7 @@
   <body>
     <div class="container">
       <h1 class="text-center mb-4">글쓰기</h1>
-      <form id="writeForm">
+      <form id="writeForm" action="write">
         <div class="mb-3">
           <label for="title" class="form-label">제목</label>
           <input
@@ -61,6 +61,7 @@
             id="title"
             placeholder="제목을 입력하세요"
             required
+            name="B_TITLE"
           />
         </div>
         <div class="mb-3">
@@ -71,6 +72,7 @@
             id="author"
             placeholder="작성자 이름을 입력하세요"
             required
+            name="USER_ID"
           />
         </div>
         <div class="mb-3">
@@ -80,25 +82,26 @@
             id="content"
             rows="5"
             placeholder="내용을 입력하세요"
+            name="B_CONTENT"
             required
           ></textarea>
         </div>
         <div class="mb-3">
           <label class="form-label">카테고리</label>
           <div>
-            <input type="checkbox" id="category-welfare" class="form-check-input" value="복지" />
+            <input type="checkbox" id="category-welfare" class="form-check-input" value="복지" name="B_CATEGORY"/>
             <label for="category-welfare" class="form-check-label">복지</label>
-            <input type="checkbox" id="category-development" class="form-check-input ms-3" value="개발" />
+            <input type="checkbox" id="category-development" class="form-check-input ms-3" value="문의사항" name="B_CATEGORY"/>
             <label for="category-development" class="form-check-label">개발</label>
           </div>
         </div>
 
         <!-- 카테고리 표시 영역 -->
-        <div id="category-display" class="category-display"></div>
+        <div id="category-display" class="category-display" ></div>
 
         <div class="btn-group mt-3">
-          <button type="submit" class="btn btn-pink">작성 완료</button>
-          <button type="button" class="btn btn-secondary ms-2" onclick="location.href='boardList.html'">
+          <button type="submit" class="btn btn-pink" onclick="location.href='boardList.jsp'">작성 완료</button>
+          <button type="button" class="btn btn-secondary ms-2" onclick="location.href='boardList.jsp'">
             취소
           </button>
         </div>
@@ -106,36 +109,6 @@
     </div>
 
     <script>
-      document.getElementById("writeForm").addEventListener("submit", function (e) {
-        e.preventDefault(); // 기본 동작 방지
-
-        const title = document.getElementById("title").value;
-        const author = document.getElementById("author").value;
-        const content = document.getElementById("content").value;
-
-        const categories = [];
-        if (document.getElementById("category-welfare").checked) {
-          categories.push("복지");
-        }
-        if (document.getElementById("category-development").checked) {
-          categories.push("개발");
-        }
-
-        const post = {
-          title,
-          author,
-          content,
-          categories: categories.join(", "),
-          date: new Date().toLocaleDateString(),
-        };
-
-        const posts = JSON.parse(localStorage.getItem("posts")) || [];
-        posts.push(post);
-        localStorage.setItem("posts", JSON.stringify(posts));
-
-        alert("게시글이 저장되었습니다.");
-        window.location.href = "boardList.html";
-      });
 
       // 카테고리 체크시 표시
       document.getElementById("category-welfare").addEventListener("change", updateCategoryDisplay);
@@ -147,7 +120,7 @@
           categories.push("복지");
         }
         if (document.getElementById("category-development").checked) {
-          categories.push("개발");
+          categories.push("문의");
         }
 
         // 카테고리가 선택된 경우 표시

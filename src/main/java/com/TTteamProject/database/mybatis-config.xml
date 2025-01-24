@@ -20,6 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <mappers>
     	
     	<mapper resource="com/TTteamProject/database/welfareMapper.xml"/>
+    	<mapper resource="com/TTteamProject/database/boardMapper.xml"/>
     	
     </mappers>
     
