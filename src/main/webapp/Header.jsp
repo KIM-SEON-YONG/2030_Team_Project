@@ -16,7 +16,6 @@ nav {
 	height: 150px;
 	background-color: rgb(234, 197, 245); /* 배경색 */
 	display: flex;
-	flex-direction: column;
 }
 /* S.P.A.R.K - 왼쪽 상단 */
 .header-mini {
@@ -29,34 +28,39 @@ nav {
 /* 로그인 및 회원가입 - 오른쪽 상단 */
 .nav-header {
 	position: absolute;
-	top: 10px; /* 상단에서 10px 아래 */
 	right: 20px; /* 오른쪽에서 20px 왼쪽 */
 	display: flex;
 	gap: 20px; /* 각 항목 간격 */
 	font-size: 14px;
 	list-style: none;
+	margin-right: 15px; /* 오른쪽에서 살짝 떨어지도록 설정 */
+	color: black;
+}
+/* 환영 메시지 - 가운데 */
+.welcome-message {
+    position: absolute;
+    left: 50%; /* 왼쪽 기준으로 50% 이동 */
+    transform: translate(-20%); /* 수평, 수직 중앙 정렬 */
+    display: flex;
+    font-size: 18px;
+    text-align: center;
 }
 /* 네비게이션 아이템 - 가운데 아래 */
 .nav-items {
 	position: absolute;
-	bottom: 10px; /* 하단에서 10px 위 */
 	left: 50%; /* 왼쪽 기준으로 50% 이동 */
-	transform: translateX(-50%); /* 수평 중앙 정렬 */
+	transform: translate(-50%,+400%);
 	display: flex;
-	gap: 20px; /* 각 항목 간 간격 */
+	gap: 30px; /* 각 항목 간 간격 */
 	font-size: 18px;
-	align-items: center; /* 수직으로 중앙 정렬 */
-}
-
-.nav-item:hover {
-	color: #0056b3; /* 마우스 오버 시 색상 */
+	color: gray; /* 마우스 오버 시 색상 */
 	text-decoration: underline;
 }
+
 </style>
 </head>
 <body>
 	<header>
-
 		<nav class="nav">
 			<a class="header-mini" href="Main.jsp">S.P.A.R.K</a>
 			<div class="nav-header">
@@ -80,7 +84,8 @@ nav {
 					if (user_id == null) {
 					%>
 					<!-- 로그인되지 않은 상태 -->
-					<a href="login.jsp">로그인</a> <a class="nav-join" href="join.jsp">회원가입</a>
+					<a href="login.jsp">로그인</a> &nbsp;&nbsp;
+					<a class="nav-join" href="join.jsp">회원가입</a>
 					<%
 					} else {
 					%>
@@ -91,18 +96,16 @@ nav {
 						<button class="btn btn-link nav-logout">로그아웃</button>
 						<a href="Update.jsp">개인정보수정</a>
 					</form>
-
 					<%
 					}
 					%>
-				
 			</div>
-		</nav>
-		<div class="nav-items">
-			<a class="nav-item" href="#">취업</a> <a class="nav-item" href="#">결혼</a>
-			<a class="nav-item" href="#">출산</a> <a class="nav-item" href="#">지역혜택</a>
-		</div>
-
+			<div class="nav-items">
+				<a class="nav-item" href="#">취업</a> 
+				<a class="nav-item" href="#">결혼</a>
+				<a class="nav-item" href="#">출산</a>
+				<a class="nav-item" href="BS1.html">지역혜택</a>
+			</div>
 		</nav>
 	</header>
 

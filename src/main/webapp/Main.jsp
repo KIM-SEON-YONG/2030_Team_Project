@@ -9,7 +9,7 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	rel="stylesheet">
-	
+
 <title>청년복지몰</title>
 <!-- Link to external CSS file -->
 <link rel="stylesheet" href="assets/Main.css">
@@ -27,7 +27,7 @@
 	</div>
 
 	<div id="header"></div>
-	
+
 	<!-- Main Content -->
 	<div class="main-box">
 		<div class="main" id="main">
@@ -51,194 +51,192 @@
 	</div>
 
 	<!-- Sections -->
-	<div class="col-8">
-		<h4 id="list-item-1">취업</h4>
-		<section class="section1">
-			<div class="card">
-				<div class="card-header">취업</div>
-				<div class="card-icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="card-description">
-					내용
-					<p>취업 관련 내용...</p>
-					<p>취업 관련 내용...</p>
-				</div>
+	<h4>취업</h4>
+	<section class="section1" id="list-item-1">
+		<div class="card">
+			<div class="card-header">취업</div>
+			<div class="card-icons">아이콘</div>
+			<div class="card-title">제목 제목</div>
+			<div class="card-date">날짜</div>
+			<br>
+			<div class="card-description">
+				내용
+				<p>취업 관련 내용...</p>
+				<p>취업 관련 내용...</p>
 			</div>
-			<div class="card">
-				<div class="card-header">취업</div>
-				<div class="card-icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="card-description">
-					내용
-					<p>취업 관련 내용...</p>
-					<p>취업 관련 내용...</p>
-				</div>
+		</div>
+		<div class="card">
+			<div class="card-header">취업</div>
+			<div class="card-icons">아이콘</div>
+			<div class="card-title">제목 제목</div>
+			<div class="card-date">날짜</div>
+			<br>
+			<div class="card-description">
+				내용
+				<p>취업 관련 내용...</p>
+				<p>취업 관련 내용...</p>
 			</div>
-			<div class="card">
-				<div class="card-header">취업</div>
-				<div class="card-icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="card-description">
-					내용
-					<p>취업 관련 내용...</p>
-					<p>취업 관련 내용...</p>
-				</div>
+		</div>
+		<div class="card">
+			<div class="card-header">취업</div>
+			<div class="card-icons">아이콘</div>
+			<div class="card-title">제목 제목</div>
+			<div class="card-date">날짜</div>
+			<br>
+			<div class="card-description">
+				내용
+				<p>취업 관련 내용...</p>
+				<p>취업 관련 내용...</p>
 			</div>
-			<div class="card">
-				<div class="card-header">취업</div>
-				<div class="card-icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="card-description">
-					내용
-					<p>취업 관련 내용...</p>
-					<p>취업 관련 내용...</p>
-				</div>
+		</div>
+		<div class="card">
+			<div class="card-header">취업</div>
+			<div class="card-icons">아이콘</div>
+			<div class="card-title">제목 제목</div>
+			<div class="card-date">날짜</div>
+			<br>
+			<div class="card-description">
+				내용
+				<p>취업 관련 내용...</p>
+				<p>취업 관련 내용...</p>
 			</div>
-			<input type="checkbox" class="more-btn">
-			<!-- 더보기 -->
-			<div>
-				<div class="region">지역혜택 더보기</div>
-				<!-- 지역혜택 더보기 -->
-			</div>
-		</section>
+		</div>
+		<input type="checkbox" class="more-btn">
+		<!-- 더보기 -->
+		<div>
+			<div class="region">지역혜택 더보기</div>
+			<!-- 지역혜택 더보기 -->
+		</div>
+	</section>
 
-		<h4 id="list-item-2">결혼</h4>
-		<section class="section2">
-			<div class="card">
-				<div class="card-header">결혼</div>
-				<div class="card-icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="card-description">
-					내용
-					<p>결혼 관련 내용...</p>
-					<p>결혼 관련 내용...</p>
-				</div>
+	<h4>결혼</h4>
+	<section class="section2" id="list-item-2">
+		<div class="card">
+			<div class="card-header">결혼</div>
+			<div class="card-icons">아이콘</div>
+			<div class="card-title">제목 제목</div>
+			<div class="card-date">날짜</div>
+			<br>
+			<div class="card-description">
+				내용
+				<p>결혼 관련 내용...</p>
+				<p>결혼 관련 내용...</p>
 			</div>
-			<div class="card">
-				<div class="card-header">결혼</div>
-				<div class="card-icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="card-description">
-					내용
-					<p>결혼 관련 내용...</p>
-					<p>결혼 관련 내용...</p>
-				</div>
+		</div>
+		<div class="card">
+			<div class="card-header">결혼</div>
+			<div class="card-icons">아이콘</div>
+			<div class="card-title">제목 제목</div>
+			<div class="card-date">날짜</div>
+			<br>
+			<div class="card-description">
+				내용
+				<p>결혼 관련 내용...</p>
+				<p>결혼 관련 내용...</p>
 			</div>
-			<div class="card">
-				<div class="card-header">결혼</div>
-				<div class="card-icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="card-description">
-					내용
-					<p>결혼 관련 내용...</p>
-					<p>결혼 관련 내용...</p>
-				</div>
+		</div>
+		<div class="card">
+			<div class="card-header">결혼</div>
+			<div class="card-icons">아이콘</div>
+			<div class="card-title">제목 제목</div>
+			<div class="card-date">날짜</div>
+			<br>
+			<div class="card-description">
+				내용
+				<p>결혼 관련 내용...</p>
+				<p>결혼 관련 내용...</p>
 			</div>
-			<div class="card">
-				<div class="card-header">결혼</div>
-				<div class="card-icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="card-description">
-					내용
-					<p>결혼 관련 내용...</p>
-					<p>결혼 관련 내용...</p>
-				</div>
+		</div>
+		<div class="card">
+			<div class="card-header">결혼</div>
+			<div class="card-icons">아이콘</div>
+			<div class="card-title">제목 제목</div>
+			<div class="card-date">날짜</div>
+			<br>
+			<div class="card-description">
+				내용
+				<p>결혼 관련 내용...</p>
+				<p>결혼 관련 내용...</p>
 			</div>
-			<input type="checkbox" class="more-btn">
-			<!-- 더보기 -->
-			<div>
-				<div class="region">지역혜택 더보기</div>
-				<!-- 지역혜택 더보기 -->
-			</div>
-		</section>
+		</div>
+		<input type="checkbox" class="more-btn">
+		<!-- 더보기 -->
+		<div>
+			<div class="region">지역혜택 더보기</div>
+			<!-- 지역혜택 더보기 -->
+		</div>
+	</section>
 
-		<h4 id="list-item-3">출산</h4>
-		<section class="section3">
-			<div class="card">
-				<div class="card-header">출산</div>
-				<div class="card-icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="card-description">
-					내용
-					<p>출산 관련 내용...</p>
-					<p>출산 관련 내용...</p>
-				</div>
+	<h4>출산</h4>
+	<section class="section3" id="list-item-3">
+		<div class="card">
+			<div class="card-header">출산</div>
+			<div class="card-icons">아이콘</div>
+			<div class="card-title">제목 제목</div>
+			<div class="card-date">날짜</div>
+			<br>
+			<div class="card-description">
+				내용
+				<p>출산 관련 내용...</p>
+				<p>출산 관련 내용...</p>
 			</div>
-			<div class="card">
-				<div class="card-header">출산</div>
-				<div class="card-icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="card-description">
-					내용
-					<p>출산 관련 내용...</p>
-					<p>출산 관련 내용...</p>
-				</div>
+		</div>
+		<div class="card">
+			<div class="card-header">출산</div>
+			<div class="card-icons">아이콘</div>
+			<div class="card-title">제목 제목</div>
+			<div class="card-date">날짜</div>
+			<br>
+			<div class="card-description">
+				내용
+				<p>출산 관련 내용...</p>
+				<p>출산 관련 내용...</p>
 			</div>
-			<div class="card">
-				<div class="card-header">출산</div>
-				<div class="card-icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="card-description">
-					내용
-					<p>출산 관련 내용...</p>
-					<p>출산 관련 내용...</p>
-				</div>
+		</div>
+		<div class="card">
+			<div class="card-header">출산</div>
+			<div class="card-icons">아이콘</div>
+			<div class="card-title">제목 제목</div>
+			<div class="card-date">날짜</div>
+			<br>
+			<div class="card-description">
+				내용
+				<p>출산 관련 내용...</p>
+				<p>출산 관련 내용...</p>
 			</div>
-			<div class="card">
-				<div class="card-header">출산</div>
-				<div class="card-icons">아이콘</div>
-				<div class="card-title">제목 제목</div>
-				<div class="card-date">날짜</div>
-				<br>
-				<div class="card-description">
-					내용
-					<p>출산 관련 내용...</p>
-					<p>출산 관련 내용...</p>
-				</div>
+		</div>
+		<div class="card">
+			<div class="card-header">출산</div>
+			<div class="card-icons">아이콘</div>
+			<div class="card-title">제목 제목</div>
+			<div class="card-date">날짜</div>
+			<br>
+			<div class="card-description">
+				내용
+				<p>출산 관련 내용...</p>
+				<p>출산 관련 내용...</p>
 			</div>
-			<input type="checkbox" class="more-btn">
-			<!-- 더보기 -->
-			<div>
-				<div class="region">지역혜택 더보기</div>
-				<!-- 지역혜택 더보기 -->
-			</div>
-		</section>
+		</div>
+		<input type="checkbox" class="more-btn">
+		<!-- 더보기 -->
+		<div>
+			<div class="region">지역혜택 더보기</div>
+			<!-- 지역혜택 더보기 -->
+		</div>
+	</section>
 
-		<h4 id="list-item-4">커뮤니티 게시판</h4>
-		<section class="section4">
-			<div class="board-box">
-				<div class="board">
-					커뮤니티
-					<div class="board-content">정책추천하기!!!!</div>
-					<div class="board-content">설명설명</div>
-					<div class="board-content">~~~~~~~</div>
-					<div class="board-content">~~~~~!!!</div>
-				</div>
+	<h4>커뮤니티 게시판</h4>
+	<section class="section4" id="list-item-4">
+		<div class="board-box">
+			<div class="board">
+				커뮤니티
+				<div class="board-content">정책추천하기!!!!</div>
+				<div class="board-content">설명설명</div>
+				<div class="board-content">~~~~~~~</div>
+				<div class="board-content">~~~~~!!!</div>
 			</div>
-		</section>
-	</div>
+		</div>
+	</section>
 
 
 
