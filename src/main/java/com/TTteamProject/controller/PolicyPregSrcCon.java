@@ -17,8 +17,8 @@ import com.TTteamProject.model.PolicyDAO;
 import com.TTteamProject.model.PolicyDTO;
 import com.google.gson.Gson;
 
-@WebServlet("/PolicyJobSrcCon")
-public class PolicyJobSrcCon extends HttpServlet { 
+@WebServlet("/PolicyPregSrcCon")
+public class PolicyPregSrcCon extends HttpServlet { 
 	private static final long serialVersionUID = 1L;
 	 
 	
@@ -50,7 +50,7 @@ public class PolicyJobSrcCon extends HttpServlet {
 			request.setAttribute("alertMsg", "지역명을 선택해 주세요!");
 			System.out.println("else if 문 들어옴:");
 			
-			RequestDispatcher rd = request.getRequestDispatcher("policy_job.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("policy_pregnancy.jsp");
 			rd.forward(request, response);
 			return;
 		}
@@ -60,18 +60,18 @@ public class PolicyJobSrcCon extends HttpServlet {
 		PolicyDAO dao = new PolicyDAO();
 		// 배열타입이었던 regionSplit를 List 형태로 형변환해줌(mapper의 parameterType을 List로 해줬기때문)
 		List<String> regionList = Arrays.asList(regionSplit); 
-		List<PolicyDTO> selecJobList = dao.selecJobList(regionList);
+		List<PolicyDTO> selecPregList = dao.selecPregList(regionList);
 		
 		
 		// 결과처리 =>frontController 연결 시 redirect 형태로 변경해야됨
 		HttpSession session = request.getSession();
 		// 선택한 지역에 대한 복지혜택이 있는지 여부 확인
-		if(selecJobList != null && !selecJobList.isEmpty()) {
-			System.out.println("마지막 jsp 리턴하기전 배열개수:"+selecJobList.size());
+		if(selecPregList != null && !selecPregList.isEmpty()) {
+			System.out.println("마지막 jsp 리턴하기전 배열개수:"+selecPregList.size());
 			
 				// JSON 변환 라이브러리 - GSON 사용
 				Gson gson = new Gson();
-				String json = gson.toJson(selecJobList);
+				String json = gson.toJson(selecPregList);
 				
 				// 응답 타입 및 인코딩 설정
 				response.setContentType("application/json; charset=UTF-8");
@@ -87,11 +87,11 @@ public class PolicyJobSrcCon extends HttpServlet {
 //					System.out.println("마지막 jsp로 리턴하기전:"+selecJobList.get(i).getWelfare_title());
 //				}
 //				// foreach문 사용
-				for(PolicyDTO policy : selecJobList) {
+				for(PolicyDTO policy : selecPregList) {
 					System.out.println("마지막 jsp로 리턴하기전: "+policy.getWelfare_title());
 				}
 			
-				session.setAttribute("selecJobList", selecJobList);
+				session.setAttribute("selecPregList", selecPregList);
 			/* response.sendRedirect(); front 작성예정 */
 			
 		}else {

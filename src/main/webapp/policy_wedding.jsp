@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>취업 지원</title>
+<title>결혼 지원</title>
 <!-- favicon에러를 위해 favicon.ico 파일추가  => 엥그래도 뜸-->
 <link rel="icon" href="<%= request.getContextPath() %>/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="assets/css/policy.css" />
@@ -18,19 +18,17 @@
 <body>
 	<div class="container">
 		<div class="welfare-content">
-			<p class="welfare_header_title">취업 지원</p>
-			
+			<p class="welfare_header_title">결혼 지원</p>
 			<!-- welfare 박스(옵션+결과) -->
 
 			<div class="welfare-option">
-				<div class="welfare_srch">
-					<!-- 폼의 기본 제출 동작을 방지하고 AJAX로 받아서 처리할 예정 -->
-					<form id="searchForm" onsubmit="return false;">
-					<!-- onfocus="regionModalBtn()" 속성 사용하지 않고 JavaScript에서 이벤트를 바인딩하는 방식 사용 -->
-						<input type="text" id="regionInput" name="regionInput" placeholder="원하는 지역을 입력해 주세요.">
-						<button type="button" class="regionSrcBtn" onclick="loadData()">검색</button>
-					</form>
-				</div>
+				<!-- 폼의 기본 제출 동작을 방지하고 AJAX로 받아서 처리할 예정 -->
+				<form id="searchForm" onsubmit="return false;">
+				<!-- onfocus="regionModalBtn()" 속성 사용하지 않고 JavaScript에서 이벤트를 바인딩하는 방식 사용 -->
+					<input type="text" id="regionInput" name="regionInput" placeholder="원하는 지역을 입력해 주세요.">
+					<button type="button" class="regionSrcBtn" onclick="loadData()">검색</button>
+				</form>
+				
 				<!-- 모달창 영역 -->
 				<div class="modal">
 					<div class="modal_body">
@@ -76,17 +74,17 @@
 					<%
 					/* 복지정책 가져오기 */
 					PolicyDAO policyDAO = new PolicyDAO();
-					List<PolicyDTO> jobList = policyDAO.jobList();
+					List<PolicyDTO> weddingList = policyDAO.weddingList();
 
-					for (int i = 0; i < jobList.size(); i++) {
+					for (int i = 0; i < weddingList.size(); i++) {
 					%>
 
 					<div class="welfare-card">
-						<a href="<%=jobList.get(i).getWelfare_url() %>" target="_blank">
-							<span class="welfare_sort welfare_sort_job">취업</span>
-							<p class="welfare_title welfare_title_job"><%=jobList.get(i).getWelfare_title()%></p>
-							<p class="welfare_period welfare_period_job"><%=jobList.get(i).getWelfare_period()%></p>
-							<p class="welfare_content welfare_content_job"><%=jobList.get(i).getWelfare_content()%></p>
+						<a href="<%=weddingList.get(i).getWelfare_url() %>" target="_blank">
+							<span class="welfare_sort welfare_sort_wedding">결혼</span>
+							<p class="welfare_title welfare_title_wedding"><%=weddingList.get(i).getWelfare_title()%></p>
+							<p class="welfare_period welfare_perid_wedding"><%=weddingList.get(i).getWelfare_period()%></p>
+							<p class="welfare_content welfare_content_wedding"><%=weddingList.get(i).getWelfare_content()%></p>
 						</a>
 					</div>
 
@@ -105,7 +103,7 @@
 		<!-- welfare-content -->
 	</div>
 	<!-- container -->
-	
+
 	<!-- 로딩 인디케이터 -->
 	<div id="loading" style="display: none;">
 	    <!-- 스피너 이미지 사용 예시 -->
@@ -115,7 +113,7 @@
 	    <div class="spinner"></div>
 	    -->
 	</div>
-
+	
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
 		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -143,9 +141,10 @@
 		// 로딩 인디케이터 표시
 		$("#loading").show();
 		
+		
 		// form에서 컨트롤러로 가지않고! AJAX로 컨트롤러에 접근하고 AJAX로 값을 리턴 받는 방식
 		$.ajax({
-			url: contextPath + "/PolicyJobSrcCon",
+			url: contextPath + "/PolicyWeddingSrcCon",
 			method: "GET",
 			dataType: "json",
 			data: { regionInput: regionInputVal }, // 'regionInput' 파라미터 전송
@@ -157,6 +156,7 @@
 				$("#default-container").hide();
 				
 				if(dataList.length === 0){
+					
 					// 이미지 요소 생성 및 클래스 추가
 					 var noBenefitImg = $('<img>').attr('src', 'images/policy_noBenefit.png').attr('alt', '해당 지역에는 복지혜택이 없습니다.').addClass('noBenefit');
 					// #data-container에 이미지 추가
@@ -183,10 +183,10 @@
 					    var link = $('<a>').attr('href', policy.welfare_url).attr('target', '_blank');
 
 					    // 동적 텍스트 추가
-					    link.append($('<span>').addClass('welfare_sort welfare_sort_job').html('취업'));
-					    link.append($('<p>').addClass('welfare_title welfare_title_job').text(policy.welfare_title));
-					    link.append($('<p>').addClass('welfare_period welfare_period_job').text(policy.welfare_period));
-					    link.append($('<p>').addClass('welfare_content welfare_content_job').text(policy.welfare_content));
+					    link.append($('<span>').addClass('welfare_sort welfare_sort_wedding').html('결혼'));
+					    link.append($('<p>').addClass('welfare_title welfare_title_wedding').text(policy.welfare_title));
+					    link.append($('<p>').addClass('welfare_period welfare_period_wedding').text(policy.welfare_period));
+					    link.append($('<p>').addClass('welfare_content welfare_content_wedding').text(policy.welfare_content));
 
 					    // 링크를 상위 div에 추가
 					    welfareCard.append(link);
@@ -207,7 +207,6 @@
             	// 로딩 인디케이터 숨기기
             	$("#loading").hide();
             }
-            
 		});
 		
 	}

@@ -37,33 +37,161 @@ input:focus {
 	margin: 0 auto;
 }
 
-/* welfare title */
-.welfare_title {
+
+/* 지역 선택 후 새롭게 로드되었다고 인식할 수 있도록 UI 추가 - 로딩인디케이터 */
+#loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* 다른 요소보다 위에 표시 */
+    background-color: rgba(255, 255, 255, 0.8); /* 반투명 배경 */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#loading>img { width: 100px; height: auto; }
+
+.welfare-content {
+	overflow: hidden; /* 카드 내용이 넘치지 않도록 숨김 처리 */
+}
+
+
+
+
+.welfare_header_title { /* 취업/결혼/출산 대제목 */
 	margin-top: 50px;
+	margin-bottom: 50px;
 	font-size: 30px;
 	font-weight: 500;
 	text-align: center;
 }
 
-/* 지역 선택 */
-.welfare-option input {
-	padding: 10px 50px 10px 10px;
-	background-image: url(./images/external-link.png);
+
+/* 취업/결혼/출산 구분 icon */
+
+.welfare_sort { /* 공용 icon */
+	height: 30px;
+	border-radius: 8px;
+	padding: 3px 13px;
+	color: #fff;
+	font-size: 13px;
+	
+} 
+.welfare_sort_job { background-color: #288C28; } 
+.welfare_sort_wedding { background-color: #FF5675; } 
+.welfare_sort_preg { background-color: #1E82CD; } 
+
+.welfare_title { /* 공용 복지 제목 */
+	font-size: 24px;
+	background-color: #6482B9;
+	padding: 60px 0;
+	height: 148px;
+	
+	/* 멀티라인 말줄임표 설정 */
+	display: -webkit-box;
+	-webkit-line-clamp: 3; /* 3번째 줄에서 말줄임표(...) 생기게 설정 */
+	-webkit-box-orient: vertical; /* -webkit-line-clamp 사용하려면 있어야됨 */
+	overflow: hidden; /* overflow: 영역 벗어나면 처리 hidden(숨김)처리 */
+	line-height: 30px;
+	
+	
 	background-repeat: no-repeat;
-	background-position: 205px center;
+	background-position: top 10px right 10px; /* image 위치: top으로부터 15px 띄기, right로부터 15px 띄기 */
+	background-size: 50px 50px;
+ }
+ 
+.welfare_title_job {
+	/* icon */
+	background-image: url(../../images/policy_job.png);
+}
+
+.welfare_title_wedding {
+	/* icon */
+	background-image: url(../../images/policy_wedding.png);
+}
+
+.welfare_title_preg {
+	/* icon */
+	background-image: url(../../images/policy_pregnancy.png);
+}
+ 
+ 
+/* .welfare_img > img { position: absolute; width: 50px; height: 50px; border: 2px solid red; } */
+.welfare_period { height: 53px; background-color: #7878E1; padding: 16px 0; text-align: center; }
+.welfare_content { 
+	/* height: 155px;  */
+	background-color: #AADBFF; 
+	text-align: center; 
+
+	/* 멀티라인 말줄임표 설정 */
+	display: -webkit-box;
+	-webkit-line-clamp: 6; /* 7번째 줄에서 말줄임표(...) 생기게 설정 */
+	-webkit-box-orient: vertical; /* -webkit-line-clamp 사용하려면 있어야됨 */
+	overflow: hidden; /* overflow: 영역 벗어나면 처리 hidden(숨김)처리 */
+	line-height: 22px;
+	
+} 
+
+
+/* 지역 선택 */
+.welfare-option {
+	display: flex;
+	justify-content: center; /* 가로 방향 중앙 정렬 */
+	margin-bottom: 50px;
+	
+/* 	align-items: center; 세로 방향 중앙 정렬(필요시)
+	flex-direction: column; 자식 요소를 세로로 정렬 (필요시) */
+	
+}
+
+.welfare-option input#regionInput {
+	width: 500px;
+	height: 40px;
+	padding: 10px 22px;
+	font-size: 16px;
+	
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box; /* 패딩과 보더를 포함한 크기 설정 */
+	
+	/* 넘치는 내용 숨기기 */
+	overflow: hidden; /* 넘치는 내용 숨김 */
+	text-overflow: ellipsis; /* ellipsis: 말줄임표로 처리 (clip:말줄임표 없이 텍스트 잘라내기) */
+	white-space: nowrap; /* 단일 줄로 유지 */
+	
+	/* input창 img 넣기 */
+	background-image: url(../../images/external-link.png);
+	background-repeat: no-repeat;
+	background-position: center right 10px;
 	background-size: 12px 12px;
 }
 
+
 /* welfare card */
-#default-container, .data-container {
+#default-container, #data-container {
 
 	display: flex;
 	flex-wrap: wrap; /* 자식 요소가 부모의 너비를 초과하면 줄바꿈 */
 	gap: 16px; /* 카드 간 간격 */
+	
+	
 }
 
-.welfare-card-group {
+#data-container.no-data {
+	justify-content: center; /* 수평 중앙 정렬 */
+	align-items: center; /* 수직 중앙 정렬 */
+	flex-direction: column; /* 수직 방향으로 요소 정렬 */
 }
+
+/* 해당 지역에는 복지혜택이 없습니다 img 태그 수정 */
+.noBenefit { 
+	max-width: 100%; /* 이미지가 컨테이너를 넘지 않도록 설정 */
+	height: auto;
+	padding-top: 150px;
+	
+} 
 
 .welfare-card {
 	background-color: #c0c0c0;
@@ -75,9 +203,7 @@ input:focus {
 	border-radius: 20px;
 }
 
-.welfare-content {
-	overflow: hidden; /* 카드 내용이 넘치지 않도록 숨김 처리 */
-}
+
 
 /* 모달창 */
 .modal {
