@@ -1,10 +1,12 @@
 /* 전체체 Styles */
 body, html {
+	width: 100%;
+    overflow-x: hidden;
+    height: 100%;
 	margin: 10px;
 	padding: 0;
-	height:100%;
-    width: 100vw;
 	font-family: sans-serif;
+	word-wrap: break-word;
 }
 	
 /* 인트로 Page */
@@ -51,12 +53,15 @@ body, html {
 	align-items: center;      /* 수직 중앙 정렬 */
 }
 h1 {
+	height:200px;
+	align-content:end;
 	font-size: 5.0rem;	/* 텍스트 크기 조정 */
 	margin-bottom: 20px;
 	color: #333;
 }
 .search-bar {
 	margin-bottom: 30px;
+	height: 170px;
 }
 .search-bar input {
 	width: 300px;
@@ -79,10 +84,11 @@ h1 {
 	background-color: #E6E6FA;
 	width: 100vw;
 	height: 150px;
-	position: absolute;
+	position: relative;
 	justify-content: center;
 	align-items: center;
 	transition: transform 0.3s ease;
+	align-content:center;
 }
 .box{
 	font-size: 18px;  /* 글자 크기 */
@@ -151,14 +157,10 @@ h1 {
 
 
 /* 더보기  */
-.more-btn{
-	display: none; /* 기본적으로 숨겨둡니다. */
-}
-/* 더보기 버튼 클릭 시 보여지게 하기 */
-.more-btn:checked ~ .region {
-    display: block;
-}
+
+
 .region{
+	display: grid;
     height: 150px;
     width: 100vw;
     background-color: #D6AEDD;

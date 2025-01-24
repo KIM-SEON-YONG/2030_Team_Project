@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -16,6 +17,7 @@ nav {
 	height: 150px;
 	background-color: rgb(234, 197, 245); /* 배경색 */
 	display: flex;
+	word-wrap: break-word;
 }
 /* S.P.A.R.K - 왼쪽 상단 */
 .header-mini {
@@ -54,7 +56,6 @@ nav {
 	gap: 30px; /* 각 항목 간 간격 */
 	font-size: 18px;
 	color: gray; /* 마우스 오버 시 색상 */
-	text-decoration: underline;
 }
 
 </style>
@@ -105,6 +106,7 @@ nav {
 				<a class="nav-item" href="#">결혼</a>
 				<a class="nav-item" href="#">출산</a>
 				<a class="nav-item" href="BS1.html">지역혜택</a>
+				<a class="nav-item" href="">커뮤니티 게시판</a>
 			</div>
 		</nav>
 	</header>

@@ -25,7 +25,6 @@ public class UserDAO {
 		}
 
 
-	
 	// 로그인
 		public UserDTO login(String user_id, String user_pw) {
 			SqlSession sqlSession = sqlSessionFactory.openSession(true);
@@ -62,14 +61,15 @@ public class UserDAO {
 		}
 		
 
-	
-
-
-		
-		
-		
-		
 	// 회원정보수정
+		public int Update(String user_id,String user_pw) {
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);
+			int result = sqlSession.insert("Update", dto);
+			sqlSession.close();
+			return result;
+		}
+
+		
 	
 	// 회원탈퇴
 		

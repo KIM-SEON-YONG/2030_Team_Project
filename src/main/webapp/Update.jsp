@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="javax.sql.*" %>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -173,8 +177,6 @@ body {
 			</div>
 
 			<!-- 메뉴 항목들 -->
-
-
 			<ul>
 				<li><a href="#">복지포인트</a></li>
 			</ul>
@@ -183,69 +185,66 @@ body {
 			</ul>
 
 		</div>
-
-
-
 		<!-- 메인 콘텐츠 -->
 		<div class="main-content">
-			<h2>----님 회원정보</h2>
+			<!-- 로그인 정보 가지고 오기!! -->
+			<%
+			    String user_id = request.getParameter("user_id");
+			    String user_pw = request.getParameter("user_pw");
+			    String user_name = request.getParameter("user_name");
+			    String user_birthdate = request.getParameter("user_birthdate");
+			    String user_gender = request.getParameter("user_gender");
+			    String user_phone = request.getParameter("user_phone");
+			    String fav_welfare = request.getParameter("fav_welfare");
+			    String fav_region = request.getParameter("fav_region");
+			%>
 			<form>
-			<table class="info-table">
-				<!-- 사용자 정보 테이블 -->
-				<tr>
-					<th>이름</th>
-					<td>고정</td>
-				</tr>
-				<tr>
-					<th>성별</th>
-					<td>고정</td>
+				<table class="info-table">
+					<!-- 사용자 정보 테이블 -->
+					<tr>
+						<th>이름</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>성별</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>생년월일</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>아이디</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>비밀번호 수정</th>
+						<td><input type="password" id="password" placeholder="새 비밀번호 입력"></td>
+					</tr>
+					<tr>
+						<th>비밀번호 재확인</th>
+						<td><input type="password" id="confirmPassword"	placeholder="비밀번호 확인"></td>
+					</tr>
+					<tr>
+						<th>전화번호</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>관심분야</th>
+						<td><input type="text" id="interest" placeholder="관심 분야 입력">
+						</td>
+					</tr>
+					<tr>
+						<th>관심지역</th>
+						<td><input type="text" id="region" placeholder="관심 지역 입력">
+						</td>
+					</tr>
+				</table>
+				<!-- 저장 버튼 -->
+				<div style="margin-top: 20px;">
+					<input type="submit" value="저장">
+				</div>
 
-				</tr>
-				<tr>
-					<th>생년월일</th>
-					<td>고정</td>
-
-				</tr>
-				<tr>
-					<th>아이디</th>
-					<td>고정</td>
-				</tr>
-				<tr>
-					<th>비밀번호수정</th>
-					<td><input type="password" id="password"
-						placeholder="새 비밀번호 입력"></td>
-
-				</tr>
-				<tr>
-					<th>비밀번호확인</th>
-					<td><input type="password" id="confirmPassword"
-						placeholder="비밀번호 확인"></td>
-
-				</tr>
-				<tr>
-					<th>전화번호</th>
-					<td>고정</td>
-
-				</tr>
-				<tr>
-					<th>관심분야</th>
-					<td><input type="text" id="interest" placeholder="관심 분야 입력">
-					</td>
-
-				</tr>s
-
-				<tr>
-					<th>관심지역</th>
-					<td><input type="text" id="region" placeholder="관심 지역 입력">
-					</td>
-
-				</tr>
-			</table>
-			<!-- 저장 버튼 -->
-			<div style="margin-top: 20px;">
-				<input type="submit" value="저장">
-			</div>
-			
 
 			</form>
 			</table>
