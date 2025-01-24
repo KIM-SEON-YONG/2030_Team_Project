@@ -1,6 +1,8 @@
 package com.TTteamProject.model;
 
 
+import org.apache.ibatis.reflection.SystemMetaObject;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +30,20 @@ public class UserDTO {
 			this.user_id = user_id;
 			this.user_pw = user_pw;
 		}
+
+
+	  	// 로그인할때(id/pw확인)
+			public UserDTO loginCheck(String user_id2, String user_pw2) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+
+			
+
+
+	  		
+			
 	  		
 	  		
 	  	
