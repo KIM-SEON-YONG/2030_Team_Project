@@ -178,7 +178,7 @@ body {
 
 			<!-- 메뉴 항목들 -->
 			<ul>
-				<li><a href="#">복지포인트</a></li>
+				<li><a href="WelPoint">복지포인트</a></li>
 			</ul>
 			<ul>
 				<li><a href="MbrInfo.jsp">회원정보</a></li>
