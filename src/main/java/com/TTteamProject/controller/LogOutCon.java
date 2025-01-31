@@ -20,11 +20,9 @@ public class LogOutCon extends HttpServlet {
 	@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
-        // 1. 세션 무효화
-        HttpSession session = request.getSession(false); // 현재 세션 가져오기
-        if (session != null) {
-            session.invalidate(); // 세션 무효화
-        }
+		 // 세션 무효화
+        HttpSession session = request.getSession();
+        session.invalidate();  // 세션 무효화
 
         // 2. 쿠키 삭제 (로그인 시 쿠키를 사용한 경우)
         Cookie[] cookies = request.getCookies();

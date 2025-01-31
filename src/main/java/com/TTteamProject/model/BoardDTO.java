@@ -1,7 +1,16 @@
 package com.TTteamProject.model;
 
 import java.math.BigDecimal;
+
 import java.sql.Timestamp;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+@Getter
+@Setter
+@NoArgsConstructor
 
 public class BoardDTO {
  private BigDecimal b_idx;
@@ -82,5 +91,10 @@ public void setCreate_dt(Timestamp create_dt) {
 
  
  
+
+
+
+
+
  
 }

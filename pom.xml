@@ -88,7 +88,12 @@
 			<version>2.10.1</version>
 		</dependency>
 		<!-- 필요시 Servlet, JDBC 등 기타 의존성 -->
-
+		<!-- Add the jBCrypt dependency -->
+	    <dependency>
+	        <groupId>org.mindrot</groupId>
+	        <artifactId>jbcrypt</artifactId>
+	        <version>0.4</version>
+	    </dependency>
 	</dependencies>
 
 	<build>
@@ -128,5 +133,14 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+		<!-- 리소스 디렉토리 설정 -->
+	    <resources>
+	        <resource>
+	            <directory>src/main/resources</directory>
+	            <includes>
+	                <include>**/*.xml</include>  <!-- 모든 xml 파일 포함 -->
+	            </includes>
+	        </resource>
+	    </resources>
 	</build>
 </project>

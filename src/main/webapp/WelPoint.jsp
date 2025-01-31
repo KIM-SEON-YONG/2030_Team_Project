@@ -133,11 +133,27 @@ body {
 				<p class="nickname">사용자 닉네임</p>
 			</div>
 
-			<!-- 메뉴 항목들 -->
 			<ul>
-				<li><a href="Update.jsp">회원정보수정</a></li>
+				<!-- 메뉴 항목들 -->
+				<li><a href=Update.jsp>회원정보수정</a></li>
 				<li><a href="WelPoint.jsp">복지포인트</a></li>
 			</ul>
+			<!-- 로그아웃 버튼 -->
+			<button class="logout-btn" onclick="logout()">로그아웃</button>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<button class="delete-btn" onclick="delete()">회원탈퇴</button>
 		</div>
 
 		<!-- 메인 콘텐츠 -->

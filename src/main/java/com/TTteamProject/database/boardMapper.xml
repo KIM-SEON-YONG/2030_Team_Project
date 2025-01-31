@@ -28,6 +28,15 @@
 
 	</insert>
 
+	<!-- 사용자별 게시글 목록 조회 -->
+    <select id="getUserBoards" parameterType="String" resultType="com.TTteamProject.model.BoardDTO">
+        SELECT * FROM TB_BOARD WHERE user_id = #{userId}
+    </select>
+    
+    <!-- 사용자 게시글 조회 -->
+    <select id="getPostCountByUserId" resultType="int">
+        SELECT COUNT(*) FROM TB_BOARD WHERE user_id = #{userId}
+    </select>
 
 
 

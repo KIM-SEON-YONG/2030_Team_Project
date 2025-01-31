@@ -1,10 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page import="com.TTteamProject.model.UserDTO"%>
+<%@ page import="com.TTteamProject.model.BoardDTO"%>
+<%@ page import="java.util.List"%>
+<%
+// 세션에서 사용자 정보 가져오기
+UserDTO user = (UserDTO) session.getAttribute("user");
+if (user == null) {
+	
+	response.sendRedirect("login.jsp"); // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
+	return;
+} else {
+	
+}
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사용자 페이지</title>
+<title>마이페이지</title>
 <style type="text/css">
 /* 전체 레이아웃 */
 .container {
@@ -112,7 +126,6 @@
 }
 </style>
 </head>
-
 <body>
 	<div class="container">
 		<!-- 메뉴 -->
@@ -122,28 +135,43 @@
 				<img id="profile-img" class="profile-img"
 					src="https://goodpokki.kr/common/img/default_profile.png"
 					alt="프로필 이미지">
-				<p class="nickname">사용자 닉네임</p>
-				<!-- 사용자 닉네임 -->
+				<p class="nickname"><%=user.getUser_name()%></p>
 			</div>
 			<ul>
 				<!-- 메뉴 항목들 -->
-				<li><a href="Update.jsp">회원정보수정</a></li>
+				<li><a href=Update.jsp>회원정보수정</a></li>
 				<li><a href="WelPoint.jsp">복지포인트</a></li>
 			</ul>
 			<!-- 로그아웃 버튼 -->
 			<button class="logout-btn" onclick="logout()">로그아웃</button>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<button class="delete-btn" onclick="delete()">회원탈퇴</button>
 		</div>
 
 		<!-- 메인 콘텐츠 -->
 		<div class="main-content">
-			<h2>----님 마이페이지</h2>
+
+			<h2><%=user.getUser_id()%>님의 마이페이지
+			</h2>
 			<table class="info-table">
 				<!-- 사용자 정보 테이블 -->
 				<tr>
 					<th>보유포인트</th>
-					<td>711점</td>
+					<td><%= user.getWel_point() %>P</td>
 					<th>내가쓴글</th>
-					<td>3 (원글: 2, 코멘트: 1)</td>
+					<td><%=user.getPostCount()%></td>
 				</tr>
 				<tr>
 					<th>최종접속일시</th>
@@ -153,14 +181,15 @@
 				</tr>
 				<tr>
 					<th>연락처</th>
-					<td>미등록</td>
+					<td><%=user.getUserPhone() != null ? user.getUserPhone() : "미등록"%></td>
 				</tr>
 			</table>
+
 			<!-- 게시글 목록 테이블 -->
 			<table class="info-table">
 				<thead>
 					<tr>
-						<h3>내가 작성한 게시판 글 확인하기</h3>
+						<h3>내가 작성한 게시글</h3>
 						<th><input type="checkbox"></th>
 						<!-- 체크박스 -->
 						<th>분야</th>
@@ -169,19 +198,25 @@
 					</tr>
 				</thead>
 				<tbody>
-					<!-- 게시글 항목들 -->
+					<%
+					// 사용자가 작성한 게시글 목록을 가져오는 로직
+					List<BoardDTO> userBoards = (List<BoardDTO>) request.getAttribute("userBoards"); // 예시로 DAO에서 사용자 게시글 목록 가져옴
+					if (userBoards != null) {
+						for (BoardDTO post : userBoards) {
+					%>
 					<tr>
 						<td><input type="checkbox"></td>
-						<td>취업</td>
-						<td>취업복지에관해서..</td>
-						<td></td>
+						<td><%=post.getB_category()%></td>
+						<!-- 동적으로 분야 표시 -->
+						<td><%=post.getB_title()%></td>
+						<!-- 동적으로 제목 표시 -->
+						<td><%=post.getCreate_dt()%></td>
+						<!-- 동적으로 작성일시 표시 -->
 					</tr>
-					<tr>
-						<td><input type="checkbox"></td>
-						<td>결혼</td>
-						<td>결혼복지 추천!!</td>
-						<td></td>
-					</tr>
+					<%
+					}
+					}
+					%>
 				</tbody>
 			</table>
 		</div>
@@ -190,7 +225,9 @@
 
 
 	<script>
-		
+	function logout() {
+		   window.location.href = "logoutServlet"; // 로그아웃 서블릿 호출
+		}
 	</script>
 </body>
 </html>

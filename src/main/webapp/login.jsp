@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -109,10 +110,6 @@ a {
 				<td><input type="password" placeholder="PW" id="pw"
 					name="USER_PW"></td>
 			</tr>
-
-			<tr>
-				<td><input type="checkbox"> 로그인 정보 저장</td>
-			</tr>
 			<tr>
 				<td><input type="submit" value="로그인" class="loginBtn"></td>
 			</tr>
@@ -168,6 +165,9 @@ a {
 		    <%
 		        }
 		    %>
+		    
+		    
+	
 
 		
 		    

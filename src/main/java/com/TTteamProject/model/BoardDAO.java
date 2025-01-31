@@ -38,4 +38,27 @@ public class BoardDAO {
     	return dto;	
     	
     }
+    
+    // BoardDAO 클래스에 추가
+
+    public List<BoardDTO> getUserBoards(String userId) {
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        List<BoardDTO> result = sqlSession.selectList("getUserBoards", userId);  // 사용자 ID에 해당하는 게시글 목록 조회
+        sqlSession.close();
+        return result;
+    }
+   
+    // 사용자가 작성한 게시글 수를 반환하는 메서드
+    public int getPostCountByUserId(String userId) {
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        int postCount = sqlSession.selectOne("getPostCountByUserId", userId);  // MyBatis 쿼리
+        sqlSession.close();
+        return postCount;
+    }
+    
 }
+    
+    
+    
+    
+
