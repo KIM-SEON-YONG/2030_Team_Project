@@ -12,6 +12,26 @@
 <title></title>
 </head>
 <style>
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+	background: none;
+	color: inherit;
+	border: none;
+	cursor: pointer;
+	outline: inherit;
+	text-decoration: none;
+	color: inherit;
+	list-style: none;
+	outline: none;
+	width: 1280px;
+	margin: 0 auto;
+}
 nav {
 	position: relative;
 	height: 150px;
