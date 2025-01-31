@@ -72,6 +72,12 @@ public class UserDAO {
 		
 	
 	// 회원탈퇴
+		public int Delete(String user_id,String user_pw) {
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);
+			int result = sqlSession.insert("Delete", dto);
+			sqlSession.close();
+			return result;
+		}
 		
 
 

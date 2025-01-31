@@ -6,26 +6,18 @@
 <meta charset="UTF-8">
 <title>사용자 페이지</title>
 <style type="text/css">
-
-/* 공통 스타일 */
-body {
-	font-family: Arial, sans-serif;
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
 /* 전체 레이아웃 */
 .container {
 	display: flex; /* Flexbox를 사용하여 자식 요소들을 배치 */
 }
+
 /* 메뉴 스타일 */
 .menu {
 	background-color: #E6E6FA; /* 배경색 설정 */
 	padding: 20px; /* 내부 여백 */
 	border: 1px solid #ccc; /* 테두리 설정 */
 	width: 200px; /* 메뉴 영역 너비 */
-	height: 96vh; /* 화면 전체 높이 */
+	height: 100vh; /* 화면 전체 높이 */
 	display: flex; /* Flexbox를 사용하여 자식 요소들을 세로로 배치 */
 	flex-direction: column; /* 세로 방향으로 배치 */
 	align-items: center; /* 자식 요소들을 수평 중앙에 배치 */
@@ -80,14 +72,14 @@ body {
 }
 
 .logout-btn {
-	background-color: #d1d1ff; /* 로그아웃 버튼 배경색 */
+	background-color: #f24c59; /* 로그아웃 버튼 배경색 */
 	color: white; /* 버튼 글자색 */
 	border: none; /* 테두리 제거 */
 	padding: 10px 20px; /* 내부 여백 */
-	border-radius: 30px; /* 모서리 둥글게 */
+	border-radius: 5px; /* 모서리 둥글게 */
 	cursor: pointer; /* 커서가 포인터로 변경 */
-	font-size: 13px; /* 폰트 크기 */
-	margin-top: 478px; /* 위쪽 여백 */
+	font-size: 16px; /* 폰트 크기 */
+	margin-top: 20px; /* 위쪽 여백 */
 	transition: background-color 0.3s; /* 배경색 변화에 애니메이션 효과 추가 */
 }
 
@@ -118,44 +110,10 @@ body {
 .info-table th {
 	background-color: #f2f2f2; /* 테이블 헤더 배경색 */
 }
-/* 전원 메뉴 버튼 및 스타일 */
-.power-button {
-	font-size: 24px;
-	padding: 10px 20px;
-	cursor: pointer;
-	border: none;
-	background-color: #e000;
-	border-radius: 10px;
-	position: fixed;
-	top: 903px;
-	right: 1654px;
-}
-
-.menu-popup {
-	display: none;
-	position: absolute;
-	top: 830px;
-	right: 1563px;
-	background: white;
-	border: 1px solid #ccc;
-	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-	padding: 10px;
-	border-radius: 5px;
-}
-
-.menu-popup div {
-	padding: 10px;
-	cursor: pointer;
-}
-
-.menu-popup div:hover {
-	background: #f0f0f0;
-}
 </style>
 </head>
 
 <body>
-<%@ page contentType="text/html; charset=UTF-8" %>   
 	<div class="container">
 		<!-- 메뉴 -->
 		<div class="menu">
@@ -164,22 +122,17 @@ body {
 				<img id="profile-img" class="profile-img"
 					src="https://goodpokki.kr/common/img/default_profile.png"
 					alt="프로필 이미지">
-				<p class="nickname">사용자 이름</p>
+				<p class="nickname">사용자 닉네임</p>
+				<!-- 사용자 닉네임 -->
 			</div>
-			
+			<ul>
 				<!-- 메뉴 항목들 -->
-
-				
-			<ul>
-    			<li><a href="point.jsp">복지포인트</a></li>
+				<li><a href="Update.jsp">회원정보수정</a></li>
+				<li><a href="WelPoint.jsp">복지포인트</a></li>
 			</ul>
-			<ul>
-				<li><a href="mypage.jsp">회원정보</a></li>
-			</ul>
-
+			<!-- 로그아웃 버튼 -->
+			<button class="logout-btn" onclick="logout()">로그아웃</button>
 		</div>
-
-
 
 		<!-- 메인 콘텐츠 -->
 		<div class="main-content">
@@ -201,64 +154,43 @@ body {
 				<tr>
 					<th>연락처</th>
 					<td>미등록</td>
-
 				</tr>
-
 			</table>
-
-
-
-		
+			<!-- 게시글 목록 테이블 -->
+			<table class="info-table">
+				<thead>
+					<tr>
+						<h3>내가 작성한 게시판 글 확인하기</h3>
+						<th><input type="checkbox"></th>
+						<!-- 체크박스 -->
+						<th>분야</th>
+						<th>제목</th>
+						<th>작성일시</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- 게시글 항목들 -->
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>취업</td>
+						<td>취업복지에관해서..</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>결혼</td>
+						<td>결혼복지 추천!!</td>
+						<td></td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
 
-	<!-- 전원 메뉴 버튼 -->
-	<button class="power-button" onclick="toggleMenu()">⏻</button>
-	<div class="menu-popup" id="powerMenu">
 
-		<div onclick="selectOption('회원 탈퇴')">회원 탈퇴</div>
-		<div onclick="selectOption('로그아웃')">로그아웃</div>
-	</div>
 
 	<script>
-		// 전원 메뉴 토글
-		function toggleMenu() {
-			var menu = document.getElementById("powerMenu");
-			menu.style.display = menu.style.display === "block" ? "none"
-					: "block";
-		}
-
-		// 전원 메뉴 선택
-		function selectOption(option) {
-			if (option === '회원 탈퇴') {
-				if (confirm("정말 회원 탈퇴를 진행하시겠습니까?")) {
-					alert("회원 탈퇴가 완료되었습니다.");
-					window.location.href = '/delete-account';
-				}
-			} else if (option === '로그아웃') {
-				alert("로그아웃 되었습니다.");
-				window.location.href = '/logout';
-				document.getElementById("powerMenu").style.display = "none";
-
-			}
-		}
-		// 화면 클릭 시 메뉴 닫기
-		document.addEventListener("click", function(event) {
-			var menu = document.getElementById("powerMenu");
-			var button = document.querySelector(".power-button");
-			if (event.target !== menu && event.target !== button) {
-				menu.style.display = "none";
-			}
-		});
+		
 	</script>
-      
-
- 
-
-
-
 </body>
 </html>

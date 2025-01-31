@@ -178,10 +178,10 @@ body {
 
 			<!-- 메뉴 항목들 -->
 			<ul>
-				<li><a href="WelPoint">복지포인트</a></li>
+				<li><a href="WelPoint">회원정보수정</a></li>
 			</ul>
 			<ul>
-				<li><a href="MbrInfo.jsp">회원정보</a></li>
+				<li><a href="WelPoint.jsp">복지포인트</a></li>
 			</ul>
 
 		</div>
@@ -203,19 +203,19 @@ body {
 					<!-- 사용자 정보 테이블 -->
 					<tr>
 						<th>이름</th>
-						<td></td>
+						<td><%=user_name %></td>
 					</tr>
 					<tr>
 						<th>성별</th>
-						<td></td>
+						<td><%=user_gender %></td>
 					</tr>
 					<tr>
 						<th>생년월일</th>
-						<td></td>
+						<td><%=user_birthdate %></td>
 					</tr>
 					<tr>
 						<th>아이디</th>
-						<td></td>
+						<td><%=user_id %></td>
 					</tr>
 					<tr>
 						<th>비밀번호 수정</th>
@@ -227,16 +227,16 @@ body {
 					</tr>
 					<tr>
 						<th>전화번호</th>
-						<td></td>
+						<td><%=user_phone %></td>
 					</tr>
 					<tr>
 						<th>관심분야</th>
-						<td><input type="text" id="interest" placeholder="관심 분야 입력">
+						<td><%=fav_welfare%><input type="text" id="interest" placeholder="관심 분야 입력">
 						</td>
 					</tr>
 					<tr>
 						<th>관심지역</th>
-						<td><input type="text" id="region" placeholder="관심 지역 입력">
+						<td><%=fav_region%><input type="text" id="region" placeholder="관심 지역 입력">
 						</td>
 					</tr>
 				</table>
