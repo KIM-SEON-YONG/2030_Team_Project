@@ -1,0 +1,369 @@
+<<<<<<< HEAD
+=======
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>슬라이드 예제</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<style>
+
+/* 전체 레이아웃 */
+body {
+	font-family: Arial, sans-serif;
+	text-align: center;
+	background-color: #f8f8f8;
+	padding: 620px;
+}
+
+/* 제목 스타일 */
+.title {
+	position: fixed;
+	/* 화면 상단에 고정 */
+	top: 0;
+	/* 화면 맨 위에 위치 */
+	left: 40%;
+	/* 가운데 정렬 */
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+/* 슬라이드 컨테이너 */
+.slider-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	max-width: 1600px;
+	margin: 0 auto;
+	overflow: hidden;
+	z-index: 1000;
+	height: 600px;
+	background-color: rgb(252, 236, 202);
+}
+
+/* 슬라이드 래퍼 */
+.slider-wrapper {
+	display: flex;
+	transition: transform 2s ease-in-out;
+	height: 100%;
+}
+
+/* 슬라이드 */
+.slide {
+	min-width: 250px;
+	max-width: 280;
+	height: 550px;
+	margin: 10px;
+	border-radius: 10px;
+	overflow: hidden;
+	background-color: white;
+	text-align: center;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 이미지 스타일 */
+.slide img {
+	width: 100%;
+	height: 250px;
+	display: block;
+}
+
+/* 설명 (캡션) */
+.caption {
+	padding: 10px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/* 버튼 스타일 */
+.slider-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: rgba(248, 247, 247, 0.5);
+	color: rgb(10, 10, 10);
+	border: none;
+	font-size: 24px;
+	padding: 10px;
+	cursor: pointer;
+	z-index: 10;
+	border-radius: 50%;
+}
+
+/* 왼쪽 버튼 */
+.left-btn {
+	left: 0;
+}
+
+/* 오른쪽 버튼 */
+.right-btn {
+	right: 0;
+}
+
+/* 반응형 스타일 */
+@media ( max-width : 768px) {
+	.slider-container {
+		height: 500px;
+	}
+	.slide {
+		min-width: 200px;
+		max-width: 220px;
+		height: 450px;
+	}
+	.slide img {
+		height: 200px;
+	}
+}
+
+.caption1 {
+	color: red;
+}
+</style>
+
+<body>
+
+	<h2 class="title">SPARK 지역혜택</h2>
+
+	<div class="slider-container">
+		<button class="slider-btn left-btn" id="prevBtn">&#10094;</button>
+
+		<div class="slider-wrapper">
+			<div class="slide">
+				<div class="caption1">강진군</div>
+				<img
+					src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjExMTJfMjk1%2FMDAxNjY4MjE0NTI2NDA1._X4L-j9jPDCOGWrbGoJGsiAAp2fL8FrhaBW1L02dnJAg.dup5gtIKh5SuCAIP5fPvfGapHDdg0SzNw5cwc0R2ZrYg.PNG.yijieeun1104%2F%25B4%25D9%25BB%25EA%25C3%25CA%25B4%25E7.PNG&type=sc960_832"
+					alt="Slide 1">
+				<div class="caption" name="title">강진 '누구나' 반값 여행!!</div>
+				<div class="caption">참여대상 : 강진 관외 거주 사전신청 관광객 누구나</div>
+				<div class="caption" name="policy">
+					지원내용 : 강진관내 여행비용 50%<br> 강진사랑상품권 지원
+				</div>
+				<div class="caption">사전신청 : 2025.1.1(수)~12.15(월)</div>
+				<div class="caption">정산신청 : 2025.1.13(월)~12.22(월)</div>
+				<div class="caption">
+					문의 >> 강진반값여행 사무실 <br> ☏ 061-433-3349
+				</div>
+			</div>
+			<div class="slide">
+				<div class="caption1">화순군</div>
+				<img
+					src="https://cdn.namdonews.com/news/photo/202410/794752_466327_1159.jpg"
+					alt="Slide 1">
+				<div class="caption" name="title">화사로와 화순!!</div>
+				<div class="caption">참여대상 : 사전신청을 완료한 출향인</div>
+				<div class="caption" name="policy">
+					지원내용 : 1인당 10~30만원이상 소비시<br>5만원~15만원까지화순여행비용의50%를<br>웰컴키트
+					및 화순팜 적립금 으로 지급
+				</div>
+				<div class="caption">사전신청 : 홈페이지에 최소여행3일전 신청</div>
+				<div class="caption">
+					정산신청 : 홈페이지에 여행 종료 후<br> 10일 이내 정산신청
+				</div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/KIM-SEON-YONG/2030_Team_Project.git
+			</div>
+<<<<<<< HEAD
+
+            <div class="slide">
+                <div class="caption1">나주시</div>
+                <img src="https://blog.kakaocdn.net/dn/FWkKm/btra35yq6ee/96Rj8niVBGDmccVX3YgITK/img.jpg"
+                    alt="Slide 1">
+                <div class="caption">나주관광 10선 모바일 스탬프투어</div>
+                <div class="caption"> 🎟 참여대상 : 나주시 방문 관광객</div>
+                <div class="caption">✅참여방법 : 스탬프투어 어플설치->관광지 스탬프존 방문 시 스탬프 자동등록<br>->어플 내 후기 작성 후 선물 신청</div>
+                <div class="caption">💰선물지급 : 미션마다 차등 선물 지급</div>
+                <div class="caption"> ☎️ 문의 : 나주시 관광과(061-339-8724)</div>
+                
+            </div>
+            <div class="slide">
+                <div class="caption1">순천시</div>
+                <img src="https://dimg.donga.com/wps/NEWS/IMAGE/2024/07/31/126221880.2.jpg" alt="Slide 2">
+                <div class="caption">순천시 관광객 유치 인센티브 지원사업</div>
+                <div class="caption">🎟 지원대상 :  관광사업자 , 개별관광객</div>
+                <div class="caption">📅 사전신청 : 방문3일전까지 구비서류방문 <br>우편or이메일접수</div>
+                <div class="caption">💰인센티브 신청 : 관광 종료일로부터 15일<br> 이내 구비서류 제출</div>
+                <div class="caption">✅지급방법 : 서류심사 후 지급기준에 따라 인센티브 지급</div>
+                <div class="caption">💰지급시기 : 신청서 제출 후 7일 이내 지급<br>(여건에 따라 변경 가능)</div>
+                <div class="caption"> ☎️ 접수처 : 순천시청 관광과 체험관광팀<br>(T.061-749-5809)</div>
+            </div>
+            <div class="slide">
+                <div class="caption1">광양시</div>
+                <img src="https://cdn.enewstoday.co.kr/news/photo/202112/1533412_589630_2516.jpg" alt="Slide 3">
+                <div class="caption">오늘 광양 어때?!?</div>
+                <div class="caption">📅기 간 : 24.01.17~24.12<br>(예산 소진시 조기마감)</div>
+                <div class="caption">✅지원횟수 제한 : 연 1회</div>
+                <div class="caption">✅관광지 : 관내 관광지 2~3개소 방문하되<br>무료관광지로만 방문시<br>(권역별 다른관광지 방문!)</div>
+                <div class="caption">🏝 참가인원 : 관외 거주 내.외국인 관광객 지원 <br>(단,팀의 대표자는 만 18세이상) </div>
+                <div class="caption"> 💰인센티브 지급 : 관광후 SNS인증 시 관내 소비금액에 따라 인센티브 차등지급 (3~8만원)</div>
+            </div>
+            <div class="slide">
+                <div class="caption1">완도군</div>
+                <img src="https://www.ktsketch.co.kr/news/photo/202009/6288_28730_597.jpg" alt="Slide 6">
+                <div class="caption">🌊 완도풀 힐링 미션투어</div>
+                <div class="caption">📅 신청기간 : 24.3.20(수)~12.10(화) (예산 소진 시 조기 마감 )</div>
+                <div class="caption">✅ 여행기간 : 24.3.20(수)~11.30(토)</div>
+                <div class="caption">🏝  지원절차 : 여행계획서 접수(여행 최소 하루전 )</div>
+                <div class="caption">💰 지원금 신청서 제출 기한 : 여행완료 후 10일 이내 </div>
+                <div class="caption">💰 경비 입금일 : 여행한 달 다음달 30일 이내  </div>
+                <div class="caption"> ☎️ 문의처 :  완도군청 관광과(061-550-5426) or  운영대행사(02-861-1230)</div>
+            </div>
+            <div class="slide">
+                <div class="caption1">진도군</div>
+                <img src="https://blog.kakaocdn.net/dn/IoMDA/btsJkSD8fEC/Rp5ZaZzBefKyHSEw1WmLx1/img.jpg" alt="Slide 7">
+                <div class="caption">🎶 관광지 모바일 스탬프투어 및 서해랑길 운영 </div>
+                <div class="caption">📅 기 간: 24년도 1월 ~ 24년도 12월월</div>
+                <div class="caption">✅ 참여방법 : 모바일 스탬프투어 및 서해랑길 완주 후 명품관 방문하여 특산품으로 교환</div>
+                <div class="caption">💰 지원 혜택 :일정 스탬프 이상시  특산물 지급 <br> 일정 서해랑길 코스 완주시 특산물 지급 </div>
+                <div class="caption">🎟  지원자격 : 진도군 거주자를 제외한 누구나 참여 ssap가능!! </div>
+                <div class="caption"> ☎️  문의처 : 진도군청 관광과 (061-540-3406)</div>
+            </div>
+            <div class="slide">
+                <div class="caption1">신안군</div>
+                <img src="https://cdn.psnews.co.kr/news/photo/202302/2019912_65247_510.jpg" alt="Slide 7">
+                <div class="caption">🎶 숙박할인 BIG 이벤트</div>
+                <div class="caption">📅 기 간: 24.04.12~24.12.31(예산 소진 시 조기 종료)</div>
+                <div class="caption">✅ 이용 절차 : 1. 전남관광플랫폼에서 신안군 숙박시설 예약<br>2.체크인 시 신분증 제시로 거주지 확인 <br>3.할인 금액 적용된 요금 결제</div>
+                <div class="caption">💰 지원 혜택 : 일정요금 이상 금액지원원</div>
+                <div class="caption">🎟  지원자격 : 전남.광주광역시 외 주소지를 둔 관광객</div>
+                <div class="caption">🎟  대상업소 : 전남관광플랙폼(JN-TOUR)에 등록된 신안군 숙박시설</div>
+                <div class="caption"> ☎️  문의처 : 신안군청 관광진흥과(061-240-8683)</div>
+            </div>
+			<div class="slide">
+				<div class="caption1">순천시</div>
+				<img
+					src="https://dimg.donga.com/wps/NEWS/IMAGE/2024/07/31/126221880.2.jpg"
+					alt="Slide 2">
+				<div class="caption" name="title">순천시 관광객 유치 인센티브 지원사업</div>
+				<div class="caption">🎟 지원대상 : 관광사업자 , 개별관광객</div>
+				<div class="caption">
+					📅 사전신청 : 방문3일전까지 구비서류방문 <br>우편or이메일접수
+				</div>
+				<div class="caption">
+					💰인센티브 신청 : 관광 종료일로부터 15일<br> 이내 구비서류 제출
+				</div>
+				<div class="caption">✅지급방법 : 서류심사 후 지급기준에 따라 인센티브 지급</div>
+				<div class="caption">
+					💰지급시기 : 신청서 제출 후 7일 이내 지급<br>(여건에 따라 변경 가능)
+				</div>
+				<div class="caption">
+					☎️ 접수처 : 순천시청 관광과 체험관광팀<br>(T.061-749-5809)
+				</div>
+			</div>
+			<div class="slide">
+				<div class="caption1">광양시</div>
+				<img
+					src="https://cdn.enewstoday.co.kr/news/photo/202112/1533412_589630_2516.jpg"
+					alt="Slide 3">
+				<div class="caption" name="title">오늘 광양 어때?!?</div>
+				<div class="caption">
+					📅기 간 : 24.01.17~24.12<br>(예산 소진시 조기마감)
+				</div>
+				<div class="caption">✅지원횟수 제한 : 연 1회</div>
+				<div class="caption">
+					✅관광지 : 관내 관광지 2~3개소 방문하되<br>무료관광지로만 방문시<br>(권역별 다른관광지
+					방문!)
+				</div>
+				<div class="caption">
+					🏝 참가인원 : 관외 거주 내.외국인 관광객 지원 <br>(단,팀의 대표자는 만 18세이상)
+				</div>
+				<div class="caption">💰인센티브 지급 : 관광후 SNS인증 시 관내 소비금액에 따라 인센티브
+					차등지급 (3~8만원)</div>
+			</div>
+			<div class="slide">
+				<div class="caption1">완도군</div>
+				<img
+					src="https://www.ktsketch.co.kr/news/photo/202009/6288_28730_597.jpg"
+					alt="Slide 6">
+				<div class="caption" name="title">🌊 완도풀 힐링 미션투어</div>
+				<div class="caption">📅 신청기간 : 24.3.20(수)~12.10(화) (예산 소진 시 조기
+					마감 )</div>
+				<div class="caption">✅ 여행기간 : 24.3.20(수)~11.30(토)</div>
+				<div class="caption">🏝 지원절차 : 여행계획서 접수(여행 최소 하루전 )</div>
+				<div class="caption">💰 지원금 신청서 제출 기한 : 여행완료 후 10일 이내</div>
+				<div class="caption">💰 경비 입금일 : 여행한 달 다음달 30일 이내</div>
+				<div class="caption">☎️ 문의처 : 완도군청 관광과(061-550-5426) or
+					운영대행사(02-861-1230)</div>
+			</div>
+			<div class="slide">
+				<div class="caption1">진도군</div>
+				<img
+					src="https://blog.kakaocdn.net/dn/IoMDA/btsJkSD8fEC/Rp5ZaZzBefKyHSEw1WmLx1/img.jpg"
+					alt="Slide 7">
+				<div class="caption" name="title">🎶 관광지 모바일 스탬프투어 및 서해랑길 운영</div>
+				<div class="caption">📅 기 간: 24년도 1월 ~ 24년도 12월월</div>
+				<div class="caption">✅ 참여방법 : 모바일 스탬프투어 및 서해랑길 완주 후 명품관 방문하여
+					특산품으로 교환</div>
+				<div class="caption">
+					💰 지원 혜택 :일정 스탬프 이상시 특산물 지급 <br> 일정 서해랑길 코스 완주시 특산물 지급
+				</div>
+				<div class="caption">🎟 지원자격 : 진도군 거주자를 제외한 누구나 참여 ssap가능!!</div>
+				<div class="caption">☎️ 문의처 : 진도군청 관광과 (061-540-3406)</div>
+			</div>
+			<div class="slide">
+				<div class="caption1">신안군</div>
+				<img
+					src="https://cdn.psnews.co.kr/news/photo/202302/2019912_65247_510.jpg"
+					alt="Slide 7">
+				<div class="caption" name="title">🎶 숙박할인 BIG 이벤트</div>
+				<div class="caption">📅 기 간: 24.04.12~24.12.31(예산 소진 시 조기 종료)</div>
+				<div class="caption">
+					✅ 이용 절차 : 1. 전남관광플랫폼에서 신안군 숙박시설 예약<br>2.체크인 시 신분증 제시로 거주지 확인 <br>3.할인
+					금액 적용된 요금 결제
+				</div>
+				<div class="caption">💰 지원 혜택 : 일정요금 이상 금액지원원</div>
+				<div class="caption">🎟 지원자격 : 전남.광주광역시 외 주소지를 둔 관광객</div>
+				<div class="caption">🎟 대상업소 : 전남관광플랙폼(JN-TOUR)에 등록된 신안군 숙박시설</div>
+				<div class="caption">☎️ 문의처 : 신안군청 관광진흥과(061-240-8683)</div>
+			</div>
+		</div>
+
+		<button class="slider-btn right-btn" id="nextBtn">&#10095;</button>
+	</div>
+
+
+	</div>
+	<script src="BS2.js"></script>
+	
+	<script>
+    fetch('Header.jsp')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading header:', error));
+
+    // footer.html 파일을 #footer div에 로드
+    fetch('Footer.jsp')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading footer:', error));
+	
+
+	// 버튼 클릭 시 해당 섹션으로 이동
+document.querySelectorAll('.box').forEach(button => {
+    button.addEventListener('click', function () {
+        const targetId = this.getAttribute('data-target');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+
+    </script>
+</body>
+
+</html>
+
+>>>>>>> branch 'master' of https://github.com/KIM-SEON-YONG/2030_Team_Project.git

@@ -13,6 +13,7 @@
 <title>취업 지원</title>
 <!-- favicon에러를 위해 favicon.ico 파일추가  => 엥그래도 뜸-->
 <link rel="icon" href="<%= request.getContextPath() %>/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="assets/css/common.css"><!-- 공용 -->
 <link rel="stylesheet" href="assets/css/policy.css" />
 </head>
 <body>
@@ -95,7 +96,7 @@
 				</div>
 				
 				<!-- AJAX로 검색 결과를 표시할 영역- 지역으로 검색한 값이 있다면 -->
-				<div id="data-container">
+				<div id="data-container-job">
 					<!-- 비동기 데이터가 표기될 위치 -->
 				</div>
 
@@ -120,9 +121,14 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
 		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
 		crossorigin="anonymous"></script>
+		
+	<!-- 취업,결혼,출산 js , 지역 선택 시 가져오는 정보 ajax -->
 	<script src="assets/js/policy.js"></script>
+	<script src="assets/js/ajax.js"></script>
 	
 	<script>
+	
+	/* main처럼 불러올 수 있는데, 그냥 이대로 두기 - 시간 있으면 수정  */
 	
 	/* ***주의*** AJAX 코드는 해당 jsp 하단에 위치해야됨!!! 별도로 .js 파일로 빼지 않기!! */
 	
@@ -142,6 +148,8 @@
 		
 		// 로딩 인디케이터 표시
 		$("#loading").show();
+		
+		console.log("contextPath: "+contextPath); // contextPath: 2030_Team_Project
 		
 		// form에서 컨트롤러로 가지않고! AJAX로 컨트롤러에 접근하고 AJAX로 값을 리턴 받는 방식
 		$.ajax({

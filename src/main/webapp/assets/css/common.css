@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+/* CSS 기본초기값 */
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body, html {
+	width: 100%;
+    overflow-x: hidden;
+    height: 100%;
+	font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+	word-wrap: break-word;
+} 
+
+button {
+	background: none;
+	color: inherit;
+	border: none;
+	cursor: pointer;
+	outline: inherit;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+li {
+	list-style: none;
+}
+
+input:focus {
+	outline: none;
+}
+
+.container {
+	width: 1920px;
+	margin: 0 auto;
+}

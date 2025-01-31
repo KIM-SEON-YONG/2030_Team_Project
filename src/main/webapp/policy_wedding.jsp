@@ -13,6 +13,7 @@
 <title>결혼 지원</title>
 <!-- favicon에러를 위해 favicon.ico 파일추가  => 엥그래도 뜸-->
 <link rel="icon" href="<%= request.getContextPath() %>/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="assets/css/common.css"><!-- 공용 -->
 <link rel="stylesheet" href="assets/css/policy.css" />
 </head>
 <body>
@@ -118,7 +119,10 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
 		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
 		crossorigin="anonymous"></script>
+		
+	<!-- 취업,결혼,출산 js , 지역 선택 시 가져오는 정보 ajax -->
 	<script src="assets/js/policy.js"></script>
+	<script src="assets/js/ajax.js"></script>
 	
 	<script>
 	
