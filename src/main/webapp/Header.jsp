@@ -122,11 +122,11 @@ nav {
 					%>
 			</div>
 			<div class="nav-items">
-				<a class="nav-item" href="#">취업</a> 
-				<a class="nav-item" href="#">결혼</a>
-				<a class="nav-item" href="#">출산</a>
+				<a class="nav-item" href="policy_job.jsp">취업</a> 
+				<a class="nav-item" href="policy_wedding.jsp">결혼</a>
+				<a class="nav-item" href="policy_pregnancy.jsp">출산</a>
 				<a class="nav-item" href="BS1.html">지역혜택</a>
-				<a class="nav-item" href="">커뮤니티 게시판</a>
+				<a class="nav-item" href="boardList.jsp">커뮤니티 게시판</a>
 			</div>
 		</nav>
 	</header>
