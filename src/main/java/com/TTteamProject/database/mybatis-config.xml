@@ -3,29 +3,28 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<!-- 환경설정(계정, driver, url) -->
-	<environments default="development">
-		<environment id="development">
-			<transactionManager type="JDBC" />
-			<dataSource type="POOLED">
-				<property name="driver"
-					value="oracle.jdbc.driver.OracleDriver" />
-				<property name="url"
-					value="jdbc:oracle:thin:@project-db-cgi.smhrd.com:1524:xe" />
-				<property name="username" value="mp_24K_bigdata28_p2_3" />
-				<property name="password" value="smhrd3" />
-			</dataSource>
-		</environment>
-	</environments>
 
-	<!-- sql문들을 정의해주는 mapper.xml을 계속해서 만들건데(회원관리, 게시글 관리 등) 어디에 있는지 경로를 지정해주기 -->
-	<mappers>
-
-		<mapper resource="com/TTteamProject/database/welfareMapper.xml" />
-
-	</mappers>
-
-
-	
-
+<!-- 환경설정(계정, driver, url) -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+                <property name="url" value="jdbc:oracle:thin:@project-db-cgi.smhrd.com:1524:xe"/>
+                <property name="username" value="mp_24K_bigdata28_p2_3"/>
+                <property name="password" value="smhrd3"/>
+            </dataSource>
+        </environment>
+    </environments>
+    
+    <!-- sql문들을 정의해주는 mapper.xml을 계속해서 만들건데(회원관리, 게시글 관리 등) 어디에 있는지 경로를 지정해주기  -->
+    <mappers>
+    	
+    	<mapper resource="com/TTteamProject/database/policyMapper.xml"/>
+    	<mapper resource="com/TTteamProject/database/regionMapper.xml"/>
+		<mapper resource="com/TTteamProject/database/UserMapper.xml" />
+		<mapper resource="com/TTteamProject/database/boardMapper.xml"/>
+    	
+    </mappers>
+    
 </configuration>
