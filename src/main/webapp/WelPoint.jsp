@@ -5,14 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>사용자 페이지</title>
+<link rel="stylesheet" href="assets/css/common.css"><!-- 공용 -->
 <style type="text/css">
-/* 공통 스타일 */
-body {
-	font-family: Arial, sans-serif;
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
 
 /* 전체 레이아웃 */
 .container {
@@ -62,7 +56,6 @@ body {
 .menu li {
 	margin: 10px 0; /* 메뉴 항목 간 여백 */
 }
-
 .menu a {
 	text-decoration: none; /* 링크의 밑줄 제거 */
 	color: #333; /* 링크 색상 */
@@ -90,7 +83,6 @@ body {
 	margin-top: 478px; /* 위쪽 여백 */
 	transition: background-color 0.3s; /* 배경색 변화에 애니메이션 효과 추가 */
 }
-
 .logout-btn:hover {
 	background-color: #e03e50; /* 호버 시 배경색 변화 */
 }
@@ -100,23 +92,6 @@ body {
 	flex-grow: 1; /* 남은 공간을 채우기 */
 	padding: 20px; /* 내부 여백 */
 	background-color: #f9f9f9; /* 배경색 설정 */
-}
-
-/* 정보 테이블 스타일 */
-.info-table {
-	width: 100%; /* 테이블 너비를 100%로 설정 */
-	border-collapse: collapse; /* 테두리 겹침 제거 */
-	margin-top: 20px; /* 위쪽 여백 */
-}
-
-.info-table th, .info-table td {
-	border: 1px solid #ddd; /* 셀 테두리 설정 */
-	padding: 10px; /* 셀 내부 여백 */
-	text-align: left; /* 텍스트 왼쪽 정렬 */
-}
-
-.info-table th {
-	background-color: #f2f2f2; /* 테이블 헤더 배경색 */
 }
 </style>
 </head>
@@ -140,19 +115,8 @@ body {
 			</ul>
 			<!-- 로그아웃 버튼 -->
 			<button class="logout-btn" onclick="logout()">로그아웃</button>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+			<br> <br> <br> <br> <br> <br> <br>
+			<br> <br> <br> <br> <br> <br>
 			<button class="delete-btn" onclick="delete()">회원탈퇴</button>
 		</div>
 

@@ -59,28 +59,28 @@ input[type="text"], input[type="password"] {
 	background-color: rgb(61, 135, 255);
 }
 
-.icons-grid {
+.g-signin2-grid {
 	display: flex;
 	justify-content: center;
 	gap: 25px;
 	margin-top: 20px;
 }
 
-.icon {
+.g-signin2 {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	cursor: pointer;
 }
 
-.icon img {
+.g-signin2 img {
 	width: 50px;
 	height: 50px;
 	border-radius: 10px;
 	margin-bottom: 10px;
 }
 
-.icon span {
+.g-signin2 span {
 	font-size: 0.9em;
 	color: #333;
 }
@@ -96,7 +96,6 @@ a {
 }
 </style>
 <body>
-	<%@ page contentType="text/html; charset=UTF-8"%>
 	<form name="loginCheck" action="LoginCon" method="post">
 		<table>
 			<tr>
@@ -113,64 +112,82 @@ a {
 			<tr>
 				<td><input type="submit" value="로그인" class="loginBtn"></td>
 			</tr>
-									
+
 			<tr>
 				<td class="join"><a href="join.jsp">회원가입</a></td>
 			</tr>
 		</table>
 	</form>
-
-	<!-- 카카오톡 -->
-	<div class="icons-grid">
-		<a href="https://accounts.kakao.com/" target="_blank">
-			<div class="icon">
-				<img
-					src="https://test.codemshop.com/wp-content/plugins/mshop-mcommerce-premium-s2/lib/mshop-members-s2/assets/images/social/icon_1/Kakao.png"
-					alt="카카오톡"> <span>카카오톡</span>
-			</div>
-		</a>
-
-		<!-- 구글 -->
-		<a href="https://accounts.google.com/signin" target="_blank">
-			<div class="icon">
-				<img
-					src="https://test.codemshop.com/wp-content/plugins/mshop-mcommerce-premium-s2/lib/mshop-members-s2/assets/images/social/logo/Google.png"
-					alt="구글"> <span>구글</span>
-			</div>
-		</a>
-
-		<!-- 네이버 -->
-		<a href="https://nid.naver.com/nidlogin.login" target="_blank">
-			<div class="icon">
-				<img
-					src="https://test.codemshop.com/wp-content/plugins/mshop-mcommerce-premium-s2/lib/mshop-members-s2/assets/images/social/icon_1/Naver.png"
-					alt="네이버"> <span>네이버</span>
-			</div>
-		</a>
-	</div>
-	<script>
-	/* 로그인 실패시 알림창 띄우기!!! */
-			<%
-				String errorMessage = (String) request.getAttribute("errorMessage");
-				String successMessage = (String) request.getAttribute("successMessage");
-				
-				if (errorMessage != null) {
-			%>
-		    	alert("<%=errorMessage%>");
-			<%
-				} else if (successMessage != null) {
-			%>
-				 alert("<%= successMessage %>");
-				
-		    <%
-		        }
-		    %>
-		    
-		    
+	<!-- 구글 로그인 버튼 -->
+	<div class="g-signin2" data-onsuccess="onSignIn">구글로그인</div>
 	
+	<!-- 구글 로그인 SDK -->
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	
+	<script>
+	// 구글 로그인 SDK 로드 후 초기화
+	 function initGoogleAuth() {
+            // 'gapi' 객체가 로드된 후에 'gapi.auth2.init()'을 호출합니다.
+            if (gapi && gapi.auth2) {
+                gapi.auth2.init({
+                    client_id: '552140088937-4e7nhjd7bhmbhgs46cl4ig4ncc9jlkhv.apps.googleusercontent.com'  // 클라이언트 ID
+                }).then(function() {
+                    console.log('Google SDK Initialized');
+                }).catch(function(error) {
+                    console.error('Google SDK initialization failed:', error);
+                });
+            } else {
+                console.error('gapi or gapi.auth2 is not available');
+            }
+        }
+	
+	// 구글 로그인 SDK 로드 후 초기화 실행
+     function onGapiLoad() {
+         gapi.load('auth2', initGoogleAuth); // gapi.auth2를 로드 후 initGoogleAuth 호출
+     }
+	
+ // 구글 로그인 성공 후 호출되는 함수
+    function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('로그인된 사용자 이름:', profile.getName());
+        console.log('로그인된 사용자 ID:', profile.getId());
+
+        // id_token을 서버로 보내서 인증을 받거나, 세션을 관리할 수 있습니다.
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token:", id_token);
+        
+     	// 서버로 id_token을 보내서 인증
+		// 예시로, AJAX를 사용하여 서버에 보내는 방법을 사용할 수 있습니다.
+		// 아래는 AJAX로 서버로 id_token을 보내는 예시 코드입니다.
+		fetch("/your-server-endpoint", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({ id_token: id_token })
+		})
+		.then(response => response.json())
+		.then(data => {
+			console.log("서버에서 응답받은 데이터:", data);
+			// 서버에서 인증이 완료되면 필요한 처리를 할 수 있습니다.
+		})
+		.catch(error => {
+			console.error("서버 요청 실패:", error);
+		});
+	}
 
 		
-		    
+	/* 로그인 실패시 알림창 띄우기!!! */
+		<%
+			String errorMessage = (String) request.getAttribute("errorMessage");
+			if (errorMessage != null) {
+		%>
+			<script>
+		      alert("<%=errorMessage%>");
+		  	</script>
+		<%
+			}
+		%>
 	</script>
 
 

@@ -24,6 +24,7 @@ if (user == null) {
 <head>
 <meta charset="UTF-8">
 <title>회원정보수정</title>
+<link rel="stylesheet" href="assets/css/common.css"><!-- 공용 -->
 <style type="text/css">
 /* 전체 레이아웃 */
 .container {
