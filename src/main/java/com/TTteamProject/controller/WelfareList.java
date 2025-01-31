@@ -30,6 +30,8 @@ public class WelfareList extends HttpServlet {
 //		
 //		System.out.print(result);
 		
+		request.setCharacterEncoding("UTF-8");
+		String[] title = request.getParameterValues("title");
 		
 		
 		
