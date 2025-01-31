@@ -168,24 +168,8 @@
 				<div class="caption">
 					정산신청 : 홈페이지에 여행 종료 후<br> 10일 이내 정산신청
 				</div>
-
-<<<<<<< HEAD
 			</div>
-			<div class="slide">
-				<div class="caption1">나주시</div>
-				<img
-					src="https://blog.kakaocdn.net/dn/FWkKm/btra35yq6ee/96Rj8niVBGDmccVX3YgITK/img.jpg"
-					alt="Slide 1">
-				<div class="caption">나주관광 10선 모바일 스탬프투어</div>
-				<div class="caption">🎟 참여대상 : 나주시 방문 관광객</div>
-				<div class="caption">
-					✅참여방법 : 스탬프투어 어플설치->관광지 스탬프존 방문 시 스탬프 자동등록<br>->어플 내 후기 작성 후
-					선물 신청
-				</div>
-				<div class="caption">💰선물지급 : 미션마다 차등 선물 지급</div>
-				<div class="caption">☎️ 문의 : 나주시 관광과(061-339-8724)</div>
-=======
-            </div>
+
             <div class="slide">
                 <div class="caption1">나주시</div>
                 <img src="https://blog.kakaocdn.net/dn/FWkKm/btra35yq6ee/96Rj8niVBGDmccVX3YgITK/img.jpg"
@@ -250,8 +234,6 @@
                 <div class="caption">🎟  대상업소 : 전남관광플랙폼(JN-TOUR)에 등록된 신안군 숙박시설</div>
                 <div class="caption"> ☎️  문의처 : 신안군청 관광진흥과(061-240-8683)</div>
             </div>
-        </div>
->>>>>>> branch 'master' of https://github.com/KIM-SEON-YONG/2030_Team_Project.git
 
 			</div>
 			<div class="slide">
@@ -326,17 +308,14 @@
 				<div class="caption">☎️ 문의처 : 진도군청 관광과 (061-540-3406</div>
 			</div>
 		</div>
-
-<<<<<<< HEAD
-    <script src="BS2.js"></script>
-=======
 		<button class="slider-btn right-btn" id="nextBtn">&#10095;</button>
 	</div>
 
 	<script src="BS2.js"></script>
+	
 	<script>
-    // header.html 파일을 #header div에 로드
-    fetch('header.html')
+	// header.html 파일을 #header div에 로드
+    fetch('Header.jsp')
       .then(response => response.text())
       .then(data => {
         document.getElementById('header').innerHTML = data;
@@ -344,14 +323,27 @@
       .catch(error => console.error('Error loading header:', error));
 
     // footer.html 파일을 #footer div에 로드
-    fetch('footer.html')
+    fetch('Footer.jsp')
       .then(response => response.text())
       .then(data => {
         document.getElementById('footer').innerHTML = data;
       })
       .catch(error => console.error('Error loading footer:', error));
+	
+
+	// 버튼 클릭 시 해당 섹션으로 이동
+document.querySelectorAll('.box').forEach(button => {
+    button.addEventListener('click', function () {
+        const targetId = this.getAttribute('data-target');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+
     </script>
->>>>>>> branch 'master' of https://github.com/KIM-SEON-YONG/2030_Team_Project.git
 </body>
 
 </html>
