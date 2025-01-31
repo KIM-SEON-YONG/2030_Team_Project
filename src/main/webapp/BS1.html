@@ -9,14 +9,13 @@
 </head>
 <style>
 
-    /* 전체 레이아웃 */
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background-color: #f8f8f8;
-        padding: 620px;
-    }
-
+/* 전체 레이아웃 */
+body {
+	font-family: Arial, sans-serif;
+	text-align: center;
+	background-color: #f8f8f8;
+	padding: 620px;
+}
 
 /* 제목 스타일 */
 .title {
@@ -31,22 +30,20 @@
 	margin-bottom: 20px;
 }
 
-
-    /* 슬라이드 컨테이너 */
-    .slider-container {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        max-width: 1600px;
-        margin: 0 auto;
-        overflow: hidden;
-        z-index: 1000;
-        height: 600px;
-        background-color: rgb(252, 236, 202);
-    }
-
+/* 슬라이드 컨테이너 */
+.slider-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	max-width: 1600px;
+	margin: 0 auto;
+	overflow: hidden;
+	z-index: 1000;
+	height: 600px;
+	background-color: rgb(252, 236, 202);
+}
 
 /* 슬라이드 래퍼 */
 .slider-wrapper {
@@ -82,22 +79,20 @@
 	font-weight: bold;
 }
 
-
-    /* 버튼 스타일 */
-    .slider-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(248, 247, 247, 0.5);
-        color: rgb(10, 10, 10);
-        border: none;
-        font-size: 24px;
-        padding: 10px;
-        cursor: pointer;
-        z-index: 10;
-        border-radius: 50%;
-    }
-
+/* 버튼 스타일 */
+.slider-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: rgba(248, 247, 247, 0.5);
+	color: rgb(10, 10, 10);
+	border: none;
+	font-size: 24px;
+	padding: 10px;
+	cursor: pointer;
+	z-index: 10;
+	border-radius: 50%;
+}
 
 /* 왼쪽 버튼 */
 .left-btn {
@@ -131,7 +126,7 @@
 
 <body>
 
-	<div id="header"></div>
+	<h2 class="title">SPARK 지역혜택</h2>
 
 	<div class="slider-container">
 		<button class="slider-btn left-btn" id="prevBtn">&#10094;</button>
@@ -142,9 +137,9 @@
 				<img
 					src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjExMTJfMjk1%2FMDAxNjY4MjE0NTI2NDA1._X4L-j9jPDCOGWrbGoJGsiAAp2fL8FrhaBW1L02dnJAg.dup5gtIKh5SuCAIP5fPvfGapHDdg0SzNw5cwc0R2ZrYg.PNG.yijieeun1104%2F%25B4%25D9%25BB%25EA%25C3%25CA%25B4%25E7.PNG&type=sc960_832"
 					alt="Slide 1">
-				<div class="caption">강진 '누구나' 반값 여행!!</div>
+				<div class="caption" name="title">강진 '누구나' 반값 여행!!</div>
 				<div class="caption">참여대상 : 강진 관외 거주 사전신청 관광객 누구나</div>
-				<div class="caption">
+				<div class="caption" name="policy">
 					지원내용 : 강진관내 여행비용 50%<br> 강진사랑상품권 지원
 				</div>
 				<div class="caption">사전신청 : 2025.1.1(수)~12.15(월)</div>
@@ -158,9 +153,9 @@
 				<img
 					src="https://cdn.namdonews.com/news/photo/202410/794752_466327_1159.jpg"
 					alt="Slide 1">
-				<div class="caption">화사로와 화순!!</div>
+				<div class="caption" name="title">화사로와 화순!!</div>
 				<div class="caption">참여대상 : 사전신청을 완료한 출향인</div>
-				<div class="caption">
+				<div class="caption" name="policy">
 					지원내용 : 1인당 10~30만원이상 소비시<br>5만원~15만원까지화순여행비용의50%를<br>웰컴키트
 					및 화순팜 적립금 으로 지급
 				</div>
@@ -168,7 +163,12 @@
 				<div class="caption">
 					정산신청 : 홈페이지에 여행 종료 후<br> 10일 이내 정산신청
 				</div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/KIM-SEON-YONG/2030_Team_Project.git
 			</div>
+<<<<<<< HEAD
 
             <div class="slide">
                 <div class="caption1">나주시</div>
@@ -234,14 +234,12 @@
                 <div class="caption">🎟  대상업소 : 전남관광플랙폼(JN-TOUR)에 등록된 신안군 숙박시설</div>
                 <div class="caption"> ☎️  문의처 : 신안군청 관광진흥과(061-240-8683)</div>
             </div>
-
-			</div>
 			<div class="slide">
 				<div class="caption1">순천시</div>
 				<img
 					src="https://dimg.donga.com/wps/NEWS/IMAGE/2024/07/31/126221880.2.jpg"
 					alt="Slide 2">
-				<div class="caption">순천시 관광객 유치 인센티브 지원사업</div>
+				<div class="caption" name="title">순천시 관광객 유치 인센티브 지원사업</div>
 				<div class="caption">🎟 지원대상 : 관광사업자 , 개별관광객</div>
 				<div class="caption">
 					📅 사전신청 : 방문3일전까지 구비서류방문 <br>우편or이메일접수
@@ -262,7 +260,7 @@
 				<img
 					src="https://cdn.enewstoday.co.kr/news/photo/202112/1533412_589630_2516.jpg"
 					alt="Slide 3">
-				<div class="caption">오늘 광양 어때?!?</div>
+				<div class="caption" name="title">오늘 광양 어때?!?</div>
 				<div class="caption">
 					📅기 간 : 24.01.17~24.12<br>(예산 소진시 조기마감)
 				</div>
@@ -282,7 +280,7 @@
 				<img
 					src="https://www.ktsketch.co.kr/news/photo/202009/6288_28730_597.jpg"
 					alt="Slide 6">
-				<div class="caption">🌊 완도풀 힐링 미션투어</div>
+				<div class="caption" name="title">🌊 완도풀 힐링 미션투어</div>
 				<div class="caption">📅 신청기간 : 24.3.20(수)~12.10(화) (예산 소진 시 조기
 					마감 )</div>
 				<div class="caption">✅ 여행기간 : 24.3.20(수)~11.30(토)</div>
@@ -297,7 +295,7 @@
 				<img
 					src="https://blog.kakaocdn.net/dn/IoMDA/btsJkSD8fEC/Rp5ZaZzBefKyHSEw1WmLx1/img.jpg"
 					alt="Slide 7">
-				<div class="caption">🎶 관광지 모바일 스탬프투어 및 서해랑길 운영</div>
+				<div class="caption" name="title">🎶 관광지 모바일 스탬프투어 및 서해랑길 운영</div>
 				<div class="caption">📅 기 간: 24년도 1월 ~ 24년도 12월월</div>
 				<div class="caption">✅ 참여방법 : 모바일 스탬프투어 및 서해랑길 완주 후 명품관 방문하여
 					특산품으로 교환</div>
@@ -305,16 +303,34 @@
 					💰 지원 혜택 :일정 스탬프 이상시 특산물 지급 <br> 일정 서해랑길 코스 완주시 특산물 지급
 				</div>
 				<div class="caption">🎟 지원자격 : 진도군 거주자를 제외한 누구나 참여 ssap가능!!</div>
-				<div class="caption">☎️ 문의처 : 진도군청 관광과 (061-540-3406</div>
+				<div class="caption">☎️ 문의처 : 진도군청 관광과 (061-540-3406)</div>
+			</div>
+			<div class="slide">
+				<div class="caption1">신안군</div>
+				<img
+					src="https://cdn.psnews.co.kr/news/photo/202302/2019912_65247_510.jpg"
+					alt="Slide 7">
+				<div class="caption" name="title">🎶 숙박할인 BIG 이벤트</div>
+				<div class="caption">📅 기 간: 24.04.12~24.12.31(예산 소진 시 조기 종료)</div>
+				<div class="caption">
+					✅ 이용 절차 : 1. 전남관광플랫폼에서 신안군 숙박시설 예약<br>2.체크인 시 신분증 제시로 거주지 확인 <br>3.할인
+					금액 적용된 요금 결제
+				</div>
+				<div class="caption">💰 지원 혜택 : 일정요금 이상 금액지원원</div>
+				<div class="caption">🎟 지원자격 : 전남.광주광역시 외 주소지를 둔 관광객</div>
+				<div class="caption">🎟 대상업소 : 전남관광플랙폼(JN-TOUR)에 등록된 신안군 숙박시설</div>
+				<div class="caption">☎️ 문의처 : 신안군청 관광진흥과(061-240-8683)</div>
 			</div>
 		</div>
+
 		<button class="slider-btn right-btn" id="nextBtn">&#10095;</button>
 	</div>
 
+
+	</div>
 	<script src="BS2.js"></script>
 	
 	<script>
-	// header.html 파일을 #header div에 로드
     fetch('Header.jsp')
       .then(response => response.text())
       .then(data => {
@@ -347,3 +363,4 @@ document.querySelectorAll('.box').forEach(button => {
 </body>
 
 </html>
+
