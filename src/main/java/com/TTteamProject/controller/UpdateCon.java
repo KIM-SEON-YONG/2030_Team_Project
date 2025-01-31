@@ -19,40 +19,26 @@ public class UpdateCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 		
 		// 1. 요청 객체에 대한 인코딩
 		request.setCharacterEncoding("UTF-8");
 		
 		// 2. 요쳥 객체에서 데이터 꺼내기
-		String email = request.getParameter("email");
-		String pw = request.getParameter("pw");
-		String tel = request.getParameter("tel");
-		String address = request.getParameter("address");
+		String user_id = request.getParameter("user_id");
 		
-		System.out.println(email);
-		System.out.println(pw);
-		System.out.println(tel);
-		System.out.println(address);
+		System.out.println(user_id);
+		
 		
 		// 3. DAO의 update메서드를 이용하여 데이터 처리하기
-//		UserDAO dao = new UserDAO();
-//		UserDTO dto = new UserDTO(email, pw, tel, address);
-//		int result = dao.update(dto);
+		UserDAO dao = new UserDAO();
+		UserDTO dto = new UserDTO();		
 		
 		
-//		// 4. 결과처리하기
-//		if(result>0) {
-//			// update sql문을 실행 했을 떄, 영향 받은 행의 개수가 0보다 크다
-//			System.out.println("업데이트 성공");
-//			HttpSession session = request.getSession();
-//			session.setAttribute("result", dto);
-//			response.sendRedirect("main.jsp");
-//		}else {
-//			System.out.println("업데이트 성공");
-//			response.sendRedirect("update.jsp");
-//		}
-//		
+		// 4. 결과처리하기
+		request.setAttribute("dto", dto);
+		request.getRequestDispatcher("Update.jsp").forward(request, response);
 		
 		
 		

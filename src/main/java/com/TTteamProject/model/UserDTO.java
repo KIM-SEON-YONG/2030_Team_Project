@@ -33,13 +33,19 @@ public class UserDTO {
 
 
 	  	// 로그인할때(id/pw확인)
-			public UserDTO loginCheck(String user_id2, String user_pw2) {
+			public UserDTO loginCheck(String user_id, String user_pw) {
 				// TODO Auto-generated method stub
 				return null;
 			}
 
 
-			
+
+	  	// 회원정보수정할때
+			public UserDTO Update(String user_id) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
 
 
 	  		

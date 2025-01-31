@@ -113,9 +113,9 @@ nav {
 					<!-- 로그인된 상태  -->
 					<span>환영합니다~💕<%=user_id%>님🎉🎉
 					</span>
-					<form action="LogOutCon" method="post" style="display: inline;">
+					<form action="LogOutCon" method="post">
 						<button class="btn btn-link nav-logout">로그아웃</button>
-						<a href="Update.jsp">개인정보수정</a>
+						<a href="Mypage.jsp">마이페이지</a>
 					</form>
 					<%
 					}

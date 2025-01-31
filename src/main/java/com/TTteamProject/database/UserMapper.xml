@@ -41,6 +41,13 @@
 		WHERE USER_ID = #{user_id}
 	</select>
 	
+	<!-- 회원정보 수정 -->
+	<select id="Update"	resultType="com.TTteamProject.model.UserDTO" parameterType="String">
+		SELECT *
+		FROM TB_USER
+		WHERE USER_ID = #{user_id}
+	</select>
+	
 	
 	
 
