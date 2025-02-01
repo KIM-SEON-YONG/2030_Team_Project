@@ -45,7 +45,7 @@ import com.TTteamProject.model.UserDTO;
 
 		// 3. DAO의 메서드 호출
 		UserDAO dao = new UserDAO();
-		UserDTO dto = new UserDTO(user_id, user_pw,user_name, user_birthdate, user_gender, user_phone, fav_welfare, fav_region);
+		UserDTO dto = new UserDTO(user_id, user_pw,user_name, user_birthdate, user_gender, user_phone, fav_welfare, fav_region, 0, 0);
 		
 		int result = dao.joinList(dto);		
 		

@@ -90,7 +90,8 @@ input[type="radio"] {
 			</div>
 			<div class="button-container">
 				<input type="submit" value="가입하기" class="btn">
-				<input type="reset" value="취소">
+				<button type="button" class="btn"><a href="Main.jsp">취소하기</a></button>
+				
 			</div>
 			<div id="idCheckResult" style="display: none;"></div>
 		</form>

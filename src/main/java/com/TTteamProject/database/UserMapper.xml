@@ -6,12 +6,16 @@
 	<insert id="joinList"
 		parameterType="com.TTteamProject.model.UserDTO">
 		INSERT INTO TB_USER (
-		USER_ID, USER_PW, USER_NAME, USER_BIRTHDATE, USER_GENDER, USER_PHONE,
-		FAV_WELFARE, FAV_REGION, JOIN_DT
+		USER_ID, USER_PW, USER_NAME,
+		USER_BIRTHDATE, USER_GENDER, USER_PHONE,
+		FAV_WELFARE, FAV_REGION,
+		JOIN_DT
 		)
 		VALUES (
-		#{user_id}, #{user_pw}, #{user_name}, #{user_birthdate}, #{user_gender},
-		#{user_phone}, #{fav_welfare}, #{fav_region}, CURRENT_TIMESTAMP
+		#{user_id}, #{user_pw}, #{user_name},
+		#{user_birthdate}, #{user_gender},
+		#{user_phone}, #{fav_welfare},
+		#{fav_region}, CURRENT_TIMESTAMP
 		)
 	</insert>
 
@@ -22,7 +26,8 @@
 		parameterType="com.TTteamProject.model.UserDTO"
 		resultType="com.TTteamProject.model.UserDTO">
 		SELECT * FROM TB_USER
-		WHERE USER_ID=#{user_id} AND USER_PW=#{user_pw}
+		WHERE USER_ID=#{user_id} AND
+		USER_PW=#{user_pw}
 	</select>
 
 
@@ -35,14 +40,34 @@
 	</select>
 
 	<!-- id단일 체크(로그인할때) 확인 -->
-	<select id="loginCheck"	resultType="com.TTteamProject.model.UserDTO" parameterType="String">
+	<select id="loginCheck"
+		resultType="com.TTteamProject.model.UserDTO" parameterType="String">
 		SELECT *
 		FROM TB_USER
 		WHERE USER_ID = #{user_id}
 	</select>
-	
-	
-	
+
+	<!-- 회원정보 수정 -->
+	<update id="updateUser"
+		parameterType="com.TTteamProject.model.UserDTO">
+		UPDATE TB_USER
+		SET
+       		USER_PW = #{user_pw},
+	        USER_PHONE = #{user_phone},
+	        FAV_WELFARE = #{fav_welfare},
+	        FAV_REGION = #{fav_region}
+		WHERE USER_ID = #{user_id}
+	</update>
+
+	<!-- 로그인시 DB데이터 가져오기 -->
+	<select id="getUserInfo" parameterType="String"
+		resultType="com.TTteamProject.model.UserDTO">
+		SELECT USER_ID, USER_PW, USER_NAME
+		FROM TB_USER
+		WHERE USER_ID = #{user_id}
+	</select>
+
+
 
 
 
