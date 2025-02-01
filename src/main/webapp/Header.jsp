@@ -15,10 +15,10 @@
 <title></title>
 </head>
 <style>
+/* rgb(234, 197, 245);#E6E6FA;  */
 nav {
 	position: relative;
 	height: 150px;
-	background-color: rgb(234, 197, 245); /* 배경색 */
 	display: flex;
 	word-wrap: break-word;
 }
@@ -40,10 +40,14 @@ nav {
 	list-style: none;
 	margin-right: 15px; /* 오른쪽에서 살짝 떨어지도록 설정 */
 	color: black;
+	white-space: pre-line;
+	padding-top: 20px;
 }
 .nav-items{
- 	display: block; /* 각 항목을 블록 요소로 만들어 줄바꿈을 자동으로 처리 */
-    margin-bottom: 10px; /* 항목 간의 여백 추가 */
+ 	padding-top: 50px;
+ 	padding-left: 411px;
+ 	align-content: baxeline;
+ 	
 }
 
 </style>
@@ -69,20 +73,19 @@ nav {
 				<%
 					} else {
 						// 로그인되지 않은 상태라면 로그인 버튼만 표시
-						out.print("<a href='login.jsp'>로그인</a><br>");
+						out.print("<a href='login.jsp'>로그인</a>");
 						out.print("<a href='join.jsp'>회원가입</a>");
 					}
 				%>
-				<br> <!-- 로그인 상태와 로그인되지 않은 상태 사이에 줄바꿈 추가 -->
-				
-				<!-- 네비게이션 아이템들 -->
-				<div class="nav-items">
-					<a class="nav-item" href="policy_job.jsp">취업</a> 
-					<a class="nav-item"	href="policy_wedding.jsp">결혼</a> 
-					<a class="nav-item"	href="policy_pregnancy.jsp">출산</a>
-					<a class="nav-item"	href="BS1.html">지역혜택</a> 
-					<a class="nav-item" href="boarSdList.jsp">커뮤니티 게시판</a>
-				</div>
+				 <!-- 로그인 상태와 로그인되지 않은 상태 사이에 줄바꿈 추가 -->				
+			</div>
+			<!-- 네비게이션 아이템들 -->
+			<div class="nav-items">
+				<a class="nav-item" href="policy_job.jsp">취업</a> 
+				<a class="nav-item"	href="policy_wedding.jsp">결혼</a> 
+				<a class="nav-item"	href="policy_pregnancy.jsp">출산</a>
+				<a class="nav-item"	href="BS1.html">지역혜택</a> 
+				<a class="nav-item" href="boarSdList.jsp">커뮤니티 게시판</a>
 			</div>
 		</nav>
 	</header>

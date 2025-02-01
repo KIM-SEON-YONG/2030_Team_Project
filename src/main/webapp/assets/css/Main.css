@@ -30,48 +30,61 @@
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
 }
-
-/* 메인 */
-.main-box{
-	/* height:800px; */
-    background-color: white;
+/* 해더 */
+nav {
+	position: relative;
+	height: 150px;
+	display: flex;
+	word-wrap: break-word;
 }
+.nav-header {
+	position: absolute;
+	right: 20px; /* 오른쪽에서 20px 왼쪽 */
+	display: flex;
+	gap: 20px; /* 각 항목 간격 */
+	font-size: 14px;
+	list-style: none;
+	margin-right: 15px; /* 오른쪽에서 살짝 떨어지도록 설정 */
+	color: black;
+	white-space: pre-line;
+	padding-top: 20px;
+}
+
+
+/* 첫번째 섹션 */
+.section01{
+	height: 600px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.text-box{
+	background-color: rgb(234, 197, 245);
+	width: 1100px;
+}	
 h1 {
-	height:200px;
+	height: 150px;
 	align-content:end;
-	font-size: 5.0rem;	/* 텍스트 크기 조정 */
+	font-size: xx-large;	/* 텍스트 크기 조정 */
 	margin-bottom: 20px;
 	color: #333;
 	text-align: center; /* 텍스트 중앙 정렬 */
 	align-items: center;      /* 수직 중앙 정렬 */
 }
-.search-bar {
-	margin-bottom: 30px;
+.welfare-option{
 	height: 170px;
-	width: 100%; /* 부모 너비에 맞게 */
-}
-.search-bar input {
-	width: 300px;
-	padding: 10px;
-	font-size: 1rem;
-	border: 2px solid #ccc;
-	border-radius: 5px;
-}
-.search-bar button {
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
 }
  /* 카테고리 */
+ #categorys{
+ 	position: relative;
+ 	bottom: 0;
+ 	width: 1100px;
+ }
+ /*   */
 .category{
 	display: flex; 
 	flex-wrap: wrap; /* 줄 바꿈 가능 */
     gap: 20px; /* 각 항목 간 간격 */
-	background-color: #E6E6FA;
-	width: 100%;
-	height: 150px;
-	position: relative;
 	justify-content: center;
 	align-items: center;
 	transition: transform 0.3s ease;
@@ -80,11 +93,10 @@ h1 {
 
 .box{
 	font-size: 18px;  /* 글자 크기 */
-    padding: 12px 24px;  /* 버튼 내 여백 */
     width: 200px;  /* 버튼 너비 */
     height: 60px;  /* 버튼 높이 */
     margin: 5px;  /* 버튼 간 간격 */
-    border: none;  /* 테두리 제거 */
+    border-style: double;  
     background-color: #ffffff;  /* 버튼 배경색 */
     color: #000000;  /* 글자 색 */
     border-radius: 5px;  /* 둥근 모서리 */
@@ -94,80 +106,41 @@ h1 {
 	align-items: center;      /* 수직 중앙 정렬 */
 }
 /* 섹션 전체 */
-
-.card {
-	width: 100%;  /* 카드의 너비 설정 */
-	border: 2px solid black;
-    box-sizing: border-box;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f9f9f9;
-    height: 300px; /* 카드 높이 설정 */
+#list-item-1,#list-item-2,#list-item-3,#list-item-4{
+	color: black;
+	letter-spacing: -0.02rem;
+	line-height: 1;
+	font-size: 1.5rem;
+	font-weight: 700;
 }
-.card-header {
-	font-weight: bold;
-	font-size: 1.2rem;
-	padding: 10px 20px;
-	background-color: #D6AEDD;
-	border: none;
-	cursor: pointer;
-}
-.card-icons {
-	font-size: 10px;
-	color: #312e2e;
-	margin-bottom: 5px;
-	text-align: right;
-}
-.card-title {
-	display: flex;	/* 플렉스박스를 사용하여 자식 요소들을 정렬 */
-	flex-direction: column;	/* 자식 요소들을 수직으로 정렬 */
-	justify-content: center;	/* 자식 요소들을 수직 중앙 정렬 */
-	align-items: center;	/* 자식 요소들을 수평 중앙 정렬 */
-	padding: 15px 0;	/* 위아래 15px의 패딩 추가 */
-}
-.card-date {
-	padding: 15px 0; /* 위아래 15px의 패딩 추가 */
-	text-align: center;
-}
-.card-description {
-	color: #D32F2F;
-	font-size: 12px;
-	text-align: center;
-}
-
-
-/* 더보기  */
-.region{
-	display: grid;
-    height: 150px;
-   	width: 100%;
-    background-color: #D6AEDD;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-/* 커뮤니티 */
-.board-box{
+[class*="section0"]{
+	position: relative;
 	display: flex;
-	border: 1px solid black;
-	display: flex;	/* 플렉스박스를 사용하여 자식 요소들을 정렬 */
-	flex-direction: column;	/* 자식 요소들을 수직으로 정렬 */
-	justify-content: center;	/* 자식 요소들을 수직 중앙 정렬 */
-	align-items: center;	
-	width: 100%; /* 부모 컨테이너의 너비를 채움 */
+	flex-direction: column;
 }
-.board{
-	justify-content: center;
+
+/* 두번재 섹션 */
+.section02{
+	height: 600px;
+}
+.more{
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: flex;
 	align-items: center;
+	gap :0.4rem;
+	border-radius: 0.3rem;
+	line-height: 1;
+	background-image: url("../../images/puls.png");
 }
-.board-content{
-	width: 500px;
-	height: 100px;
-	background-color: #E6E6FA;
-	font-weight: bold;
-	border: 1px solid black;
-	padding: 10px;
-	gap: 50px;	
+
+.boon{
+	width: 1100px;
+	height:150px;
+	background-image: url("https://cdn.namdonews.com/news/photo/202410/794752_466327_1159.jpg");
+	text-align: center; /* 텍스트 중앙 정렬 */
+	align-items: center;      /* 수직 중앙 정렬 */
+	background-attachment: fixed;
 }
+
