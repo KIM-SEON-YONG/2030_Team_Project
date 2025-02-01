@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+/* 전체 배경 스타일 */
+body {
+	background-color: #f7f4fc;
+	font-family: 'Arial', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+/* 게시판 컨테이너 */
+.board_box {
+	background-color: #ffffff;
+	border-radius: 15px;
+	padding: 40px;
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+	margin: 50px auto;
+	width: 90%;
+	max-width: 1200px;
+}
+
+/* 헤더 스타일 */
+.header {
+	background-color: #e9d5f8;
+	border-radius: 15px;
+	padding: 20px 30px;
+	text-align: center;
+	margin-bottom: 30px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header>h1 {
+	color: #5a189a;
+	font-size: 28px;
+	font-weight: bold;
+	margin: 0;
+}
+
+.header>p {
+	color: #6d6875;
+	font-size: 16px;
+	margin: 10px 0 0;
+}
+
+/* 검색창 스타일 */
+.search-bar>input {
+	width: 100%;
+	padding: 15px;
+	border: 2px solid #b4aee8;
+	border-radius: 30px;
+	font-size: 16px;
+	color: #5a189a;
+	margin-bottom: 30px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar>input:focus {
+	outline: none;
+	border-color: #9d4edd;
+	box-shadow: 0 4px 12px rgba(157, 78, 221, 0.3);
+}
+
+/* 게시판 테이블 */
+.table {
+	width: 100%;
+	background-color: #ffffff;
+	border-radius: 15px;
+	overflow: hidden;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	margin-bottom: 30px;
+}
+
+.table>thead {
+	background-color: #d8b4e2;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 16px;
+	text-align: center;
+}
+
+.table>tbody>tr {
+	text-align: center;
+	font-size: 15px;
+	color: #5a189a;
+	border-bottom: 1px solid #f1e8ff;
+}
+
+.table>tbody>tr:hover {
+	background-color: #f3e8fc;
+}
+
+/* 글쓰기 버튼 */
+.btn-pink {
+	background-color: #9d4edd;
+	color: #ffffff;
+	font-size: 16px;
+	padding: 12px 30px;
+	border: none;
+	border-radius: 30px;
+	font-weight: bold;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+}
+
+.btn-pink:hover {
+	background-color: #6a1b9a;
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 페이지네이션 */
+.pagination .page-link {
+	color: #9d4edd;
+	border: 1px solid #9d4edd;
+	border-radius: 50%;
+	font-size: 12px;
+	width: 60px;
+	height: 45px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 4px;
+	transition: all 0.3s ease;
+}
+
+.pagination .page-link:hover {
+	background-color: #9d4edd;
+	color: #ffffff;
+}
+
+.pagination .active .page-link {
+	background-color: #5a189a;
+	color: #ffffff;
+	border-color: #5a189a;
+}
+
+/* 카테고리 배지 스타일 */
+.category-badge {
+	background-color: #6a1b9a;
+	color: white;
+	padding: 5px 10px;
+	border-radius: 20px;
+	font-size: 14px;
+}

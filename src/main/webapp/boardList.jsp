@@ -44,6 +44,7 @@ body {
 }
 
 .header h1 {
+
 	color: #5a189a;
 	font-size: 28px;
 	font-weight: bold;
@@ -217,9 +218,6 @@ body {
 	    });
 	});
 </script>
-
-
-
 
 		<!-- 페이지 네비게이션 -->
 		<nav class="d-flex justify-content-center">

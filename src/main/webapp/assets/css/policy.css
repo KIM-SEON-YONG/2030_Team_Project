@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+p {
+	margin: 0 !important; /* margin 재설정 */
+    padding: 0; /* padding도 조정 가능 */
+	
+}
+
 /* 지역 선택 후 새롭게 로드되었다고 인식할 수 있도록 UI 추가 - 로딩인디케이터 */
 #loading {
     position: fixed;

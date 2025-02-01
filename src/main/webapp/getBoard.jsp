@@ -166,8 +166,8 @@ body {
 
 		<!-- 목록으로 버튼 -->
 		<div class="btn-group mb-3">
-			<button class="btn btn-secondary"
-				onclick="location.href='boardList.jsp'">목록으로</button>
+			<button class="btn btn-secondary" type="button"
+				onclick="location.href='<%= request.getContextPath() %>/boardList.jsp'">목록으로</button>
 		</div>
 		</form>
 	</div>
