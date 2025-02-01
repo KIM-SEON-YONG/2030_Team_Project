@@ -41,13 +41,32 @@ nav {
 	position: absolute;
 	right: 20px; /* 오른쪽에서 20px 왼쪽 */
 	display: flex;
-	gap: 20px; /* 각 항목 간격 */
-	font-size: 14px;
-	list-style: none;
-	margin-right: 15px; /* 오른쪽에서 살짝 떨어지도록 설정 */
+	gap: 10px; /* 각 항목 간격 */
+	font-size: 16px;
 	color: black;
 	white-space: pre-line;
-	padding-top: 20px;
+	align-items: center; /* 수직 중앙 정렬 */
+}
+/* 로그아웃 버튼과 마이페이지 링크 스타일 */
+.logout {
+    display: flex;
+    gap: 10px; /* 버튼과 링크 사이에 간격 추가 */
+    align-items: end; 
+}
+/* 마이페이지 링크 스타일 */
+.nav-mypage,.nav-logout {
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: black; /* 링크 색상 */
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f9fa; /* 버튼 배경색 */
+    font-size: 16px;
+    display: inline-block; /* 버튼처럼 보이도록 */
+}
+.nav-mypage:hover,.nav-logout:hover {
+    background-color: #007bff;
+    color: white; /* hover 시 배경색 변경 */
 }
 
 
@@ -55,40 +74,48 @@ nav {
 .section01{
 	height: 600px;
 	display: flex;
+	flex-direction: column; /* 세로 배치 */
 	align-items: center;
 	justify-content: center;
 }
+.main {
+    display: flex;
+    flex-direction: column; /* 요소들을 세로 정렬 */
+    align-items: center; /* 중앙 정렬 */
+    text-align: center;
+}
 .text-box{
-	background-color: rgb(234, 197, 245);
+	background: linear-gredient(45deg, violet, orange);
+	background-color:rgb(234, 197, 245);
 	width: 1100px;
+	text-align: center; /* 텍스트 중앙 정렬 */
+	height: 300px;
 }	
-h1 {
+h1 {/* S.P.A.R.K */
 	height: 150px;
 	align-content:end;
 	font-size: xx-large;	/* 텍스트 크기 조정 */
 	margin-bottom: 20px;
 	color: #333;
 	text-align: center; /* 텍스트 중앙 정렬 */
-	align-items: center;      /* 수직 중앙 정렬 */
 }
 .welfare-option{
 	height: 170px;
 }
- /* 카테고리 */
- #categorys{
- 	position: relative;
- 	bottom: 0;
- 	width: 1100px;
+#categories{
+ 	width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
  }
- /*   */
 .category{
-	display: flex; 
-	flex-wrap: wrap; /* 줄 바꿈 가능 */
-    gap: 20px; /* 각 항목 간 간격 */
-	justify-content: center;
-	align-items: center;
-	transition: transform 0.3s ease;
-	align-content:center;
+    display: flex; /* flexbox 레이아웃을 사용하여 자식 요소들을 배치 */
+    gap: 20px; /* 자식 요소들 간의 간격을 20px로 설정 */
+    justify-content: center; /* 자식 요소들을 수평으로 중앙 정렬 */
+    align-items: center; /* 자식 요소들을 수직으로 중앙 정렬 */
+    transition: transform 0.3s ease; /* 변환(예: hover 시 크기 변환)에 0.3초의 시간 동안 부드러운 애니메이션을 적용 */
+	overflow-x: auto; /* 화면 너비를 초과할 경우 가로 스크롤 */
+	flex-wrap: wrap; /* 항목들이 한 줄에 배치되도록 설정 */
 }
 
 .box{
@@ -104,43 +131,121 @@ h1 {
     transition: background-color 0.3s ease;  /* 마우스 오버 시 배경색 변화 */
     text-align: center; /* 텍스트 중앙 정렬 */
 	align-items: center;      /* 수직 중앙 정렬 */
+	justify-content: center;
+	display: flex;
 }
-/* 섹션 전체 */
-#list-item-1,#list-item-2,#list-item-3,#list-item-4{
-	color: black;
-	letter-spacing: -0.02rem;
-	line-height: 1;
-	font-size: 1.5rem;
-	font-weight: 700;
+.box:hover {
+    background-color: #f0f0f0; /* 호버 시 배경색 변경 */
 }
+/* 반응형 레이아웃 */
+@media screen and (max-width: 600px) {
+    .category {
+        flex-direction: column; /* 화면이 좁으면 버튼들을 세로로 나열 */
+        align-items: flex-start; /* 세로 배치 시 왼쪽 정렬 */
+    }
+
+    .box {
+        width: 100%; /* 버튼이 가로를 꽉 채우도록 설정 */
+        margin: 10px 0; /* 버튼 간격을 세로로 설정 */
+    }
+}
+
+/* 색션 타이틀 전체 */
 [class*="section0"]{
 	position: relative;
 	display: flex;
 	flex-direction: column;
+	gap: var(--spacer7);
+    margin-bottom: var(--spacer20);
+}
+.section-tit{
+	color: black;
+	letter-spacing: -0.02rem;
+	line-height: 1;
+	font-size: 1.5rem;
+	font-weight: 700; /* 폰트 굵기 */
+	padding-top: 20px;
+	text-align: left;
 }
 
-/* 두번재 섹션 */
+
+/* 두번째 색션 - 취업 */
 .section02{
-	height: 600px;
+	height: 754px;
 }
-.more{
+.more{/* 더보기 버튼 */
 	position: absolute;
 	top: 0;
 	right: 0;
 	display: flex;
+	flex-flow: row wrap;
 	align-items: center;
-	gap :0.4rem;
+	gap: 0.4rem;
 	border-radius: 0.3rem;
 	line-height: 1;
-	background-image: url("../../images/puls.png");
+}
+.ico-add{
+	display: block;
+	width: 2rem;
+	height: 2rem;
+	background-image: url(../../images/plus.png);
 }
 
-.boon{
+.boon1, .boon2, .boon3, .boon4{/* 지역혜택더보기 배너*/
+	color:white;
 	width: 1100px;
-	height:150px;
-	background-image: url("https://cdn.namdonews.com/news/photo/202410/794752_466327_1159.jpg");
+	min-height:140px;/* 최소 높이를 강제 적용 */
 	text-align: center; /* 텍스트 중앙 정렬 */
 	align-items: center;      /* 수직 중앙 정렬 */
-	background-attachment: fixed;
+	display: flex; /* 내용이 중앙에 위치하도록 설정 */
+    justify-content: center;
+    background-attachment: fixed;
+    background-size: cover; /* 배경 크기 조정 */
+    background-position: center; /* 배경 중앙 정렬 */
 }
+.boon1 {
+    background-image: url("https://cdn.namdonews.com/news/photo/202410/794752_466327_1159.jpg");
+}
+.boon2 {
+    background-image: url("https://blog.kakaocdn.net/dn/FWkKm/btra35yq6ee/96Rj8niVBGDmccVX3YgITK/img.jpg");
+}
+.boon3 {
+    background-image: url("https://dimg.donga.com/wps/NEWS/IMAGE/2024/07/31/126221880.2.jpg");
+}
+.boon4 {
+    background-image: url("https://www.ktsketch.co.kr/news/photo/202009/6288_28730_597.jpg");
+}
+
+/* 배너 반응형 */
+@media screen and (max-width: 768px) {
+    /* 작은 화면에서는 배너 크기를 줄이고, 배경 이미지 크기 조정 */
+    .boon1, .boon2, .boon3, .boon4 {
+        width: 100%; /* 화면 너비에 맞게 배너 크기 조정 */
+        height: 120px; /* 배너 높이 조정 */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* 매우 작은 화면에서는 배너 높이를 더 줄임 */
+    .boon1, .boon2, .boon3, .boon4 {
+        height: 100px;
+    }
+}
+
+/* 세번째 색션 - 결혼 */
+.section03{
+	height: 750px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* 네번째 색션 - 출산 */
+.section03{
+	height: 750px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 

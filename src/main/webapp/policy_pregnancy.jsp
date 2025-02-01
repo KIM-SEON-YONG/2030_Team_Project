@@ -18,6 +18,7 @@
 
 </head>
 <body>
+<div id="header"></div>
 	<div class="container">
 		<div class="welfare-content">
 			<p class="welfare_header_title">출산 지원</p>
@@ -115,7 +116,7 @@
 	    <div class="spinner"></div>
 	    -->
 	</div>
-
+<div id="footer"></div>
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
 		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -126,6 +127,23 @@
 	<script src="assets/js/ajax.js"></script>
 	
 	<script>
+	
+	/* 해더 및 풋터 */
+    // Header.jsp 파일을 #header div에 로드
+     fetch('Header.jsp')
+       .then(response => response.text())
+       .then(data => {
+         document.getElementById('header').innerHTML = data;
+       })
+       .catch(error => console.error('Error loading header:', error));
+ 
+     // Footer.jsp 파일을 #footer div에 로드
+     fetch('Footer.jsp')
+       .then(response => response.text())
+       .then(data => {
+         document.getElementById('footer').innerHTML = data;
+       })
+       .catch(error => console.error('Error loading footer:', error));
 	
 	/* ***주의*** AJAX 코드는 해당 jsp 하단에 위치해야됨!!! 별도로 .js 파일로 빼지 않기!! */
 	

@@ -130,14 +130,18 @@ p {
 
 
 /* welfare card */
-  #data-container, #data-container-job,  #data-container-wedding, #data-container-preg, 
-  #default-container, #default-container-job, #default-container-wedding, #default-container-preg {
-
+  #data-container, 
+  #data-container-job,  
+  #data-container-wedding, 
+  #data-container-preg, 
+  #default-container, 
+  #default-container-job, 
+  #default-container-wedding, 
+  #default-container-preg {
 	display: flex;
 	flex-wrap: wrap; /* 자식 요소가 부모의 너비를 초과하면 줄바꿈 */
-	gap: 16px; /* 카드 간 간격 */
-	width: 300px;
-	height: 450px;
+	gap: 20px; /* 카드 간 간격 */
+	/* justify-content: space-between; 카드들 사이에 일정한 간격을 두고 정렬 */
 }
 
 #data-container.no-data {
@@ -155,17 +159,30 @@ p {
 } 
 
 .welfare-card {
+	width: 300px;
+	height: 480px;
 	background-color: rgb(234, 197, 245);
 	border: 1px solid #333;
-	width: 300px;
-	height: 500px;
 	padding: 16px;
 	margin-bottom: 16px;
 	border-radius: 20px;
 	overflow: hidden; /* 카드 내용이 넘치지 않도록 숨김 처리 */
+	transition: transform 0.3s ease; /* 호버 시 확대 효과 */
 }
-
-
+.welfare-card:hover {
+    transform: scale(1.05); /* 카드 확대 효과 */
+}
+/* 반응형 설정 */
+@media screen and (max-width: 768px) {/* 화면 크기가 768px 이하일 경우 (태블릿 화면) */
+    .welfare-card {
+        width: calc(50% - 16px);  /* 2개씩 한 줄에 배치 */
+    }
+}
+@media screen and (max-width: 480px) {/* 화면 크기가 480px 이하일 경우 (모바일 화면) */
+    .welfare-card {
+        width: 100%;  /* 1개씩 한 줄에 배치 */
+    }
+}
 
 /* 모달창 */
 .modal {

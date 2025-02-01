@@ -56,16 +56,22 @@
 					// 세션에서 사용자 정보를 가져옵니다.
 					UserDTO user = (UserDTO) session.getAttribute("user"); // 세션에서 'user' 속성 가져오기
 					if (user != null) {
-						// 로그인된 상태라면 환영 메시지와 로그아웃/마이페이지 버튼 표시
-						out.print("환영합니다~💕 " + user.getUser_name() + "님🎉🎉");
 					%>
-					<br>
-					<!-- "환영합니다" 후 줄바꿈 추가 -->
+					<!-- 텍스트를 감싸는 div 가운데 정렬 -->
+					<div class="wellcom">
+						<!-- "환영합니다" 텍스트를 가운데 정렬 -->
+						<p>
+							환영합니다~💕<%=user.getUser_name()%>님🎉🎉
+						</p>
+						<!-- "환영합니다" 후 줄바꿈 추가 -->
+					</div>
 					<!-- 로그인된 사용자만 볼 수 있는 버튼 -->
-					<form action="LogOutCon" method="post">
-						<button class="btn btn-link nav-logout">로그아웃</button>
-						<a href="Mypage.jsp">마이페이지</a><br>
-					</form>
+					<div class="logout">
+						<form action="LogOutCon" method="post"">
+							<button class="btn nav-logout">로그아웃</button>
+						</form>
+						<a href="Mypage.jsp" class="btn nav-mypage">마이페이지</a>
+					</div>
 					<%
 					} else {
 					// 로그인되지 않은 상태라면 로그인 버튼만 표시
@@ -145,47 +151,51 @@
 		</section>
 
 
-		<!-- 두번재 섹션  -->
+		<!-- 두번째 색션- 취업  -->
 		<section class="section02">
-			<h4 id="list-item-1">취업정보 확인하기</h4>
-			<a href="policy_wedding.jsp" class="more">더보기</a>
-			<div class="welfare-card-group"></div>
-				<!-- 기본 데이터 표시 영역 -->
-				<div id="default-container-job">
-					<%
-					/* 취업 복지정책 가져오기 */
-					PolicyDAO policyDAO = new PolicyDAO();
-					List<PolicyDTO> jobList = policyDAO.jobList();
+			<h4 id="list-item-1" class="section-tit">취업정보 확인하기</h4>
+			<a href="policy_job.jsp" class="more">더보기 <i class="ico-add"
+				aria-hidden="true"></i>
+			</a>
 
-					for (int i = 0; i < jobList.size(); i++) {
-					%>
-					<div class="welfare-card">
-						<a href="<%=jobList.get(i).getWelfare_url()%>" target="_blank">
-							<span class="welfare_sort welfare_sort_job">취업</span>
-							<p class="welfare_title welfare_title_job"><%=jobList.get(i).getWelfare_title()%></p>
-							<p class="welfare_period welfare_period_job"><%=jobList.get(i).getWelfare_period()%></p>
-							<p class="welfare_content welfare_content_job"><%=jobList.get(i).getWelfare_content()%></p>
-						</a>
-					</div>
-					<%
-					}
-					%><!-- for문 닫는 스크립틀릿 -->
+			<!-- 기본 데이터 표시 영역 -->
+			<div id="default-container-job">
+				<%
+				/* 취업 복지정책 가져오기 */
+				PolicyDAO policyDAO = new PolicyDAO();
+				List<PolicyDTO> jobList = policyDAO.jobList();
+
+				for (int i = 0; i < jobList.size(); i++) {
+				%>
+				<div class="welfare-card">
+					<a href="<%=jobList.get(i).getWelfare_url()%>" target="_blank">
+						<span class="welfare_sort welfare_sort_job">취업</span>
+						<p class="welfare_title welfare_title_job"><%=jobList.get(i).getWelfare_title()%></p>
+						<p class="welfare_period welfare_period_job"><%=jobList.get(i).getWelfare_period()%></p>
+						<p class="welfare_content welfare_content_job"><%=jobList.get(i).getWelfare_content()%></p>
+					</a>
 				</div>
-				<!-- AJAX로 검색 결과를 표시할 영역- 지역으로 검색한 값이 있다면 -->
-				<div id="data-container-job">
-					<!-- 비동기 데이터가 표기될 위치 -->
-				</div>
-			
+				<%
+				}
+				%><!-- for문 닫는 스크립틀릿 -->
+			</div>
+			<!-- AJAX로 검색 결과를 표시할 영역- 지역으로 검색한 값이 있다면 -->
+			<div id="data-container-job">
+				<!-- 비동기 데이터가 표기될 위치 -->
+			</div>
 			<!-- 지역혜택 더보기 -->
-			<div class="boon">
+			<div class="boon1">
 				<a href="BS1.html">지역혜택 보러 가보자고~~ 홍보도 해보자고~~</a>
 			</div>
 		</section>
 
 
-		<!-- 세번째 섹션 -->
+		<!-- 세번째 섹션 - 결혼 -->
 		<section class="section03">
-			<h4 id="list-item-2">결혼</h4>
+			<h4 id="list-item-2" class="section-tit">결혼정보 확인하기</h4>
+			<a href="policy_job.jsp" class="more">더보기 <i class="ico-add"
+				aria-hidden="true"></i>
+			</a>
 			<div class="welfare-card-group">
 				<!-- 기본 데이터 표시 영역 -->
 				<div id="default-container-wedding">
@@ -215,17 +225,18 @@
 				</div>
 			</div>
 			<!-- 지역혜택 더보기 -->
-			<p>
-				<button class="region">지역혜택 보러가기!!- 지역혜택이 있는 지역의 이미지를 넣어
-					홍보가능함을 암시하기</button>
-			<p>
+			<div class="boon2">
+				<a href="BS1.html">지역혜택 보러 가보자고~~ 홍보도 해보자고~~</a>
+			</div>
 		</section>
 
-		<!-- 4번째 섹션 -->
+		<!-- 네번째 색션 - 출산 -->
 		<section class="section04">
 			<!-- welfare-card-group -->
-			<h4 id="list-item-3">출산</h4>
-
+			<h4 id="list-item-3" class="section-tit">출산정보 확인하기</h4>
+			<a href="policy_job.jsp" class="more">더보기 <i class="ico-add"
+				aria-hidden="true"></i>
+			</a>
 			<div class="welfare-card-group">
 				<!-- 기본 데이터 표시 영역 -->
 				<div id="default-container-preg">
@@ -257,14 +268,17 @@
 			<!-- welfare-card-group -->
 			<input type="checkbox" class="more-btn">
 			<!-- 더보기 -->
-			<div>
-				<div class="region">지역혜택 더보기</div>
-				<!-- 지역혜택 더보기 -->
+			<!-- 지역혜택 더보기 -->
+			<div class="boon3">
+				<a href="BS1.html">지역혜택 보러 가보자고~~ 홍보도 해보자고~~</a>
 			</div>
 		</section>
-		<!-- 5번째 섹션 -->
+		<!-- 다섯번째 섹션 - 커뮤 -->
 		<section class="section05">
-			<h4 id="list-item-4">커뮤니티 게시판</h4>
+			<h4 id="list-item-4" class="section-tit">커뮤니티 게시판</h4>
+			<a href="policy_job.jsp" class="more">더보기 <i class="ico-add"
+				aria-hidden="true"></i>
+			</a>
 			<%
 			BoardDAO dao = new BoardDAO();
 			List<BoardDTO> boardList = dao.boardList();
@@ -327,12 +341,15 @@
 					<button class="btn btn-pink"
 						onclick="location.href='board-write.html'">글쓰기</button>
 				</div>
+				<!-- 지역혜택 더보기 -->
+				<div class="boon4">
+					<a href="BS1.html">지역혜택 보러 가보자고~~ 홍보도 해보자고~~</a>
+				</div>
 			</div>
-			<!-- board_box -->
+		</section>
+		<!-- board_box -->
 	</div>
-	<!-- main -->
-	</section>
-
+	<!-- container -->
 	<div id="footer"></div>
 
 	<!-- main-box  -->
@@ -346,8 +363,6 @@
 	    <div class="spinner"></div>
 	    -->
 	</div>
-
-	<!-- container -->
 
 
 	<!-- jQuery -->
@@ -468,6 +483,7 @@
 			window.location.href = `board-post.html?index=${index}`;
 		}
 		
-	</script>
+	
+</script>
 </body>
 </html>
