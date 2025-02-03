@@ -67,6 +67,16 @@
 		WHERE USER_ID = #{user_id}
 	</select>
 
+    <!-- 이메일로 사용자 조회 -->
+    <select id="getUserByEmail" parameterType="string" resultType="com.TTteamProject.model.UserDTO">
+        SELECT * FROM users WHERE user_email = #{email}
+    </select>
+
+    <!-- Google 사용자 자동 회원가입 -->
+    <insert id="registerGoogleUser" parameterType="com.TTteamProject.model.UserDTO">
+        INSERT INTO users (user_email, user_pw, user_name, user_picture)
+        VALUES (#{user_email}, 'GOOGLE_LOGIN', #{user_name}, #{user_picture})
+    </insert>
 
 
 

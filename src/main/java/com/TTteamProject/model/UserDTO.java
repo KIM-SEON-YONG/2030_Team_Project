@@ -34,6 +34,12 @@ public class UserDTO {
 			this.user_pw = user_pw;
 		}
 
+	  	    // Google 로그인용 생성자 추가
+	  	    public UserDTO(String user_email, String user_pw, String user_name) {
+	  	        this.user_id = user_email;
+	  	        this.user_pw = user_pw;  // Google 로그인 계정은 비밀번호 없음 → "GOOGLE_LOGIN"
+	  	        this.user_name = user_name;
+	  	    }
 
 	  	// 로그인할때(id/pw확인)
 			public UserDTO loginCheck(String user_id, String user_pw) {
