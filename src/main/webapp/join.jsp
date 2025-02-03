@@ -72,8 +72,8 @@ input[type="radio"] {
 </style>
 </head>
 <body>
-<!-- 해더  -->
-<%@ include file="Header.jsp"%>
+	<!-- 해더  -->
+	<%@ include file="Header.jsp"%>
 	<h2 style="text-align: center;">회원가입</h2>
 	<table>
 		<form name="join" action="JoinCon" method="post" onsubmit="return sendIt();">

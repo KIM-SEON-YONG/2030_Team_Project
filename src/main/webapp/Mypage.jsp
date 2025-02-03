@@ -127,8 +127,8 @@ if (user == null) {
 </style>
 </head>
 <body>
-<!-- 해더  -->
-<%@ include file="Header.jsp"%>
+	<!-- 해더  -->
+	<%@ include file="Header.jsp"%>
    <div class="container">
       <!-- 메뉴 -->
       <div class="menu">
@@ -223,7 +223,7 @@ if (user == null) {
          </table>
       </div>
    </div>
-<!-- 풋터 -->
+	<!-- 풋터 -->
 	<%@ include file="Footer.jsp"%>
 
 

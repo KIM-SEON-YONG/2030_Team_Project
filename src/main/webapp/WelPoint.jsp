@@ -116,8 +116,8 @@ if (user == null) {
 </style>
 </head>
 <body>
-<!-- 해더  -->
-<%@ include file="Header.jsp"%>
+	<!-- 해더  -->
+	<%@ include file="Header.jsp"%>
 	<div class="container">
 		<!-- 메뉴 -->
 		<div class="menu">
@@ -162,8 +162,8 @@ if (user == null) {
 			</div>
 		</div>
 	</div>
-<!-- 풋터 -->
-<%@ include file="Footer.jsp"%>
+	<!-- 풋터 -->
+	<%@ include file="Footer.jsp"%>
 <script>
    function logout() {
          window.location.href = "LogOutCon"; // 로그아웃 서블릿 호출
