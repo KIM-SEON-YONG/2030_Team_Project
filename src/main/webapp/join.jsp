@@ -72,6 +72,8 @@ input[type="radio"] {
 </style>
 </head>
 <body>
+<!-- 해더  -->
+<%@ include file="Header.jsp"%>
 	<h2 style="text-align: center;">회원가입</h2>
 	<table>
 		<form name="join" action="JoinCon" method="post" onsubmit="return sendIt();">
@@ -84,7 +86,8 @@ input[type="radio"] {
 				<button type="button" class="btn" id="ID_CHECK"onclick="return checkId()">ID 중복 확인</button>
 				<input type="password" name="USER_PW" size="20" placeholder="비밀번호">
 				<input type="password" name="USER_PW_CHECK" size="20"placeholder="비밀번호확인"> 
-				<input type="text" name="USER_PHONE"size="20" placeholder="전화번호"> 
+				<input type="text" name="USER_PHONE"size="20" placeholder="전화번호 ex)010-1234-5678"> 
+				<input type="text" name="USER_EMAIL" size="20" placeholder="이메일 ex)example@domain.com">
 				<input type="text"name="FAV_WELFARE" size="20" placeholder="관심분야"> 
 				<input type="text" name="FAV_REGION" size="20" placeholder="관심지역">
 			</div>
@@ -96,7 +99,8 @@ input[type="radio"] {
 			<div id="idCheckResult" style="display: none;"></div>
 		</form>
 	</table>
-
+<!-- 풋터 -->
+	<%@ include file="Footer.jsp"%>
 	<script>
 	let idCheck = 0;// ID 중복 체크 상태 (0: 미확인, 1: 사용 가능)
 	
@@ -142,6 +146,8 @@ input[type="radio"] {
 	    const USER_PW = document.join.USER_PW;
 	    const USER_PW_CHECK = document.join.USER_PW_CHECK;
 	    const USER_PHONE = document.join.USER_PHONE;
+	    const USER_EMAIL = document.join.USER_EMAIL;
+	    const FAV_WELFARE = document.join.FAV_WELFARE;
 	    const FAV_REGION = document.join.FAV_REGION;
 	    
 	 	// 이름 검사
@@ -195,12 +201,27 @@ input[type="radio"] {
 	        USER_PHONE.focus();
 	        return false;
 	    }
-	    // 선호 지역 검사
+	 	// 이메일 검사
+	    const expEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+		if (!expEmail.test(USER_EMAIL.value.trim())) {
+		    alert('이메일 형식이 올바르지 않습니다. 예: example@domain.com');
+		    USER_EMAIL.focus();
+		    return false;
+		}
+	    // 선호 분야 검사
+	    if (!FAV_WELFARE.value) {
+	        alert('선호 지역을 선택해주세요.');
+	        FAV_REGION.focus();
+	        return false;
+	    }
+	 	// 선호 지역 검사
 	    if (!FAV_REGION.value) {
 	        alert('선호 지역을 선택해주세요.');
 	        FAV_REGION.focus();
 	        return false;
 	    }
+	    
+	    
 	    // 모든 검사 통과 시 true 반환
 	return true;
 };

@@ -35,17 +35,29 @@ import com.TTteamProject.model.UserDTO;
 		String user_phone = request.getParameter("USER_PHONE");
 		String fav_welfare = request.getParameter("FAV_WELFARE");
 		String fav_region = request.getParameter("FAV_REGION");
+		String user_email = request.getParameter("USER_EMAIL");
+		String join_dt = request.getParameter("JOIN_DT");
 		
-		System.out.println(user_id);
-		System.out.println(user_pw);
-		System.out.println(user_name);
-		System.out.println(user_birthdate);
-		
-		
+		// wel_point, postcount는 String으로 넘어오기 때문에 int로 변환 필요
+		int wel_point = 0;
+		int postcount = 0;
+		 try {
+	            wel_point = Integer.parseInt(request.getParameter("WEL_POINT"));
+	        } catch (NumberFormatException e) {
+	            // 예외 처리: 잘못된 숫자 형식이면 0으로 처리하거나 다른 기본값 설정
+	            System.out.println("잘못된 WEL_POINT 값: " + e.getMessage());
+	        }
+
+	        try {
+	            postcount = Integer.parseInt(request.getParameter("POSTCOUNT"));
+	        } catch (NumberFormatException e) {
+	            // 예외 처리: 잘못된 숫자 형식이면 0으로 처리하거나 다른 기본값 설정
+	            System.out.println("잘못된 postcount 값: " + e.getMessage());
+	        }
 
 		// 3. DAO의 메서드 호출
 		UserDAO dao = new UserDAO();
-		UserDTO dto = new UserDTO(user_id, user_pw,user_name, user_birthdate, user_gender, user_phone, fav_welfare, fav_region, 0, 0);
+		UserDTO dto = new UserDTO(user_id, user_pw,user_name, user_birthdate, user_gender, user_phone, fav_welfare, fav_region, wel_point, postcount, user_email,join_dt);
 		
 		int result = dao.joinList(dto);		
 		

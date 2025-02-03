@@ -207,7 +207,7 @@
 		<section class="section04">
 			<!-- welfare-card-group -->
 			<h4 id="list-item-3" class="section-tit">출산정보 확인하기</h4>
-			<a href="policy_pregancy.jsp" class="more">더보기 <i class="ico-add"
+			<a href="policy_pregnancy.jsp" class="more">더보기 <i class="ico-add"
 				aria-hidden="true"></i>
 			</a>
 			<div class="welfare-card-group">
@@ -300,6 +300,7 @@
 		<!-- board_box -->
 	</div>
 	<!-- container -->
+	<!-- 풋터 -->
 	<%@ include file="Footer.jsp"%>
 
 	<!-- main-box  -->

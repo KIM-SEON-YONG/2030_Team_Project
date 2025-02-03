@@ -62,54 +62,6 @@ body.dark-mode .toggle-btn:hover {
 	background-color: #d68910;
 }
 
-/* 해더 */
-nav {
-	position: relative;
-	height: 150px;
-	display: flex;
-	word-wrap: break-word;
-}
-/* S.P.A.R.K - 왼쪽 상단 */
-.header-mini {
-	font-size : 2rem;
-	color: #333;
-	position: absolute; /* 위치를 절대값으로 설정 */
-	top: 0; /* 상단에 배치 */
-	left: 0;
-}
-.nav-header {
-	position: absolute;
-	right: 20px; /* 오른쪽에서 20px 왼쪽 */
-	display: flex;
-	gap: 10px; /* 각 항목 간격 */
-	font-size: 16px;
-	color: black;
-	white-space: pre-line;
-	align-items: center; /* 수직 중앙 정렬 */
-}
-/* 로그아웃 버튼과 마이페이지 링크 스타일 */
-.logout {
-    display: flex;
-    gap: 10px; /* 버튼과 링크 사이에 간격 추가 */
-    align-items: end; 
-}
-/* 마이페이지 링크 스타일 */
-.nav-mypage,.nav-logout {
-    text-decoration: none; /* 링크 밑줄 제거 */
-    color: black; /* 링크 색상 */
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f9fa; /* 버튼 배경색 */
-    font-size: 16px;
-    display: inline-block; /* 버튼처럼 보이도록 */
-}
-.nav-mypage:hover,.nav-logout:hover {
-    background-color: #f8c5f3;
-    color: #000000; /* hover 시 배경색 변경 */
-}
-
-
 /* 첫번째 섹션 */
 .section01{
 	height: 600px;
@@ -175,7 +127,7 @@ nav {
 	width: 160px;  /* 버튼 너비 */
 }
 .box:hover, .box1:hover {
-    background-color: #f8c5f3; /* 호버 시 배경색 변경 */
+    background-color:#E6E6FA; /* 호버 시 배경색 변경 */
 }
 /* 반응형 레이아웃 */
 @media screen and (max-width: 600px) {

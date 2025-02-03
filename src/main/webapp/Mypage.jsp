@@ -127,6 +127,8 @@ if (user == null) {
 </style>
 </head>
 <body>
+<!-- 해더  -->
+<%@ include file="Header.jsp"%>
    <div class="container">
       <!-- 메뉴 -->
       <div class="menu">
@@ -171,13 +173,13 @@ if (user == null) {
                <th>보유포인트</th>
                <td><%= user.getWel_point() %>P</td>
                <th>내가쓴글</th>
-               <td><%=user.getPostCount()%></td>
+               <td><%=user.getPostcount()%></td>
             </tr>
             <tr>
                <th>최종접속일시</th>
                <td>2016-01-25 15:42:23</td>
                <th>회원가입일시</th>
-               <td>2016-01-11 13:52:33</td>
+               <td><%=user.getJoin_dt()%></td>
             </tr>
             <tr>
                <th>연락처</th>
@@ -221,12 +223,13 @@ if (user == null) {
          </table>
       </div>
    </div>
-
+<!-- 풋터 -->
+	<%@ include file="Footer.jsp"%>
 
 
    <script>
    function logout() {
-         window.location.href = "logoutServlet"; // 로그아웃 서블릿 호출
+         window.location.href = "LogOutCon"; // 로그아웃 서블릿 호출
       }
    </script>
 </body>

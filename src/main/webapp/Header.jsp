@@ -24,11 +24,14 @@ nav {
 /* S.P.A.R.K - 왼쪽 상단 */
 #header-mini{
 	text-decoration: none;
-	padding-left: 30px;
 	font-size: 2rem;
 	color: black;
 	background-color: white;
 	border-style: hidden;
+}
+a{
+	cursor: pointer;
+	z-index: 5;
 }
 
 /* 로그인 및 회원가입 - 오른쪽 상단 */
@@ -79,24 +82,20 @@ p{
 
 /* 네비게이션 아이템 */
 .nav-items {
-	display: flex;
-	justify-content: center; /* 가운데 정렬 */
-	align-items: center; /* 세로 중앙 정렬 */
-	gap: 20px; /* 네비게이션 아이템 간 간격 */
-	padding: 10px 0; /* 위아래 여백 */
-	width: 100%; /* 전체 너비 사용 */
-}
-
-.nav-item {
-	padding: 20px;
+	text-align:center;
+	width:100%;
 	font-size: 18px;
 	font-weight: bold;
-	text-decoration: none;
 	color: midnightblue;
 	transition: background-color 0.3s ease, color 0.3s ease;
-	border-radius: 8px;
-	border-bottom: 2px solid #333; /* 밑줄 추가 */
 }
+.nav-item{
+	padding: 0 20px 0 20px; 
+	text-decoration: none;
+	border-bottom: 2px solid #333; /* 밑줄 추가 */
+	border-radius: 8px;
+}
+
 </style>
 </head>
 <body>
@@ -104,7 +103,7 @@ p{
 	<header>
 		<nav class="nav">
 			<!-- 왼쪽 상단 "S.P.A.R.K" -->
-			<button id="header-mini"><a href="Main.jsp">S.P.A.R.K</a></button> 
+			<a href="Main.jsp" id="header-mini">S.P.A.R.K</a>
 			<div class="nav-header">
 				<%
 				// 세션에서 사용자 정보를 가져옵니다.
