@@ -15,18 +15,42 @@ function toggleChat() {
 
 // 메시지 전송 함수
 function sendMessage() {
-	var userMessage = document.getElementById("userMessage").value.trim();
+	var userMessage = document.getElementById("userMessage").value.trim(); // 사용자 입력메시지
+	
+	
+
 	if (userMessage === "") {
 		alert("메시지를 입력해 주세요.");
 		return;
 	}
 
-	// 'ddd'와 같은 의미 없는 입력에 대한 처리
-	if (userMessage.toLowerCase() === "ddd") {
+
+	// 서버로 넘기기 전 사용자 입력값 검증
+	// 자음만 입력된 경우 
+	if (/^[ㄱ-ㅎ]+$/.test(userMessage)) {
 		alert("잘못된 입력입니다. 유효한 질문을 입력해 주세요.");
 		document.getElementById("userMessage").value = ""; // 입력 필드 초기화
 		return;
 	}
+	// 모음만 입력된 경우 
+	if (/^[ㅏ-ㅣ]+$/.test(userMessage)) {
+		alert("잘못된 입력입니다. 유효한 질문을 입력해 주세요.");
+		document.getElementById("userMessage").value = ""; // 입력 필드 초기화
+		return;
+	}
+	// 영문 자음만 입력된 경우 (영문 자음만으로 이루어진 입력)
+	if (/^[bcdfghjklmnpqrstvwxyz]+$/i.test(userMessage)) {
+		alert("다시 입력해주세요");
+		document.getElementById("userMessage").value = ""; // 입력 필드 초기화
+		return;
+	}
+	// 영문 모음만 입력된 경우 (영문 모음만으로 이루어진 입력)
+	if (/^[aeiou]+$/i.test(userMessage)) {
+		alert("다시 입력해주세요");
+		document.getElementById("userMessage").value = ""; // 입력 필드 초기화
+		return;
+	}
+
 
 	// 사용자 메시지를 채팅창에 추가
 	var chatBox = document.getElementById("chat-box");
@@ -34,21 +58,29 @@ function sendMessage() {
 	userMsgElement.classList.add("chat-message", "user-message");
 	userMsgElement.innerText = userMessage;
 	chatBox.appendChild(userMsgElement);
-	
+
 	// "종료!" 입력 시 타이머 취소하고 종료 메시지 출력
-	if(userMessage === "종료!"){
-		if(timeoutTimer !== null){
+	if (userMessage === "종료!") {
+		if (timeoutTimer !== null) {
 			clearTimeout(timeoutTimer); // 타이머 취소
 		}
 		var botMessage = document.createElement("div");
 		botMessage.classList.add("chat-message", "bot-message");
 		botMessage.innerHTML = "궁금하신 사항은 해결되셨나요? 더 나은 챗봇이 되기 위해 열심히 학습할게요. 챗봇을 종료하겠습니다.";
 		chatBox.appendChild(botMessage);
-		
+
 		// 입력 필드 초기화(input 초기화)
-		document.getElementById("userMessage").value = ""; 
+		document.getElementById("userMessage").value = "";
 		return; // "종료!" 입력 시 더 이상 처리하지 않음 - 함수가 종료됨
-		
+
+	}
+
+	// **영문으로 입력 시** 먼저 안내 메시지를 추가
+	if (/^[a-zA-Z\s]+$/.test(userMessage)) {
+		var botMessage = document.createElement("div");
+		botMessage.classList.add("chat-message", "bot-message");
+		botMessage.innerText = "영문으로 입력 시 제한된 답변을 받을 수 있습니다.";
+		chatBox.appendChild(botMessage);
 	}
 
 	// 마지막 입력 시간 갱신
@@ -69,7 +101,7 @@ function sendMessage() {
 
 		// 채팅창 스크롤 자동 이동
 		chatBox.scrollTop = chatBox.scrollHeight;
-	}, 10000); // 30초 후 실행
+	}, 30000); // 30초 후 실행
 
 	// AJAX 요청 (Servlet과 Flask 챗봇 API 연결)
 	var xhr = new XMLHttpRequest();
