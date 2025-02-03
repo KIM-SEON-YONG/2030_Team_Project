@@ -82,7 +82,7 @@
 			<div class="modal">
 				<div class="modal_body">
 					<div class="modalClose" onclick="modalClose()"></div>
-					<h2>모달창 제목</h2>
+					<h2>지역을 선택해주세요</h2>
 					<form action="">
 						<ul>
 							<li>전라도

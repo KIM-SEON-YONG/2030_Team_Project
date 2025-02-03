@@ -23,6 +23,7 @@ nav {
 }
 /* S.P.A.R.K - 왼쪽 상단 */
 #header-mini{
+	text-decoration: none;
 	padding-left: 30px;
 	font-size: 2rem;
 	color: black;
@@ -67,6 +68,7 @@ nav {
 }
 p{
 	color: midnightblue;
+	background-color: white;
 }
 
 .nav-login:hover, .nav-join:hover, .nav-logout:hover, .nav-mypage:hover,
@@ -103,7 +105,6 @@ p{
 		<nav class="nav">
 			<!-- 왼쪽 상단 "S.P.A.R.K" -->
 			<button id="header-mini"><a href="Main.jsp">S.P.A.R.K</a></button> 
-
 			<div class="nav-header">
 				<%
 				// 세션에서 사용자 정보를 가져옵니다.
