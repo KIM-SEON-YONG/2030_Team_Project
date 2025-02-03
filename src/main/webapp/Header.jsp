@@ -24,8 +24,8 @@ nav {
 }
 /* S.P.A.R.K - 왼쪽 상단 */
 .header-mini {
-	padding-left: 10px; 
-	font-size : 2rem;
+	padding-left: 10px;
+	font-size: 2rem;
 	color: #333;
 	position: absolute; /* 위치를 절대값으로 설정 */
 	top: 0; /* 상단에 배치 */
@@ -33,43 +33,45 @@ nav {
 }
 /* 로그인 및 회원가입 - 오른쪽 상단 */
 .nav-header {
-	position: absolute;
-	right: 20px; /* 오른쪽에서 20px 왼쪽 */
-	display: flex;
-	gap: 10px; /* 각 항목 간격 */
-	font-size: 16px;
-	color: black;
-	white-space: pre-line;
-	align-items: center; /* 수직 중앙 정렬 */
-}
-/* 로그아웃 버튼과 마이페이지 링크 스타일 */
-.logout {
     display: flex;
-    gap: 10px; /* 버튼과 링크 사이에 간격 추가 */
-    align-items: end; 
+    justify-content: flex-end; /* 내부 요소를 오른쪽 끝으로 정렬 */
+    align-items: center;
+    padding: 10px 20px; /* 여백 추가 (선택 사항) */
+    width: 100%; /* 전체 너비 설정 */
 }
-/* 마이페이지 링크 스타일 */
-.nav-mypage,.nav-logout {
-    text-decoration: none; /* 링크 밑줄 제거 */
-    color: black; /* 링크 색상 */
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f9fa; /* 버튼 배경색 */
+.logout,
+.button-container {
+    display: flex;
+    gap: 10px; /* 버튼 간격 */
+}
+.button {
+    display: inline-block;
+    padding: 12px 24px;
     font-size: 16px;
-    display: inline-block; /* 버튼처럼 보이도록 */
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
 }
-.nav-mypage:hover,.nav-logout:hover {
-    background-color: #007bff;
-    color: white; /* hover 시 배경색 변경 */
+.login-button, .signup-button, .nav-logout, .nav-mypage {
+    background-color: white;
+    color: gray;
+}
+.login-button:hover, .signup-button:hover, .nav-logout:hover, .nav-mypage:hover  {
+    background-color: #E6E6FA;
 }
 
+/* 네비게이션 아이템 */
 .nav-items {
-	padding-left: 480px;
-	padding-top: 50px;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+    justify-content: center; /* 가운데 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    gap: 20px; /* 네비게이션 아이템 간 간격 */
+    padding: 10px 0; /* 위아래 여백 */
+    width: 100%; /* 전체 너비 사용 */
 }
 .nav-item {
 	padding: 20px;
@@ -84,9 +86,9 @@ nav {
 <body>
 	<header>
 		<nav class="nav">
-		<!-- 왼쪽 상단 "S.P.A.R.K" -->
+			<!-- 왼쪽 상단 "S.P.A.R.K" -->
 			<a class="header-mini" href="Main.jsp">S.P.A.R.K</a>
-			
+
 			<div class="nav-header">
 				<%
 				// 세션에서 사용자 정보를 가져옵니다.
@@ -101,25 +103,30 @@ nav {
 					<a href="Mypage.jsp" class="btn nav-mypage">마이페이지</a>
 				</div>
 				<%
-					} else {
-					// 로그인되지 않은 상태라면 로그인 버튼만 표시
-					out.print("<a href='login.jsp'>로그인</a>");
-					out.print("<a href='join.jsp'>회원가입</a>");
-					}
+				} else {
+				// 로그인되지 않은 상태라면 로그인 버튼만 표시
+				%>
+				<div class="button-container">
+					<a href="login.jsp" class="button login-button">로그인</a> <a
+						href="join.jsp" class="button signup-button">회원가입</a>
+				</div>
+				<%
+				}
 				%>
 			</div>
-			
+
 			<!-- 네비게이션 아이템들 -->
 			<div class="nav-items">
-				<a class="nav-item" href="policy_job.jsp">취업</a> 
-				<a class="nav-item" href="policy_wedding.jsp">결혼</a> 
-				<a class="nav-item" href="policy_pregnancy.jsp">출산</a>
-				<a class="nav-item" href="BS1.html">지역혜택</a>
-				<a class="nav-item" href="boarSdList.jsp">커뮤니티 게시판</a>
+				<a class="nav-item" href="policy_job.jsp">취업</a> <a class="nav-item"
+					href="policy_wedding.jsp">결혼</a> <a class="nav-item"
+					href="policy_pregnancy.jsp">출산</a> <a class="nav-item"
+					href="BS1.html">지역혜택</a> <a class="nav-item" href="boarSdList.jsp">커뮤니티
+					게시판</a>
 			</div>
 		</nav>
 	</header>
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

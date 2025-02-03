@@ -17,7 +17,11 @@
 <link rel="stylesheet" href="assets/css/policy.css" />
 </head>
 <body>
+<<<<<<< HEAD
 <div id="header"></div>
+=======
+	<%@ include file="Header.jsp" %>
+>>>>>>> branch 'master' of https://github.com/KIM-SEON-YONG/2030_Team_Project.git
 	<div class="container">
 		<div class="welfare-content">
 			<p class="welfare_header_title">취업 지원</p>
@@ -107,6 +111,7 @@
 		<!-- welfare-content -->
 	</div>
 	<!-- container -->
+	<%@ include file="Footer.jsp" %>
 	
 	<!-- 로딩 인디케이터 -->
 	<div id="loading" style="display: none;">
@@ -117,7 +122,11 @@
 	    <div class="spinner"></div>
 	    -->
 	</div>
+<<<<<<< HEAD
 <div id="footer"></div>
+=======
+	
+>>>>>>> branch 'master' of https://github.com/KIM-SEON-YONG/2030_Team_Project.git
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
 		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="

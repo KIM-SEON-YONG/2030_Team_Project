@@ -30,12 +30,23 @@
 <link rel="stylesheet" href="assets/css/policy.css" />
 <!-- 커뮤니티 -->
 <link rel="stylesheet" href="assets/css/board.css" />
+<!-- 다크모드 -->
+<link rel="stylesheet" href="assets/css/DarkMode.css" />
 
 
 
 </head>
 
 <body>
+	<!-- 다크 모드 토글 버튼 -->
+	<button class="toggle-btn" onclick="toggleDarkMode()">
+		<span id="mode-icon">🌙</span> 
+		<span id="mode-text">다크 모드 활성화</span>
+	</button>
+
+	<!-- 다크 모드 JavaScript 연결 -->
+	<script src="DarkMode.js"></script>
+	
 	<div class="container">
 		<!-- Intro Page -->
 		<div class="intro" id="intro">
@@ -51,6 +62,9 @@
 		<!-- 해더  -->
 		<header>
 			<nav class="nav">
+			<!-- 왼쪽 상단 "S.P.A.R.K" -->
+				<a class="header-mini" href="Main.jsp">S.P.A.R.K</a>
+				
 				<div class="nav-header">
 					<%
 					// 세션에서 사용자 정보를 가져옵니다.
@@ -90,7 +104,6 @@
 			<!-- Main Content -->
 			<div class="main" id="main">
 				<div class="text-box">
-					<h1>S.P.A.R.K</h1>
 					<div class="welfare-option">
 						<div class="welfare_srch">
 							<!-- 폼의 기본 제출 동작을 방지하고 AJAX로 받아서 처리할 예정 -->
@@ -145,7 +158,7 @@
 					<button class="box" data-target="#list-item-1">취업</button>
 					<button class="box" data-target="#list-item-2">결혼</button>
 					<button class="box" data-target="#list-item-3">출산</button>
-					<button class="box" data-target="#list-item-4">커뮤니티게시판</button>
+					<button class="box1" data-target="#list-item-4">커뮤니티게시판</button>
 				</div>
 			</div>
 		</section>
@@ -193,7 +206,7 @@
 		<!-- 세번째 섹션 - 결혼 -->
 		<section class="section03">
 			<h4 id="list-item-2" class="section-tit">결혼정보 확인하기</h4>
-			<a href="policy_job.jsp" class="more">더보기 <i class="ico-add"
+			<a href="policy_wedding.jsp" class="more">더보기 <i class="ico-add"
 				aria-hidden="true"></i>
 			</a>
 			<div class="welfare-card-group">
@@ -234,7 +247,7 @@
 		<section class="section04">
 			<!-- welfare-card-group -->
 			<h4 id="list-item-3" class="section-tit">출산정보 확인하기</h4>
-			<a href="policy_job.jsp" class="more">더보기 <i class="ico-add"
+			<a href="policy_pregancy.jsp" class="more">더보기 <i class="ico-add"
 				aria-hidden="true"></i>
 			</a>
 			<div class="welfare-card-group">

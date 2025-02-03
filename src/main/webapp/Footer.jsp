@@ -8,6 +8,7 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/chatting.css"> <!-- 챗봇 css -->
 <title>Insert title here</title>
 </head>
 <style>
@@ -18,9 +19,15 @@ body {
     flex-direction: column;
     min-height: 100vh; /* 화면의 최소 높이를 100vh로 설정 */
 }
+
+/* footer를 제일 하단으로 내리기 위해 콘텐츠를 감싸고 있는 div에 설정 */
 .main-content {
     flex-grow: 1; /* 본문 콘텐츠가 남는 공간을 채우도록 설정 */
 }
+.container {
+    flex-grow: 1; /* 본문 콘텐츠가 남는 공간을 채우도록 설정 */
+}
+
 footer {
 	position: relative; /* 페이지 하단에 고정 */
     background-color: rgb(234, 197, 245);
@@ -91,6 +98,22 @@ footer {
 </style>
 </head>
 <body>
+	<!-- 챗봇 아이콘 -->
+    <div id="chatbot-icon" onclick="toggleChat()"></div>
+
+    <!-- 챗봇 대화창 -->
+    <div class="chat-container" id="chat-container">
+        <div class="chat-header">💬 SPARK 챗봇</div>
+        <div class="chat-box" id="chat-box">
+            <div class="bot-message chat-message">안녕하세요. SPARK 챗봇입니다. 어떤 복지 정책이 궁금하신가요?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userMessage" placeholder="메시지를 입력하세요..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">전송</button>
+        </div>
+    </div>
+    
+    <!-- footer 영역 -->
 	<footer>
 		<div class="footer-content">
 			<h3>S.P.A.R.K</h3>
@@ -106,6 +129,7 @@ footer {
 			</ul>
 		</div>
 	</footer>
+	<script src="assets/js/chatting.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 		rel="stylesheet">

@@ -1,11 +1,9 @@
-<<<<<<< HEAD =======
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>슬라이드 예제</title>
+<title>지역혜택보기</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <style>
@@ -18,22 +16,10 @@ body {
 	padding: 620px;
 }
 
-/* 제목 스타일 */
-.title {
-	position: fixed;
-	/* 화면 상단에 고정 */
-	top: 0;
-	/* 화면 맨 위에 위치 */
-	left: 40%;
-	/* 가운데 정렬 */
-	font-size: 24px;
-	font-weight: bold;
-	margin-bottom: 20px;
-}
 
 /* 슬라이드 컨테이너 */
 .slider-container {
-	position: absolute;
+	position: relative;
 	top: 0;
 	left: 50%;
 	transform: translateX(-50%);
@@ -124,10 +110,8 @@ body {
 	color: red;
 }
 </style>
-
 <body>
 	<div id="header"></div>
-	<h2 class="title">SPARK 지역혜택</h2>
 
 	<div class="slider-container">
 		<button class="slider-btn left-btn" id="prevBtn">&#10094;</button>
@@ -356,9 +340,6 @@ body {
 			</div>
 		</div>
 		<button class="slider-btn right-btn" id="nextBtn">&#10095;</button>
-	</div>
-
-
 	</div>
 	<div id="footer"></div>
 	<script src="BS2.js"></script>
