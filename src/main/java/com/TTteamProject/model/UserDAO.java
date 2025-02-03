@@ -137,4 +137,18 @@ public class UserDAO {
         return result;
     }
 
+    public int registerNaveruser(UserDTO user) {
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        int result = 0;
+
+        try {
+            result = sqlSession.insert("UserMapper.registerNaverUser", user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        return result;
+    }
+
 }

@@ -74,9 +74,16 @@
 
     <!-- Google 사용자 자동 회원가입 -->
     <insert id="registerGoogleUser" parameterType="com.TTteamProject.model.UserDTO">
-        INSERT INTO users (user_email, user_pw, user_name, user_picture)
-        VALUES (#{user_email}, 'GOOGLE_LOGIN', #{user_name}, #{user_picture})
+        INSERT INTO users (user_email, user_pw, user_name)
+        VALUES (#{user_email}, 'GOOGLE_LOGIN', #{user_name})
     </insert>
+    <!-- 네이버 사용자 회원가입 -->
+    <insert id="registerNaverUser"
+        parameterType="com.TTteamProject.model.UserDTO">
+        INSERT INTO TB_USER (user_email, user_pw, user_name)
+        VALUES (#{user_email}, 'NAVER_LOGIN', #{user_name})
+    </insert>
+
 
 
 
