@@ -43,7 +43,7 @@ public class GoogleCallbackServlet extends HttpServlet {
             return;
         }
 
-        // 2. 사용자 정보 요청
+        // 2. 사용자 정보 요청ㅇ
         String userInfoJson = getUserInfo(accessToken);
         if (userInfoJson == null) {
             response.sendRedirect("error.jsp");
