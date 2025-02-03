@@ -49,6 +49,7 @@ p {
 	background-color: rgb(255, 255, 255);
 	padding: 60px 0;
 	height: 148px;
+	border-radius:8px;
 	
 	/* 멀티라인 말줄임표 설정 */
 	display: -webkit-box;
@@ -80,11 +81,14 @@ p {
  
  
 /* .welfare_img > img { position: absolute; width: 50px; height: 50px; border: 2px solid red; } */
-.welfare_period { height: 53px; color:red; background-color: rgb(255, 255, 255); padding: 16px 0; text-align: center; }
+.welfare_period { height: 53px; color:red; background-color: rgb(255, 255, 255); padding: 16px 0; text-align: center; text-decoration: underline; }
 .welfare_content { 
 	/* height: 155px;  */
 	background-color: rgb(255, 255, 255); 
 	text-align: center; 
+	border-style:inset;
+	height: 210px;
+	border-radius:8px;
 
 	/* 멀티라인 말줄임표 설정 */
 	display: -webkit-box;
@@ -155,13 +159,12 @@ p {
 	max-width: 100%; /* 이미지가 컨테이너를 넘지 않도록 설정 */
 	height: auto;
 	padding-top: 150px;
-	
 } 
 
 .welfare-card {
 	width: 300px;
 	height: 480px;
-	background-color: rgb(234, 197, 245);
+	background-color: white;
 	border: 1px solid #333;
 	padding: 16px;
 	margin-bottom: 16px;

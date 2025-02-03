@@ -30,6 +30,38 @@
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
 }
+
+/* 다크모드 */
+body {
+	background-color: #ffffff;
+	color: #000000;
+	transition: background-color 0.3s, color 0.3s;
+	font-family: Arial, sans-serif;
+}
+/* 다크 모드 스타일 */
+body.dark-mode {
+	background-color: #121212;
+	color: #ffffff;
+}
+/* 버튼 스타일 */
+.toggle-btn {
+	font-size: 16px;
+	cursor: pointer;
+	border: none;
+	border-radius: 5px;
+	color: black;
+	transition: background-color 0.3s;
+}
+/* 다크 모드 버튼 스타일 */
+body.dark-mode .toggle-btn {
+	background-color: #f39c12;
+	color: black;
+}
+
+body.dark-mode .toggle-btn:hover {
+	background-color: #d68910;
+}
+
 /* 해더 */
 nav {
 	position: relative;
@@ -73,8 +105,8 @@ nav {
     display: inline-block; /* 버튼처럼 보이도록 */
 }
 .nav-mypage:hover,.nav-logout:hover {
-    background-color: #007bff;
-    color: white; /* hover 시 배경색 변경 */
+    background-color: #f8c5f3;
+    color: #000000; /* hover 시 배경색 변경 */
 }
 
 
@@ -93,7 +125,8 @@ nav {
     text-align: center;
 }
 .text-box{/* linear-gradient(Violet, Orange); */
-	background-image:url(../../images/purple-background.png);
+	/* background-image:url(../../images/purple-background.png); */
+	background:linear-gradient(45deg,#E0CBDA, #F6B5CC, #9F54D6,#0C7BB3,#451E61);
 	width: 100vw;
 	text-align: center; /* 텍스트 중앙 정렬 */
 	height: 300px;
@@ -133,6 +166,7 @@ nav {
 	align-items: center;      /* 수직 중앙 정렬 */
 	justify-content: center;
 	display: flex;
+	font-weight: bold;
 }
 .box{
 	width: 70px;  /* 버튼 너비 */
@@ -155,6 +189,13 @@ nav {
         margin: 10px 0; /* 버튼 간격을 세로로 설정 */
     }
 }
+.regionSrcBtn{
+	border-style: outset;  
+	border-radius: 8px;
+    background-color: #ffffff;  /* 버튼 배경색 */
+    height: 42px;
+    width: 45px;
+}
 
 /* 색션 타이틀 전체 */
 [class*="section0"]{
@@ -166,29 +207,20 @@ nav {
 }
 
 
-/* 두번째 색션 - 취업 */
-#list-item-1,#list-item-2,#list-item-3,#list-item-4{
+/* 취업, 결혼, 출산 색션 */
+#list-item-1,#list-item-2,#list-item-3, #list-item-4{
 	color: black;
 	letter-spacing: -0.02rem;
 	line-height: 1;
 	font-size: 1.5rem;
 	font-weight: 700; /* 폰트 굵기 */
-	padding-top: 20px;
 	text-align: left;
 }
 .section02, .section03, .section04{
 	height: 754px;
 }
 .more{/* 더보기 버튼 */
-	position: absolute;
-	top: 0;
-	right: 0;
-	display: flex;
-	flex-flow: row wrap;
-	align-items: center;
-	gap: 0.4rem;
-	border-radius: 0.3rem;
-	line-height: 1;
+	text-align: right;
 }
 .ico-add{
 	display: block;
@@ -237,7 +269,12 @@ nav {
     }
 }
 
-
-
+/* 커뮤 */
+.section05{
+	height: 680px;
+	justify-content: center;
+	display: flex;
+	position: relative;
+}
 
 

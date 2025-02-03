@@ -12,24 +12,15 @@ body.dark-mode {
     background-color: #121212;
     color: #ffffff;
 }
-
 /* 버튼 스타일 */
 .toggle-btn {
-    margin-top: 20px;
-    padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
-    color: white;
+    color: black;
     transition: background-color 0.3s;
 }
-
-.toggle-btn:hover {
-    background-color: #0056b3;
-}
-
 /* 다크 모드 버튼 스타일 */
 body.dark-mode .toggle-btn {
     background-color: #f39c12;

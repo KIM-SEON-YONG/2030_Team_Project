@@ -38,15 +38,7 @@
 </head>
 
 <body>
-	<!-- 다크 모드 토글 버튼 -->
-	<button class="toggle-btn" onclick="toggleDarkMode()">
-		<span id="mode-icon">🌙</span> 
-		<span id="mode-text">다크 모드 활성화</span>
-	</button>
 
-	<!-- 다크 모드 JavaScript 연결 -->
-	<script src="DarkMode.js"></script>
-	
 	<div class="container">
 		<!-- Intro Page -->
 		<div class="intro" id="intro">
@@ -59,44 +51,12 @@
 			</div>
 		</div>
 
+		<!-- 다크 모드 토글 버튼 -->
+		<button class="toggle-btn" onclick="toggleDarkMode()">
+			<span id="mode-icon">🌙</span> <span id="mode-text">다크 모드</span>
+		</button>
 		<!-- 해더  -->
-		<header>
-			<nav class="nav">
-			<!-- 왼쪽 상단 "S.P.A.R.K" -->
-				<a class="header-mini" href="Main.jsp">S.P.A.R.K</a>
-				
-				<div class="nav-header">
-					<%
-					// 세션에서 사용자 정보를 가져옵니다.
-					UserDTO user = (UserDTO) session.getAttribute("user"); // 세션에서 'user' 속성 가져오기
-					if (user != null) {
-					%>
-					<!-- 텍스트를 감싸는 div 가운데 정렬 -->
-					<div class="wellcom">
-						<!-- "환영합니다" 텍스트를 가운데 정렬 -->
-						<p>
-							환영합니다~💕<%=user.getUser_name()%>님🎉🎉
-						</p>
-						<!-- "환영합니다" 후 줄바꿈 추가 -->
-					</div>
-					<!-- 로그인된 사용자만 볼 수 있는 버튼 -->
-					<div class="logout">
-						<form action="LogOutCon" method="post"">
-							<button class="btn nav-logout">로그아웃</button>
-						</form>
-						<a href="Mypage.jsp" class="btn nav-mypage">마이페이지</a>
-					</div>
-					<%
-					} else {
-					// 로그인되지 않은 상태라면 로그인 버튼만 표시
-					out.print("<a href='login.jsp'>로그인</a>");
-					out.print("<a href='join.jsp'>회원가입</a>");
-					}
-					%>
-					<!-- 로그인 상태와 로그인되지 않은 상태 사이에 줄바꿈 추가 -->
-				</div>
-			</nav>
-		</header>
+		<%@ include file="Header.jsp"%>
 
 
 		<!-- 첫번재 섹션  -->
@@ -259,7 +219,6 @@
 
 					for (int i = 0; i < pregList.size(); i++) {
 					%>
-
 					<div class="welfare-card">
 						<a href="<%=pregList.get(i).getWelfare_url()%>" target="_blank">
 							<span class="welfare_sort welfare_sort_preg">출산</span>
@@ -279,8 +238,7 @@
 
 			</div>
 			<!-- welfare-card-group -->
-			<input type="checkbox" class="more-btn">
-			<!-- 더보기 -->
+
 			<!-- 지역혜택 더보기 -->
 			<div class="boon3">
 				<a href="BS1.html">지역혜택 보러 가보자고~~ 홍보도 해보자고~~</a>
@@ -289,37 +247,26 @@
 		<!-- 다섯번째 섹션 - 커뮤 -->
 		<section class="section05">
 			<h4 id="list-item-4" class="section-tit">커뮤니티 게시판</h4>
-			<a href="policy_job.jsp" class="more">더보기 <i class="ico-add"
-				aria-hidden="true"></i>
-			</a>
+			<a href="boardList.jsp" class="more">더보기 <i class="ico-add"
+				aria-hidden="true"></i></a>
 			<%
 			BoardDAO dao = new BoardDAO();
 			List<BoardDTO> boardList = dao.boardList();
+
+			// 게시글 갯수 제한: 상위 5개 게시글만 표시
+			int maxPostsToShow = 5;
+			if (boardList.size() > maxPostsToShow) {
+				boardList = boardList.subList(0, maxPostsToShow); // 상위 5개만 추출
+			}
 			%>
-			<div class="board_box">
+			<div class="board_box1">
 				<!-- 상단 제목 -->
-				<!-- <div class="header">
-						<h1>게시판</h1>
-						<p>커뮤니티를 위한 공간</p>
-					</div> -->
-
-				<!-- 검색창 -->
-				<!-- <div class="search-bar">
-						<input type="text" id="search-input" placeholder="검색어를 입력하세요..." />
-					</div> -->
-
+				<div class="header">
+					<h1>나만 알고 있는 복지 추천하기👍</h1>
+					<p>오직 '나만'알고 있는 복지를 추천해주세요~ 당첨되신 분들에게 복지포인트를 드립니다.</p>
+				</div>
 				<!-- 게시판 테이블 -->
 				<table class="table">
-					<!-- <thead>
-							<tr>
-								<th scope="col">번호</th>
-								<th scope="col">카테고리</th>
-								카테고리 열
-								<th scope="col">제목</th>
-								<th scope="col">작성자</th>
-								<th scope="col">작성일</th>
-							</tr>
-						</thead> -->
 					<tbody id="postList">
 						<!-- 게시글 항목 -->
 						<%
@@ -339,31 +286,21 @@
 					</tbody>
 				</table>
 
-				<!-- 페이지 네비게이션 -->
-				<nav class="d-flex justify-content-center">
-					<ul class="pagination">
-						<li class="page-item"><a class="page-link" href="#">이전</a></li>
-						<li class="page-item active"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">다음</a></li>
-
-					</ul>
-				</nav>
-
 				<!-- 글쓰기 버튼 -->
 				<div class="text-end mt-3">
 					<button class="btn btn-pink"
 						onclick="location.href='board-write.html'">글쓰기</button>
 				</div>
 				<!-- 지역혜택 더보기 -->
-				<div class="boon4">
-					<a href="BS1.html">지역혜택 보러 가보자고~~ 홍보도 해보자고~~</a>
-				</div>
+			</div>
+			<div class="boon4">
+				<a href="BS1.html">지역혜택 보러 가보자고~~ 홍보도 해보자고~~</a>
 			</div>
 		</section>
 		<!-- board_box -->
 	</div>
 	<!-- container -->
-	<div id="footer"></div>
+	<%@ include file="Footer.jsp"%>
 
 	<!-- main-box  -->
 
@@ -393,18 +330,44 @@
 
 	<!-- JavaScript -->
 	<script>
+	/* 다크모드!! */
+	// 다크 모드 토글 함수
+	function toggleDarkMode() {
+	    document.body.classList.toggle("dark-mode");
+	    const isDarkMode = document.body.classList.contains("dark-mode");
+	    localStorage.setItem("darkMode", isDarkMode);
+
+	    updateButtonText(isDarkMode);
+	}
+
+	// 버튼 텍스트 및 아이콘 업데이트
+	function updateButtonText(isDarkMode) {
+	    const modeText = document.getElementById("mode-text");
+	    const modeIcon = document.getElementById("mode-icon");
+
+	    if (isDarkMode) {
+	        modeText.textContent = "라이트 모드 활성화";
+	        modeIcon.innerHTML = "🌞"; // 밝은 태양 아이콘
+	    } else {
+	        modeText.textContent = "다크 모드 활성화";
+	        modeIcon.innerHTML = "🌙"; // 어두운 달 아이콘
+	    }
+	}
+
+	// 페이지 로드 시 저장된 다크 모드 상태 적용
+	window.onload = function () {
+	    const isDarkMode = localStorage.getItem("darkMode") === "true";
+	    if (isDarkMode) {
+	        document.body.classList.add("dark-mode");
+	    }
+	    updateButtonText(isDarkMode);
+	};
 	
-	    // Footer.jsp 파일을 #footer div에 로드
-	    fetch('Footer.jsp')
-	      .then(response => response.text())
-	      .then(data => {
-	        document.getElementById('footer').innerHTML = data;
-	      })
-	      .catch(error => console.error('Error loading footer:', error));
-		
+	
+	
 	
 		// 버튼 클릭 시 해당 섹션으로 이동
-	    document.querySelectorAll('.box').forEach(button => {
+	    document.querySelectorAll('.box, .box1').forEach(button => {
 	        button.addEventListener('click', function () {
 	            const targetId = this.getAttribute('data-target');
 	            const targetElement = document.querySelector(targetId);

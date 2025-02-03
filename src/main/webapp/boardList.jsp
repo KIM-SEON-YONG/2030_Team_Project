@@ -166,7 +166,7 @@ body {
 	BoardDAO dao = new BoardDAO();
 	List<BoardDTO> boardList = dao.boardList();
 	%>
-<div id="header"></div>
+<%@ include file="Header.jsp"%>
 	<div class="container">
 		<!-- 상단 제목 -->
 		<div class="header">
@@ -236,28 +236,9 @@ body {
 				onclick="location.href='board-write.html'">글쓰기</button>
 		</div>
 	</div>
-	<div id="footer"></div>
+	<%@ include file="Footer.jsp"%>
 	<script>
 		
-	/* 해더 및 풋터 */
-      // Header.jsp 파일을 #header div에 로드
-       fetch('Header.jsp')
-         .then(response => response.text())
-         .then(data => {
-           document.getElementById('header').innerHTML = data;
-         })
-         .catch(error => console.error('Error loading header:', error));
-   
-       // Footer.jsp 파일을 #footer div에 로드
-       fetch('Footer.jsp')
-         .then(response => response.text())
-         .then(data => {
-           document.getElementById('footer').innerHTML = data;
-         })
-         .catch(error => console.error('Error loading footer:', error));
-
-	
-	
 		// 로컬 스토리지에서 게시글 불러오기
 		document.addEventListener("DOMContentLoaded", function () {
 			const posts = JSON.parse(localStorage.getItem("posts")) || [];

@@ -21,16 +21,14 @@ body {
 }
 
 /* footer를 제일 하단으로 내리기 위해 콘텐츠를 감싸고 있는 div에 설정 */
-.main-content {
-    flex-grow: 1; /* 본문 콘텐츠가 남는 공간을 채우도록 설정 */
-}
-.container {
+.main-content, .container  {
     flex-grow: 1; /* 본문 콘텐츠가 남는 공간을 채우도록 설정 */
 }
 
+
 footer {
 	position: relative; /* 페이지 하단에 고정 */
-    background-color: rgb(234, 197, 245);
+    background-color: #D3D3D3;
     color: black;
     height: 150px; /* 푸터 높이 설정 */
     width: 100%; /* 푸터 너비 100% 설정 */
@@ -53,48 +51,33 @@ footer {
 	font-size: 2rem;
 	text-transform: capitalize;
 	line-height: 2rem;
+	margin: 0;
 }
 
 .footer-content p {
 	font-size: 14px;
 	color: black;
+	margin: 10px 0;
 }
 
+/* SNS 링크 스타일 */
 .socials {
 	list-style: none;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin: 10px 0;
+	
 }
-
+.social-icon{
+	width: 25px;
+	height: 25px;
+}
 .socials li {
-	margin: 0 10px;
+    margin-right: 30px;  /* 오른쪽에 15px 여백을 추가 */
 }
 
-.socials a {
-	text-decoration: none;
-	color: black;
-	padding: 5px;
-}
 
-.socials a i {
-	font-size: 1.1rem;
-	width: 20px;
-	transition: color .4s ease;
-}
-
-.socials a:hover i {
-	color: aqua;
-}
-
-@media ( max-width :500px) {
-	.footer-menu ul {
-		display: flex;
-		margin-top: 10px;
-		margin-bottom: 20px;
-	}
-}
 </style>
 </head>
 <body>
@@ -121,11 +104,23 @@ footer {
 
 			<ul class="socials">
 				<li>Tel:000-000-0000</li>
-				<li><a href="mailto:skapk@smhrd.kr"><i class="fa fa-envelope"></i> email:skapk@smhrd.kr</a></li>
-				<li><a href="#"><i class="fa fa-facebook"></i> 페북</a></li>
-				<li><a href="#"><i class="fa fa-twitter"></i> 트위터</a></li>
-				<li><a href="#"><i class="fa fa-instagram"></i> 인스타그램</a></li><br>
-				<p>S.P.A.R.K &copy;2025</p>
+				<li class="email">Email:skapk@smhrd.kr</li>
+	            <li>
+	                <a href="https://www.facebook.com/profile.php?id=61572616747676">
+	                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png" alt="Facebook" class="social-icon">
+	                </a>
+	            </li>
+	            <li>
+	                <a href="https://x.com/team_2030_">
+	                    <img src="https://cdn2.iconfinder.com/data/icons/threads-by-instagram/24/x-logo-twitter-new-brand-512.png" alt="Twitter" class="social-icon"> 
+	                </a>
+	            </li>
+	            <li>
+	                <a href="https://www.instagram.com/team_2030_/?hl=ko">
+	                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram" class="social-icon"> 
+	                </a>
+	            </li><br>
+			<p>S.P.A.R.K &copy;2025</p>
 			</ul>
 		</div>
 	</footer>
