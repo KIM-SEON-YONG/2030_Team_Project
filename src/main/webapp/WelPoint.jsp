@@ -1,13 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page import="com.TTteamProject.model.UserDTO"%>
+<%@ page import="com.TTteamProject.model.BoardDTO"%>
+<%@ page import="java.util.List"%>
+<%
+// 세션에서 사용자 정보 가져오기
+UserDTO user = (UserDTO) session.getAttribute("user");
+if (user == null) {
+
+	response.sendRedirect("login.jsp"); // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
+	return;
+} else {
+
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사용자 페이지</title>
-<link rel="stylesheet" href="assets/css/common.css"><!-- 공용 -->
+<title>마이페이지</title>
 <style type="text/css">
-
 /* 전체 레이아웃 */
 .container {
 	display: flex; /* Flexbox를 사용하여 자식 요소들을 배치 */
@@ -19,7 +30,7 @@
 	padding: 20px; /* 내부 여백 */
 	border: 1px solid #ccc; /* 테두리 설정 */
 	width: 200px; /* 메뉴 영역 너비 */
-	height: 96vh; /* 화면 전체 높이 */
+	height: 100vh; /* 화면 전체 높이 */
 	display: flex; /* Flexbox를 사용하여 자식 요소들을 세로로 배치 */
 	flex-direction: column; /* 세로 방향으로 배치 */
 	align-items: center; /* 자식 요소들을 수평 중앙에 배치 */
@@ -56,6 +67,7 @@
 .menu li {
 	margin: 10px 0; /* 메뉴 항목 간 여백 */
 }
+
 .menu a {
 	text-decoration: none; /* 링크의 밑줄 제거 */
 	color: #333; /* 링크 색상 */
@@ -73,16 +85,17 @@
 }
 
 .logout-btn {
-	background-color: #d1d1ff; /* 로그아웃 버튼 배경색 */
+	background-color: #f24c59; /* 로그아웃 버튼 배경색 */
 	color: white; /* 버튼 글자색 */
 	border: none; /* 테두리 제거 */
 	padding: 10px 20px; /* 내부 여백 */
-	border-radius: 30px; /* 모서리 둥글게 */
+	border-radius: 5px; /* 모서리 둥글게 */
 	cursor: pointer; /* 커서가 포인터로 변경 */
-	font-size: 13px; /* 폰트 크기 */
-	margin-top: 478px; /* 위쪽 여백 */
+	font-size: 16px; /* 폰트 크기 */
+	margin-top: 20px; /* 위쪽 여백 */
 	transition: background-color 0.3s; /* 배경색 변화에 애니메이션 효과 추가 */
 }
+
 .logout-btn:hover {
 	background-color: #e03e50; /* 호버 시 배경색 변화 */
 }
@@ -92,10 +105,16 @@
 	flex-grow: 1; /* 남은 공간을 채우기 */
 	padding: 20px; /* 내부 여백 */
 	background-color: #f9f9f9; /* 배경색 설정 */
+	height: 730px;
+	width: 100%;
+}
+.point-conversion{
+	border-style: solid;
+	justify-items: center;
+	height: 220;
 }
 </style>
 </head>
-
 <body>
 	<div class="container">
 		<!-- 메뉴 -->
@@ -105,9 +124,8 @@
 				<img id="profile-img" class="profile-img"
 					src="https://goodpokki.kr/common/img/default_profile.png"
 					alt="프로필 이미지">
-				<p class="nickname">사용자 닉네임</p>
+				<p class="nickname"><%=user.getUser_name()%></p>
 			</div>
-
 			<ul>
 				<!-- 메뉴 항목들 -->
 				<li><a href=Update.jsp>회원정보수정</a></li>
@@ -121,26 +139,30 @@
 		</div>
 
 		<!-- 메인 콘텐츠 -->
-		<div class="main-content">
-			<div>
-				<h2>나의 포인트</h2>
-				<h3>P</h3>
-				<br>
-				<h3>포인트 전환</h3>
-				<!-- 전환할 포인트 입력 필드 -->
-
-				<label for="input1"></label> <input type="number" id="input1"
-					name="input1" placeholder="전환할 포인트 입력"> <br> <br>
-				<!-- 줄바꿈 추가 -->
-				<label for="input2"></label> <input type="text" id="input2"
-					name="input2" placeholder="사용할 지역 입력"> <br> <br>
-			</div>
-			<div>
-				<button type="submit"> 포인트 전환 신청하기</button>
-				<br>
+		<div class="box">
+			<div class="main-content">
+				<h2><%=user.getUser_id()%>님의 마이페이지
+				</h2>
+				<div>
+					<h3>나의 보유 포인트  <%=user.getWel_point()%>P</h3>
+				</div>					
+				<div class="point-conversion">
+					<h5>포인트 전환하기</h5>
+					<input type="number" placeholder="전환할 포인트 입력" >
+					<br><br>
+					<input type="text" placeholder="포인트 사용할 지역 입력" class="point-region">
+					<br><br>
+					<button  type="submit">포인트 전환 신청하기</button>
+				</div>
+				<div class="application">
+					<br>
+				</div>
 			</div>
 		</div>
 	</div>
+
+
+
 
 </body>
 </html>

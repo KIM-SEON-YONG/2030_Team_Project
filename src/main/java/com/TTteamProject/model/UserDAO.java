@@ -108,4 +108,47 @@ public class UserDAO {
 			    
 			    return user;
 			}
+    public UserDTO getUserByEmail(String email) {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserDTO user = null;
+
+        try {
+            user = sqlSession.selectOne("UserMapper.getUserByEmail", email);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        return user;
+    }
+
+    // Google 사용자 자동 회원가입
+    public int registerGoogleUser(UserDTO user) {
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        int result = 0;
+
+        try {
+            result = sqlSession.insert("UserMapper.registerGoogleUser", user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        return result;
+    }
+
+    public int registerNaveruser(UserDTO user) {
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        int result = 0;
+
+        try {
+            result = sqlSession.insert("UserMapper.registerNaverUser", user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        return result;
+    }
+
 }

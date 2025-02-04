@@ -27,6 +27,25 @@
 			<version>4.13.1</version>
 			<scope>test</scope>
 		</dependency>
+    <!-- Google API Client -->
+    <dependency>
+        <groupId>com.google.api-client</groupId>
+        <artifactId>google-api-client</artifactId>
+        <version>2.2.0</version>
+    </dependency>
+
+    <!-- Google OAuth -->
+<dependency>
+    <groupId>com.google.http-client</groupId>
+    <artifactId>google-http-client-jackson2</artifactId>
+    <version>1.45.3</version>
+</dependency>
+<dependency>
+    <groupId>com.google.http-client</groupId>
+    <artifactId>google-http-client-jackson2</artifactId>
+    <version>1.43.3</version>
+</dependency>
+
 
 		<!-- 추가한 라이브러리가 정상등록 되었는지 확인: Libraries > Maven Dependencies에서 확인 가능 -->
 		<!-- servlet-api -->

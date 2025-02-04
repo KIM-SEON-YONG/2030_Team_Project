@@ -40,15 +40,16 @@ p {
 	font-size: 13px;
 	
 } 
-.welfare_sort_job { background-color: #288C28; } 
-.welfare_sort_wedding { background-color: #FF5675; } 
-.welfare_sort_preg { background-color: #1E82CD; } 
+.welfare_sort_job { background-color: rgb(0, 128, 64); } 
+.welfare_sort_wedding { background-color: rgb(255, 128, 128); } 
+.welfare_sort_preg { background-color:  rgb(0, 128, 255) } 
 
 .welfare_title { /* 공용 복지 제목 */
 	font-size: 24px;
-	background-color: #6482B9;
+	background-color: rgb(255, 255, 255);
 	padding: 60px 0;
 	height: 148px;
+	border-radius:8px;
 	
 	/* 멀티라인 말줄임표 설정 */
 	display: -webkit-box;
@@ -80,11 +81,14 @@ p {
  
  
 /* .welfare_img > img { position: absolute; width: 50px; height: 50px; border: 2px solid red; } */
-.welfare_period { height: 53px; background-color: #7878E1; padding: 16px 0; text-align: center; }
+.welfare_period { height: 53px; color:red; background-color: rgb(255, 255, 255); padding: 16px 0; text-align: center; text-decoration: underline; }
 .welfare_content { 
 	/* height: 155px;  */
-	background-color: #AADBFF; 
+	background-color: rgb(255, 255, 255); 
 	text-align: center; 
+	border-style:inset;
+	height: 210px;
+	border-radius:8px;
 
 	/* 멀티라인 말줄임표 설정 */
 	display: -webkit-box;
@@ -112,7 +116,6 @@ p {
 	height: 40px;
 	padding: 10px 22px;
 	font-size: 16px;
-	
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	box-sizing: border-box; /* 패딩과 보더를 포함한 크기 설정 */
@@ -131,14 +134,18 @@ p {
 
 
 /* welfare card */
-  #data-container, #data-container-job,  #data-container-wedding, #data-container-preg, 
-  #default-container, #default-container-job, #default-container-wedding, #default-container-preg {
-
+  #data-container, 
+  #data-container-job,  
+  #data-container-wedding, 
+  #data-container-preg, 
+  #default-container, 
+  #default-container-job, 
+  #default-container-wedding, 
+  #default-container-preg {
 	display: flex;
 	flex-wrap: wrap; /* 자식 요소가 부모의 너비를 초과하면 줄바꿈 */
-	gap: 16px; /* 카드 간 간격 */
-	
-	
+	gap: 20px; /* 카드 간 간격 */
+	/* justify-content: space-between; 카드들 사이에 일정한 간격을 두고 정렬 */
 }
 
 #data-container.no-data {
@@ -152,22 +159,37 @@ p {
 	max-width: 100%; /* 이미지가 컨테이너를 넘지 않도록 설정 */
 	height: auto;
 	padding-top: 150px;
-	
 } 
 
 .welfare-card {
-	background-color: #c0c0c0;
+	width: 300px;
+	height: 480px;
+	background-color: white;
 	border: 1px solid #333;
-	width: 308px;
-	height: 400px;
 	padding: 16px;
 	margin-bottom: 16px;
 	border-radius: 20px;
 	overflow: hidden; /* 카드 내용이 넘치지 않도록 숨김 처리 */
-	
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 
+                0 3px 6px rgba(0, 0, 0, 0.1);
+	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+	transform: translateY(-5px); /* 마우스 오버 시 위로 떠오르는 효과 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-
-
+.welfare-card:hover {
+    transform: scale(1.05); /* 카드 확대 효과 */
+}
+/* 반응형 설정 */
+@media screen and (max-width: 768px) {/* 화면 크기가 768px 이하일 경우 (태블릿 화면) */
+    .welfare-card {
+        width: calc(50% - 16px);  /* 2개씩 한 줄에 배치 */
+    }
+}
+@media screen and (max-width: 480px) {/* 화면 크기가 480px 이하일 경우 (모바일 화면) */
+    .welfare-card {
+        width: 100%;  /* 1개씩 한 줄에 배치 */
+    }
+}
 
 /* 모달창 */
 .modal {

@@ -17,7 +17,9 @@
 <link rel="stylesheet" href="assets/css/policy.css" />
 </head>
 <body>
+
 	<%@ include file="Header.jsp" %>
+
 	<div class="container">
 		<div class="welfare-content">
 			<p class="welfare_header_title">취업 지원</p>
@@ -118,7 +120,7 @@
 	    <div class="spinner"></div>
 	    -->
 	</div>
-	
+
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
 		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -129,6 +131,10 @@
 	<script src="assets/js/ajax.js"></script>
 	
 	<script>
+	
+	
+
+
 	
 	/* main처럼 불러올 수 있는데, 그냥 이대로 두기 - 시간 있으면 수정  */
 	

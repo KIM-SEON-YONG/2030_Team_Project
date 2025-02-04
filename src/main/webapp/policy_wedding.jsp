@@ -127,7 +127,6 @@
 	<script src="assets/js/ajax.js"></script>
 	
 	<script>
-	
 	/* ***주의*** AJAX 코드는 해당 jsp 하단에 위치해야됨!!! 별도로 .js 파일로 빼지 않기!! */
 	
 	/* 지역 검색 후 결과 비동기통신 송출 */

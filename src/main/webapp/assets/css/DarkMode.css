@@ -1,0 +1,32 @@
+@charset "UTF-8";
+/* 기본 스타일 */
+body {
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: Arial, sans-serif;
+}
+
+/* 다크 모드 스타일 */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+/* 버튼 스타일 */
+.toggle-btn {
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    transition: background-color 0.3s;
+}
+/* 다크 모드 버튼 스타일 */
+body.dark-mode .toggle-btn {
+    background-color: #f39c12;
+    color: black;
+}
+
+body.dark-mode .toggle-btn:hover {
+    background-color: #d68910;
+}
