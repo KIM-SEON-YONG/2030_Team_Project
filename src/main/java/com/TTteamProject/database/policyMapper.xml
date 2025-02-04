@@ -21,7 +21,7 @@
 	<!-- 지역 선택 시 조회 -->
 	<!-- 취업 해당 지역 조회 -->
 	<select id="selecJobList" resultType="com.TTteamProject.model.PolicyDTO" parameterType="java.util.List">
-		SELECT welfare_name, welfare_title, welfare_content, welfare_url, welfare_period FROM TB_POLICY WHERE WELFARE_NAME ='취업' AND (REGION_NAME IN
+		SELECT welfare_name, welfare_title, welfare_content, welfare_url, welfare_period, region_name FROM TB_POLICY WHERE WELFARE_NAME ='취업' AND (REGION_NAME IN
 		<foreach item="regionNm" index="index" collection="list" open="(" separator="," close=")">
 			#{regionNm}
 		</foreach>
@@ -30,7 +30,7 @@
 	
 	<!-- 결혼 해당 지역 조회 -->
 	<select id="selecWeddingList" resultType="com.TTteamProject.model.PolicyDTO" parameterType="java.util.List">
-		SELECT welfare_name, welfare_title, welfare_content, welfare_url, welfare_period FROM TB_POLICY WHERE WELFARE_NAME ='결혼' AND (REGION_NAME IN
+		SELECT welfare_name, welfare_title, welfare_content, welfare_url, welfare_period, region_name FROM TB_POLICY WHERE WELFARE_NAME ='결혼' AND (REGION_NAME IN
 		<foreach item="regionNm" index="index" collection="list" open="(" separator="," close=")">
 			#{regionNm}
 		</foreach>
@@ -40,7 +40,7 @@
 	
 	<!-- 출산 해당 지역 조회 -->
 	<select id="selecPregList" resultType="com.TTteamProject.model.PolicyDTO" parameterType="java.util.List">
-		SELECT welfare_name, welfare_title, welfare_content, welfare_url, welfare_period FROM TB_POLICY WHERE WELFARE_NAME ='출산' AND REGION_NAME IN
+		SELECT welfare_name, welfare_title, welfare_content, welfare_url, welfare_period, region_name FROM TB_POLICY WHERE WELFARE_NAME ='출산' AND REGION_NAME IN
 		<foreach item="regionNm" index="index" collection="list" open="(" separator="," close=")">
 			#{regionNm}
 		</foreach>

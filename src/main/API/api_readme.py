@@ -8,6 +8,8 @@
 *참고: ex)test.py 실행 후 강제종료하려면 ctrl+c 
 
 	1) Set-ExecutionPolicy RemoteSigned -Scope Process # 정책변경코드: -Scope Process 는 현재 프로세스(세션)에만 적용되고 ,이창을 닫으면 원래 정책으로 돌아감, RemoteSigned는 인터넷에서 다운로드한 스크립트는 서명이 필요하지만 로컬에서 생성한 스크립트는 서명없어도 실행 가능
+    1_2) + 처음 실행하는 사람은 해야할일 : 가상환경 생성
+          -  python -m venv venv
 	2) .\venv\Scripts\Activate.ps1 실행(PowerShell환경에서는 activate.ps1 을 쓰는 편이 정석)
 	
 	3) pip install --upgrade google-generativeai
@@ -15,8 +17,7 @@
 	    pip install flask
 
         pip install cx_Oracle => 먼저! cx_Oracle 설치! 
-         + 처음 실행하는 사람은 해야할일 : 가상환경 생성
-          -  python -m venv venv
+         
           
             (1) https://visualstudio.microsoft.com/ko/visual-cpp-build-tools/ > Build Tools 다운로드
             (2) 설치 > C++ Build Tools 항목 선택 후 설치

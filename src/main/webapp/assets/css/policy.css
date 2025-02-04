@@ -42,7 +42,9 @@ p {
 } 
 .welfare_sort_job { background-color: rgb(0, 128, 64); } 
 .welfare_sort_wedding { background-color: rgb(255, 128, 128); } 
-.welfare_sort_preg { background-color:  rgb(0, 128, 255) } 
+.welfare_sort_preg { background-color:  rgb(0, 128, 255); } 
+
+.welfare_region { background-color: #D7567F; } 
 
 .welfare_title { /* 공용 복지 제목 */
 	font-size: 24px;

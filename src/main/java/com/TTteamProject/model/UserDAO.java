@@ -1,5 +1,6 @@
 package com.TTteamProject.model;
 
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -166,36 +167,32 @@ public class UserDAO {
         }
     }
 
-    // 패스워드 이메일로 찾기
-	    public UserDTO setPassword(String user_email) {
-	    	// DB에서 이메일로 사용자 검색 후 반환
-	        // 예시: SELECT * FROM users WHERE email = ?
-	    }
-	    
-	    // 비밀번호 업데이트
-	    public void updatePassword(String email, String newPassword) {
-	        // DB에서 사용자의 비밀번호를 생년월일로 업데이트
-	        // 예시: UPDATE users SET password = ? WHERE email = ?
-	        Connection conn = null;
-	        PreparedStatement pstmt = null;
-	        try {
-	            // DB 연결 및 비밀번호 업데이트 쿼리 실행
-	            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-	            String sql = "UPDATE users SET password = ? WHERE email = ?";
-	            pstmt = conn.prepareStatement(sql);
-	            pstmt.setString(1, newPassword); // 생년월일을 비밀번호로 설정
-	            pstmt.setString(2, email);       // 이메일로 해당 사용자 찾기
-	            pstmt.executeUpdate();           // 쿼리 실행
-	        } catch (SQLException e) {
-	            e.printStackTrace();
-	        } finally {
-	            // 자원 정리
-	            try {
-	                if (pstmt != null) pstmt.close();
-	                if (conn != null) conn.close();
-	            } catch (SQLException e) {
-	                e.printStackTrace();
-	            }
-	        }
-	    }
-	}
+    // 사용자 이메일로 사용자 찾기(비밀번호 초기화)
+    public UserDTO findUserByEmail(String email) {
+        try (InputStream inputStream = getClass().getResourceAsStream("/mybatis-config.xml")) {
+            SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
+            try (SqlSession session = factory.openSession()) {
+                return session.selectOne("com.example.mapper.UserMapper.findUserByEmail", email);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    // 비밀번호 업데이트(비밀번호 초기화)
+        public void updatePassword(String email, String newPassword) {
+            try (InputStream inputStream = getClass().getResourceAsStream("/mybatis-config.xml")) {
+                SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
+                try (SqlSession session = factory.openSession(true)) {  // 자동 커밋
+                    session.update("com.example.mapper.UserMapper.updatePassword", new UserDTO(email, newPassword));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    
+    
+    
+    
+}

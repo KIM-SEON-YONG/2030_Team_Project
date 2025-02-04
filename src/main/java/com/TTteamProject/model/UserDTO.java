@@ -93,8 +93,7 @@ public class UserDTO {
 		}
 		
 	// 비번 초기화 하기(생년월일로)
-		public String setPassword(String 
-				user_pw) {
+		public String setPassword(String user_pw) {
 			return null;
 		}
 }	

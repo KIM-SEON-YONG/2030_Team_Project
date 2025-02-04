@@ -12,11 +12,17 @@
 <meta charset="UTF-8">
 <title>취업 지원</title>
 <!-- favicon에러를 위해 favicon.ico 파일추가  => 엥그래도 뜸-->
+<<<<<<< HEAD
 <link rel="icon" href="<%=request.getContextPath()%>/favicon.ico"
 	type="image/x-icon">
 <link rel="stylesheet" href="assets/css/common.css">
 <!-- 공용 -->
 <link rel="stylesheet" href="assets/css/policy.css" />
+=======
+<link rel="icon" href="<%= request.getContextPath() %>/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="assets/css/common.css"><!-- 공용 -->
+<link rel="stylesheet" href="assets/css/policy.css">
+>>>>>>> branch 'master' of https://github.com/KIM-SEON-YONG/2030_Team_Project.git
 </head>
 <body>
 
@@ -92,6 +98,7 @@
 					<div class="welfare-card">
 						<a href="<%=jobList.get(i).getWelfare_url()%>" target="_blank">
 							<span class="welfare_sort welfare_sort_job">취업</span>
+							<span class="welfare_sort welfare_region"><%=jobList.get(i).getRegion_name() %></span>
 							<p class="welfare_title welfare_title_job"><%=jobList.get(i).getWelfare_title()%></p>
 							<p class="welfare_period welfare_period_job"><%=jobList.get(i).getWelfare_period()%></p>
 							<p class="welfare_content welfare_content_job"><%=jobList.get(i).getWelfare_content()%></p>
@@ -161,8 +168,17 @@
 				return;
 			}
 
+<<<<<<< HEAD
 			// 로딩 인디케이터 표시
 			$("#loading").show();
+=======
+					    // 동적 텍스트 추가
+					    link.append($('<span>').addClass('welfare_sort welfare_sort_job').html('취업'));
+					    link.append($('<span>').addClass('welfare_sort welfare_region').text(policy.region_name));
+					    link.append($('<p>').addClass('welfare_title welfare_title_job').text(policy.welfare_title));
+					    link.append($('<p>').addClass('welfare_period welfare_period_job').text(policy.welfare_period));
+					    link.append($('<p>').addClass('welfare_content welfare_content_job').text(policy.welfare_content));
+>>>>>>> branch 'master' of https://github.com/KIM-SEON-YONG/2030_Team_Project.git
 
 			console.log("contextPath: " + contextPath); // contextPath: 2030_Team_Project
 
