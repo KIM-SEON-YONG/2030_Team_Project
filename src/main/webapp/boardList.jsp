@@ -199,7 +199,7 @@ body {
 					<td><%= board.getB_idx() %></td>
 					<td><%= board.getB_category() %></td>
 					<td><%= board.getB_title() %></td>
-					<td><%= board.getUserId() %></td>
+					<td><%= board.getUserId( ) %></td>
 					<td><%= board.getCreate_dt() %></td>
 				</tr>
 				<% } %>
