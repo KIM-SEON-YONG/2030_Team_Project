@@ -14,12 +14,19 @@
 </head>
 <style>
 /* rgb(234, 197, 245);#E6E6FA;  */
+
+.header_container {
+	margin-bottom: 80px;
+}
+
 nav {
 	position: relative;
 	height: 150px;
 	display: flex;
 	word-wrap: break-word;
+
 }
+
 /* S.P.A.R.K - 왼쪽 상단 */
 #header-mini{
 	text-decoration: none;
@@ -27,6 +34,7 @@ nav {
 	color: black;
 	background-color: white;
 	border-style: hidden;
+	margin-left: 10px;
 }
 a{
 	cursor: pointer;
@@ -98,52 +106,52 @@ p{
 </style>
 </head>
 <body>
-
-	<header>
-		<nav class="nav">
-			<!-- 왼쪽 상단 "S.P.A.R.K" -->
-			<a href="Main.jsp" id="header-mini">S.P.A.R.K</a>
-			<div class="nav-header">
-				<%
-				// 세션에서 사용자 정보를 가져옵니다.
-				UserDTO user = (UserDTO) session.getAttribute("user"); // 세션에서 'user' 속성 가져오기
-				if (user != null) {
-				%>
-				<!-- 로그인된 사용자만 볼 수 있는 버튼 -->
-				<div class="logout">
-					<p>
-						환영합니다~💕<%=user.getUser_name()%>님🎉🎉
-					</p>
-					<form action="LogOutCon" method="post">
-						<button class="button nav-logout">로그아웃</button>
-					</form>
-					<a href="Mypage.jsp" class="button nav-mypage">마이페이지</a>
+	<div class="header_container">
+		<header>
+			<nav class="nav">
+				<!-- 왼쪽 상단 "S.P.A.R.K" -->
+				<a href="Main.jsp" id="header-mini">S.P.A.R.K</a>
+				<div class="nav-header">
+					<%
+					// 세션에서 사용자 정보를 가져옵니다.
+					UserDTO user = (UserDTO) session.getAttribute("user"); // 세션에서 'user' 속성 가져오기
+					if (user != null) {
+					%>
+					<!-- 로그인된 사용자만 볼 수 있는 버튼 -->
+					<div class="logout">
+						<p>
+							환영합니다~💕<%=user.getUser_name()%>님🎉🎉
+						</p>
+						<form action="LogOutCon" method="post">
+							<button class="button nav-logout">로그아웃</button>
+						</form>
+						<a href="Mypage.jsp" class="button nav-mypage">마이페이지</a>
+					</div>
+					<!-- "환영합니다" 텍스트를 가운데 정렬 -->
+					
+					<%
+					} else {
+					// 로그인되지 않은 상태라면 로그인 버튼만 표시
+					%>
+					<div class="button-container">
+						<a href="login.jsp" class="button nav-login">로그인</a> 
+						<a href="join.jsp" class="button nav-join">회원가입</a>
+					</div>
+	
+					<%
+					}
+					%>
 				</div>
-				<!-- "환영합니다" 텍스트를 가운데 정렬 -->
-				
-				<%
-				} else {
-				// 로그인되지 않은 상태라면 로그인 버튼만 표시
-				%>
-				<div class="button-container">
-					<a href="login.jsp" class="button nav-login">로그인</a> 
-					<a href="join.jsp" class="button nav-join">회원가입</a>
+	
+				<!-- 네비게이션 아이템들 -->
+				<div class="nav-items">
+					<a class="nav-item" href="policy_job.jsp">취업</a> <a class="nav-item" href="policy_wedding.jsp">결혼</a>
+					<a class="nav-item"	href="policy_pregnancy.jsp">출산</a>
+					<a class="nav-item"	href="BS1.html">지역혜택</a>
+					<a class="nav-item" href="boardList.jsp">커뮤니티 	게시판</a>
 				</div>
-
-				<%
-				}
-				%>
-			</div>
-
-			<!-- 네비게이션 아이템들 -->
-			<div class="nav-items">
-				<a class="nav-item" href="policy_job.jsp">취업</a> <a class="nav-item"
-					href="policy_wedding.jsp">결혼</a> <a class="nav-item"
-					href="policy_pregnancy.jsp">출산</a> <a class="nav-item"
-					href="BS1.html">지역혜택</a> <a class="nav-item" href="boardList.jsp">커뮤니티
-					게시판</a>
-			</div>
-		</nav>
-	</header>
+			</nav>
+		</header>
+	</div>
 </body>
 </html>
