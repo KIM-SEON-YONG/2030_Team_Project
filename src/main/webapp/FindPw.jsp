@@ -89,10 +89,12 @@ h2{
 
 	<!-- 모달 창 -->
 	<%
-	String foundPassword = (String) request.getAttribute("foundPassword");
+		UserDTO findPasswordByEmail = (UserDTO) request.getAttribute("USER_EMAIL");
 	%>
 	<%
-	if (foundPassword != null) {
+		if (findPasswordByEmail != null) {
+			// 비밀번호를 가져옵니다.
+	        String foundPassword = findPasswordByEmail.getUser_pw();
 	%>
 	<div id="password-modal" class="modal" style="display: flex;">
 		<div class="modal-content">

@@ -32,13 +32,9 @@
 <link rel="stylesheet" href="assets/css/board.css" />
 <!-- 다크모드 -->
 <link rel="stylesheet" href="assets/css/DarkMode.css" />
-
-
-
 </head>
 
 <body>
-
 	<div class="container">
 		<!-- Intro Page -->
 		<div class="intro" id="intro">
@@ -138,6 +134,12 @@
 				PolicyDAO policyDAO = new PolicyDAO();
 				List<PolicyDTO> jobList = policyDAO.jobList();
 
+				// 상위 4개만 가져오기
+	            int maxItemsToShow = 4;
+	            if (jobList.size() > maxItemsToShow) {
+	            	jobList = jobList.subList(0, maxItemsToShow); // 상위 4개만 추출
+	            }
+				
 				for (int i = 0; i < jobList.size(); i++) {
 				%>
 				<div class="welfare-card">
@@ -176,6 +178,11 @@
 					/* 결혼 복지정책 가져오기 */
 					List<PolicyDTO> weddingList = policyDAO.weddingList();
 
+					// 상위 4개만 가져오기
+		            if (weddingList.size() > maxItemsToShow) {
+		            	weddingList = weddingList.subList(0, maxItemsToShow); // 상위 4개만 추출
+		            }
+					
 					for (int i = 0; i < weddingList.size(); i++) {
 					%>
 
@@ -217,6 +224,11 @@
 					/* 출산 복지정책 가져오기 */
 					List<PolicyDTO> pregList = policyDAO.pregList();
 
+					// 상위 4개만 가져오기
+		            if (pregList.size() > maxItemsToShow) {
+		                pregList = pregList.subList(0, maxItemsToShow); // 상위 4개만 추출
+		            }
+					
 					for (int i = 0; i < pregList.size(); i++) {
 					%>
 					<div class="welfare-card">

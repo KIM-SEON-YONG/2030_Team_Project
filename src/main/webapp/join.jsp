@@ -4,24 +4,17 @@
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assets/css/common.css">
 <script>
         $(document).ready(function() {
             // jQuery 코드
         });
-    </script>
+</script>
 </head>
-
-<meta charset="UTF-8">
 <title>회원가입</title>
 <style>
-/* body, html {
-	margin: 10px;
-	padding: 0;
-	height: 100%;
-	width: 100vw;
-	font-family: sans-serif;
-} */
-
 .join_container > h2 {
 	text-align: center;
 	margin-bottom: 50px;
@@ -170,7 +163,7 @@ input[type="radio"] {
 	        alert('이름을 입력해주세요.');
 	        USER_NAME.focus();
 	        return false;
-	    }
+	    } 
 	   
 	    // 성별 검사
 	    if (!USER_GENDER.value) {

@@ -2,7 +2,11 @@
 <%@ page import="com.TTteamProject.model.BoardDTO"%>
 <%@ page import="com.TTteamProject.model.UserDTO"%>
 <%@ page import="java.util.List"%>
-
+<%
+    String userName = (String) session.getAttribute("userName");
+    String userId = (String) session.getAttribute("userId");
+    String welPoint = (String) session.getAttribute("welPoint");
+%>
 <!DOCTYPE html>
 <html>
 <head>

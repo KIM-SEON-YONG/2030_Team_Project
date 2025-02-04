@@ -3,10 +3,14 @@ package com.TTteamProject.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.TTteamProject.controller.MyBatisUtil;
 import com.TTteamProject.database.SqlSessionManager;
@@ -93,23 +97,12 @@ public class UserDAO {
 		return result;
 	}
 
-	// 마이페이지 정보 가져오기(DB)
-	public UserDTO getUserInfo(String user_id) {
-			SqlSession sqlSession = sqlSessionFactory.openSession(true);
-			UserDTO user = null;
-			
-			 try {
-			        System.out.println("DB 조회 시작, user_id: " + user_id); // 디버깅용 로그
-			        user = sqlSession.selectOne("UserMapper.getUserInfo", user_id);
-			        System.out.println("DB 조회 결과: " + user); // 디버깅용 로그
-			    } catch (Exception e) {
-			        e.printStackTrace();
-			    } finally {
-			        sqlSession.close();
-			    }
-			    
-			    return user;
-			}
+	// 마이페이지 정보 가져오기
+    public UserDTO getUserInfo(String user_id) {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
+            return sqlSession.selectOne("getUserInfo", user_id);
+        }
+    }
 	
     public UserDTO getUserByEmail(String email) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -153,43 +146,31 @@ public class UserDAO {
         }
         return result;
     }
+    
+    
 
-    // 아이디 찾기
-	public UserDTO findEmailByNameAndPhone(String user_name, String user_phone) {
-		SqlSession sqlSession = sqlSessionFactory.openSession();
-		UserDTO user = null;
-		
-		 try {
-			 // UserDTO 객체 생성 및 값 설정
-	            UserDTO searchUser = new UserDTO();
-	            searchUser.setUser_name(user_name);
-	            searchUser.setUser_phone(user_phone);
-	            
-			 user = sqlSession.selectOne("UserMapper.findEmailByNameAndPhone", new UserDTO(user_name, user_phone));
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        } finally {
-	            sqlSession.close();
-	        }
+ // 아이디 찾기 (이름과 전화번호로 이메일 찾기)
+    public UserDTO findEmailByNameAndPhone(String user_name, String user_phone) {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
+        	 // user_name, user_phone에 대해 null 체크 추가
+            if (user_name == null || user_phone == null) {
+                throw new IllegalArgumentException("user_name or user_phone cannot be null");
+            }
+            
+            UserDTO user = new UserDTO();
+            user.setUser_name(user_name);
+            user.setUser_phone(user_phone);
 
-	        return user;
-	    }
-
-	// 패스워드 찾기
-	public String findPasswordByEmail(String user_email) {
-		SqlSession sqlSession = sqlSessionFactory.openSession();
-        String password = null;
-        
-        try {
-            // 쿼리 실행
-            password = sqlSession.selectOne("UserMapper.findPasswordByEmail", user_email);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            sqlSession.close();
+            UserDTO result = sqlSession.selectOne("com.TTteamProject.database.UserMapper.findEmailByNameAndPhone", user);
+            return result;
         }
-        
-        return password;
     }
 
+    // 패스워드 찾기 (이메일로 비밀번호 찾기)
+    public UserDTO findPasswordByEmail(String user_email) {
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+            // MyBatis 쿼리 호출
+            return sqlSession.selectOne("com.TTteamProject.database.UserMapper.findPasswordByEmail", user_email);
+        }
+    }
 }

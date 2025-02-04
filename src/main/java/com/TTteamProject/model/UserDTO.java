@@ -62,21 +62,8 @@ public class UserDTO {
 		this.fav_region = fav_region;
 	}
 
-	/*
-	 * // 회원정보수정할때 public boolean Update(String user_id, UserDTO updatedUser) { //
-	 * UserDAO 객체 또는 MyBatis mapper를 통해 업데이트 쿼리 실행 UserDAO userDAO = new UserDAO();
-	 * 
-	 * // UserDAO의 update 메서드 호출 (UserDTO 객체를 넘겨서 업데이트 진행) boolean updateSuccess =
-	 * userDAO.Update(updatedUser);
-	 * 
-	 * if (updateSuccess) { // 업데이트가 성공하면 true 반환 return true; } else { // 업데이트 실패 시
-	 * false 반환 return false; }
-	 * 
-	 * }
-	 */
-
 	// 로그인 후 마이페이지에 DB정보 끌어오기
-	public UserDTO userid(String user_id) {
+	public UserDTO user(String user_id) {
 		return null;
 	}
 
@@ -102,6 +89,11 @@ public class UserDTO {
 
 	// 아이디 찾기
 	public UserDTO findEmailByNameAndPhone(String user_name, String user_phone) {
+		return null;
+	}
+
+	// 비번 찾기
+	public UserDTO findPasswordByEmail(String user_email) {
 		return null;
 	}
 
