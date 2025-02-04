@@ -2,12 +2,29 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="javax.sql.*"%>
-<%@ page contentType="text/html; charset=UTF-8"%>
-<%@ page language="java"%>
 <%@ page import="com.TTteamProject.model.UserDTO"%>
 <%@ page import="com.TTteamProject.model.BoardDTO"%>
 <%@ page import="javax.servlet.http.HttpSession"%>
 <%@ page import="java.util.List"%>
+
+
+<%
+String pwdchkMessage = (String) request.getAttribute("pwdchkMessage");
+if (pwdchkMessage != null) {
+%>
+    <script type="text/javascript">
+        alert("<%= pwdchkMessage %>");
+    </script>
+<%
+}
+String updatedUserFail = (String) request.getAttribute("updatedUserFail");
+if (updatedUserFail != null) {
+%>
+    <script type="text/javascript">
+        alert("<%= updatedUserFail %>");
+    </script>
+<% } %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -175,11 +192,12 @@ input[type="submit"]:hover {
 					</tr>
 					<tr>
 						<th>비밀번호 수정</th>
+
 						<td><input type="password" id="password" name="USER_PW" placeholder="새 비밀번호 입력" /></td>
-					</tr>
-					<tr>
-						<th>비밀번호 재확인</th>
-						<td><input type="password" id="confirmPassword" name="USER_PW_CHK" placeholder="비밀번호 확인" /></td>
+
+						<td><input type="password" id="password" name="user_pw"
+							placeholder="새 비밀번호 입력"></td>
+
 					</tr>
 					<tr>
 						<th>전화번호</th>
@@ -228,6 +246,6 @@ input[type="submit"]:hover {
 		  });
 	
 	</script>
-
 </body>
 </html>
+

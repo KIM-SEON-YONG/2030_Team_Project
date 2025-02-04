@@ -56,35 +56,36 @@ public class UserDAO {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		// DB에서 사용자 정보 조회
 		UserDTO user = sqlSession.selectOne("loginCheck", user_id);
+		
 		sqlSession.close();
-		// 비밀번호 비교
-		if (user != null && user.getUser_pw().equals(user_pw)) {
-			return user; // 로그인 성공
-		}
-		return null; // 로그인 실패
+		
+		return user; // 로그인 성공
 	}
 
 	// 회원정보수정
-	public boolean Update(UserDTO updatedUser) {
-		 // SqlSession을 통해 데이터베이스와 연결
-        try (SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession()) {
-            // UserMapper를 통해 실제 쿼리 메소드 호출
-            UserMapper mapper = session.getMapper(UserMapper.class);
-            int result = mapper.updateUser(updatedUser);
-
-            // 회원 정보 업데이트 실행
-            if (result > 0) {
-                session.commit();  // 성공 시 트랜잭션 커밋
-                return true;
-            } else {
-                session.rollback();  // 실패 시 롤백
-                return false;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
+	public boolean updateUser(UserDTO updateUser) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true); // 자동 커밋 옵션을 활성화
+		
+		// 업데이트 쿼리 실행
+		int rowsAffected = sqlSession.update("updateUser", updateUser);
+		
+		sqlSession.close();
+		
+		// rowsAffected가 1이상이면 성공으로 간주, 아니면 실행
+		return rowsAffected > 0; // 업데이트된 행의 수가 1이상이면 true, 아니면 false
+	}
+	
+	/*
+	 * public boolean updateUser(UserDTO updatedUser) { // SqlSession을 통해 데이터베이스와 연결
+	 * try (SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession()) {
+	 * // UserMapper를 통해 실제 쿼리 메소드 호출 UserMapper mapper =
+	 * session.getMapper(UserMapper.class); int result =
+	 * mapper.updateUser(updatedUser);
+	 * 
+	 * // 회원 정보 업데이트 실행 if (result > 0) { session.commit(); // 성공 시 트랜잭션 커밋 return
+	 * true; } else { session.rollback(); // 실패 시 롤백 return false; } } catch
+	 * (Exception e) { e.printStackTrace(); return false; } }
+	 */
 	
 	
  
@@ -165,31 +166,15 @@ public class UserDAO {
         }
     }
 
-    // 패스워드 초기화
-
-    private ResultSet rs;
-    
- // 이메일로 비밀번호 찾기
-    public String findPasswordByEmail(String userEmail) {
-        String sql = "SELECT USER_PW FROM TB_USER WHERE USER_EMAIL = ?";
-        String userPassword = null;
-
-        try {
-            conn = getConnection();
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, userEmail);
-            rs = pstmt.executeQuery();
-
-            // 결과 처리
-            if (rs.next()) {
-                userPassword = rs.getString("USER_PW"); // 비밀번호를 반환
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            closeResources();
-        }
-
-        return userPassword; // 비밀번호 반환 (없으면 null)
-    }
+    // 패스워드 이메일로 찾기
+	    public UserDTO findUserByEmail(String user_email) {
+	        try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
+	            return sqlSession.selectOne("findUserByEmail", user_email);
+	        }
+	    }
+	// 패스워드 초기화 후 발급
+		public void updatePassword(String user_email, String tempPassword) {
+			// TODO Auto-generated method stub
+		}
+	
 }
