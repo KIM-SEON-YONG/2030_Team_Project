@@ -2,17 +2,6 @@
 <%@ page import="com.TTteamProject.model.UserDTO"%>
 <%@ page import="com.TTteamProject.model.BoardDTO"%>
 <%@ page import="java.util.List"%>
-<%
-// 세션에서 사용자 정보 가져오기
-UserDTO user = (UserDTO) session.getAttribute("user");
-if (user == null) {
-
-	response.sendRedirect("login.jsp"); // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
-	return;
-} else {
-
-}
-%>
 <!DOCTYPE html>
 <html>
 <head>

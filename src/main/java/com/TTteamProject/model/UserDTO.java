@@ -71,7 +71,7 @@ public class UserDTO {
 			}
 		
 		// 로그인 후 마이페이지에 DB정보 끌어오기
-			public  UserDTO userid(String user_id) {
+			public  UserDTO user(String user_id) {
 				return null;
 			}
 			
@@ -106,7 +106,11 @@ public class UserDTO {
 		public UserDTO findEmailByNameAndPhone(String user_name, String user_phone) {
 			return null;
 		}
-
+		
+	// 비번 찾기
+		public UserDTO findPasswordByEmail(String user_email) {
+			return null;
+		}
 
 
 }

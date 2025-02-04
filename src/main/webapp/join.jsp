@@ -155,7 +155,7 @@ input[type="radio"] {
 	        alert('이름을 입력해주세요.');
 	        USER_NAME.focus();
 	        return false;
-	    }
+	    } 
 	   
 	    // 성별 검사
 	    if (!USER_GENDER.value) {

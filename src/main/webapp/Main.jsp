@@ -32,13 +32,9 @@
 <link rel="stylesheet" href="assets/css/board.css" />
 <!-- 다크모드 -->
 <link rel="stylesheet" href="assets/css/DarkMode.css" />
-
-
-
 </head>
 
 <body>
-
 	<div class="container">
 		<!-- Intro Page -->
 		<div class="intro" id="intro">

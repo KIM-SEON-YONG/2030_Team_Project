@@ -162,32 +162,22 @@ public class UserDAO {
 	            UserDTO searchUser = new UserDTO();
 	            searchUser.setUser_name(user_name);
 	            searchUser.setUser_phone(user_phone);
-	            
 			 user = sqlSession.selectOne("UserMapper.findEmailByNameAndPhone", new UserDTO(user_name, user_phone));
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        } finally {
 	            sqlSession.close();
 	        }
-
 	        return user;
 	    }
 
+	
 	// 패스워드 찾기
 	public String findPasswordByEmail(String user_email) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-        String password = null;
-        
-        try {
-            // 쿼리 실행
-            password = sqlSession.selectOne("UserMapper.findPasswordByEmail", user_email);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            sqlSession.close();
-        }
-        
-        return password;
-    }
+		String password = null;
+		return password;
+		
+	}
 
 }
