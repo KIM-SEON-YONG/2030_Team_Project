@@ -17,7 +17,6 @@ function toggleChat() {
 function sendMessage() {
 	var userMessage = document.getElementById("userMessage").value.trim(); // 사용자 입력메시지
 	
-	
 
 	if (userMessage === "") {
 		alert("메시지를 입력해 주세요.");

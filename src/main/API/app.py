@@ -40,6 +40,11 @@ def extract_region_and_welfare_category(user_input):
         if r in user_input:
             region.append(r)
     
+    # "모든지역", "모든 지역" 이라는 문구가 있을 경우 region 값에 
+    # DB에 있는 모든 지역의 값을 넣어주기!
+    if "모든 지역" in user_input or "모든지역" in user_input:
+        region = regions # DB에서 가져온 모든 지역을 region에 넣음
+
     # 복지 분류 찾기
     for wc in welfare_categories:
         if wc in user_input:
@@ -80,6 +85,10 @@ def chatbot():
     # DB에서 해당 지역과 복지 분류에 맞는 정책 조회
     query_result = get_policyList(region, welfare_category)
     
+    # 반환값이 문자열인 경우(지역,복지 조건이 없어서 전라남도 지역에 대한 문구가 반환된 경우)
+    if isinstance(query_result, str):
+        return jsonify({"answer": query_result})
+
     if query_result:
         # DB 결과가 있으면 해당 정보를 반환
         response = f"{', '.join(region) if region else '전체 지역'}의 {', '.join(welfare_category) if welfare_category else '전체 복지'} 관련 정책입니다.\n\n"
@@ -87,11 +96,11 @@ def chatbot():
             response += f"제목: {row[0]}\n, 내용: {row[1]}\n, 기간: {row[2]}\n, URL: {row[3]}\n\n"
         return jsonify({"answer": response})
    
-    # DB에 해당 자료가 없으면, AI 모델을 사용하여 답변 생성
-    response = "현재 웹사이트에는 원하시는 요청에 대한 정보가 없습니다. GPT를 사용한 답변입니다." 
+    # DB에 해당 자료가 없으면, AI 모델을 사용하여 답변 생성 => 챗봇 대답 안하게 조치
+    """ response = "현재 웹사이트에는 원하시는 요청에 대한 정보가 없습니다. GPT를 사용한 답변입니다." 
     response_chatbot = chat.send_message(user_input)
     response_text = response + "\n\n" + response_chatbot.text  # 두 개의 응답을 먼저 합친 후에 JSON으로 반환
-    return jsonify({"answer": response_text})
+    return jsonify({"answer": response_text}) """
 
 if __name__ == '__main__':
     # Flask 서버 실행(기본 포트는 5000)

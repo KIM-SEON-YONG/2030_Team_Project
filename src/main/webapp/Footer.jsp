@@ -88,7 +88,8 @@ footer {
     <div class="chat-container" id="chat-container">
         <div class="chat-header">💬 SPARK 챗봇</div>
         <div class="chat-box" id="chat-box">
-            <div class="bot-message chat-message">안녕하세요. SPARK 챗봇입니다.<br>어떤 복지 정책이 궁금하신가요?<br>알고 싶은 지역과 복지 정책을 말씀해 주시면 상세한 답변이 가능합니다.</div>
+            <div class="bot-message chat-message">안녕하세요. SPARK 챗봇입니다.<br>현재 <strong>전라남도</strong>에 대한 <strong>취업, 결혼, 출산</strong> 복지 정책만 제공하고 있습니다.<br>알고 싶은 지역과 복지 정책을 말씀해 주시면 상세한 답변이 가능합니다.<br><span style="font-size:12px; color: #C71585">* 전라남도의 모든 지역이 궁금하세요?<br>&nbsp;&nbsp;&nbsp;"모든지역"으로 질문해 주세요!</span></div>
+            <!-- <div class="bot-message chat-message"><span style="font-size:12px; color: #C71585">모든지역의 결혼 복지 정보 알려줘<br>목포의 취업 복지 정보 알려줘</span></div> -->
         </div>
         <div class="chat-input">
             <input type="text" id="userMessage" placeholder="메시지를 입력하세요..." onkeypress="handleKeyPress(event)">
