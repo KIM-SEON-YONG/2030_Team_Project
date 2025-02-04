@@ -69,12 +69,12 @@
 
     <!-- 이메일로 사용자 조회 -->
     <select id="getUserByEmail" parameterType="string" resultType="com.TTteamProject.model.UserDTO">
-        SELECT * FROM users WHERE user_email = #{email}
+        SELECT * FROM TB_USER WHERE USER_EMAIL = #{email}
     </select>
 
     <!-- Google 사용자 자동 회원가입 -->
     <insert id="registerGoogleUser" parameterType="com.TTteamProject.model.UserDTO">
-        INSERT INTO users (user_email, user_pw, user_name)
+        INSERT INTO TB_USER (user_email, user_pw, user_name)
         VALUES (#{user_email}, 'GOOGLE_LOGIN', #{user_name})
     </insert>
     <!-- 네이버 사용자 회원가입 -->
@@ -84,7 +84,19 @@
         VALUES (#{user_email}, 'NAVER_LOGIN', #{user_name})
     </insert>
 
-
+	<!-- 아이디 찾기  -->
+	<select id="findEmailByNameAndPhone" parameterType="com.TTteamProject.model.UserDTO" resultType="String">
+		SELECT USER_EMAIL
+		FROM TB_USER
+		WHERE USER_NAME = #{user_name} AND USER_PHONE = #{user_phone}
+	</select>
+	
+	<!-- 패스워드 찾기 -->
+	<select id="findPasswordByEmail" parameterType="String" resultType="String">
+		SELECT USER_PW
+		FROM TB_USER
+		WHERE USER_EMAIL = #{user_email}
+	</select>
 
 
 

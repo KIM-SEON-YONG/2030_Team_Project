@@ -2,6 +2,7 @@ package com.TTteamProject.model;
 
 
 import org.apache.ibatis.reflection.SystemMetaObject;
+import org.apache.ibatis.session.SqlSession;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,7 +24,9 @@ public class UserDTO {
 	    private String fav_welfare;       // 선호 복지
 	    private String fav_region;        // 선호 지역
 	    private int wel_point;        // 복지포인트
-	    private int postCount; // 예시로 게시글 수를 저장하는 필드
+	    private int postcount; // 예시로 게시글 수를 저장하는 필드
+	    private String user_email;        // 이메일
+	    private String join_dt;        // 이메일
 	    
 	    
 	    
@@ -68,7 +71,7 @@ public class UserDTO {
 			}
 		
 		// 로그인 후 마이페이지에 DB정보 끌어오기
-			public  UserDTO user(String user_id) {
+			public  UserDTO userid(String user_id) {
 				return null;
 			}
 			
@@ -99,8 +102,19 @@ public class UserDTO {
 	        return fav_welfare;
 	    }
 
-	    
+	 // 아이디 찾기
+		public UserDTO findEmailByNameAndPhone(String user_name, String user_phone) {
+			return null;
+		}
+
 
 
 }
+
+
+	    
+	    
+
+
+
 	    
