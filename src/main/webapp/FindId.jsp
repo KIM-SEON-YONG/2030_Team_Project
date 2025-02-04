@@ -82,9 +82,9 @@ input {
 				<h2>아이디 찾기</h2><br>
 				<form id="find-id-form" action="FindIdCon" method="POST">
 					<div class="form-group">
-						<input type="text" id="name" name="name" required placeholder="이름 입력">
+						<input type="text" id="USER_NAME" name="USER_NAME" required placeholder="이름 입력">
 						<br>
-						<input type="tel" id="phone" name="phone" required placeholder="전화번호 입력">
+						<input type="tel" id="USER_PHONE" name="USER_PHONE" required placeholder="전화번호 입력">
 						<br>
 					</div>
 					<button type="submit" id="find-id-button">아이디 찾기</button>
@@ -94,10 +94,11 @@ input {
 	</section>
 	<!-- 모달 창 -->
 	<%
-	String foundEmail = (String) request.getAttribute("foundEmail");
+	UserDTO findEmailByNameAndPhone = (UserDTO) request.getAttribute("USER_EMAIL");
 	%>
 	<%
-	if (foundEmail != null) {
+	if (findEmailByNameAndPhone != null) {
+		 String foundEmail = findEmailByNameAndPhone.getUser_email();  // getUser_email() 메서드를 호출하여 이메일을 가져옵니다.
 	%>
 	<div id="id-modal" class="modal" style="display: flex;">
 		<div class="modal-content">
@@ -114,6 +115,13 @@ input {
 
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
+			// 오류 파라미터가 있으면 알림창 표시
+            const urlParams = new URLSearchParams(window.location.search);
+            const error = urlParams.get('error');
+            if (error === 'not_found') {
+                alert('이메일을 찾을 수 없습니다. 다시 시도해 주세요.');
+            }
+            
 			const closeModal = document.getElementById("close-modal");
 			if (closeModal) {
 				closeModal.addEventListener("click", function() {

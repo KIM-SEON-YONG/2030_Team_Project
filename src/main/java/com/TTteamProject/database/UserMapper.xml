@@ -78,8 +78,7 @@
         VALUES (#{user_email}, 'GOOGLE_LOGIN', #{user_name})
     </insert>
     <!-- 네이버 사용자 회원가입 -->
-    <insert id="registerNaverUser"
-        parameterType="com.TTteamProject.model.UserDTO">
+    <insert id="registerNaverUser" parameterType="com.TTteamProject.model.UserDTO">
         INSERT INTO TB_USER (user_email, user_pw, user_name)
         VALUES (#{user_email}, 'NAVER_LOGIN', #{user_name})
     </insert>
@@ -88,7 +87,8 @@
 	<select id="findEmailByNameAndPhone" parameterType="com.TTteamProject.model.UserDTO" resultType="String">
 		SELECT USER_EMAIL
 		FROM TB_USER
-		WHERE USER_NAME = #{user_name} AND USER_PHONE = #{user_phone}
+		WHERE USER_NAME = #{user_name} 
+		  AND USER_PHONE = #{user_phone}
 	</select>
 	
 	<!-- 패스워드 찾기 -->
@@ -97,8 +97,6 @@
 		FROM TB_USER
 		WHERE USER_EMAIL = #{user_email}
 	</select>
-
-
 
 
 

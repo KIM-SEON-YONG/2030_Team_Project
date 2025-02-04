@@ -35,16 +35,16 @@
     </dependency>
 
     <!-- Google OAuth -->
-<dependency>
-    <groupId>com.google.http-client</groupId>
-    <artifactId>google-http-client-jackson2</artifactId>
-    <version>1.45.3</version>
-</dependency>
-<dependency>
-    <groupId>com.google.http-client</groupId>
-    <artifactId>google-http-client-jackson2</artifactId>
-    <version>1.43.3</version>
-</dependency>
+	<dependency>
+	    <groupId>com.google.http-client</groupId>
+	    <artifactId>google-http-client-jackson2</artifactId>
+	    <version>1.45.3</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.google.http-client</groupId>
+	    <artifactId>google-http-client-jackson2</artifactId>
+	    <version>1.43.3</version>
+	</dependency>
 
 
 		<!-- 추가한 라이브러리가 정상등록 되었는지 확인: Libraries > Maven Dependencies에서 확인 가능 -->
