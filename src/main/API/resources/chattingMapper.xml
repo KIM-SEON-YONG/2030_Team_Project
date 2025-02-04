@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queries>
+    <!-- 정책 조회 쿼리 -->
+    <query id="get_policy_by_region_and_category">
+        SELECT WELFARE_TITLE, WELFARE_CONTENT, WELFARE_PERIOD, WELFARE_URL
+        FROM TB_POLICY
+        WHERE REGION_NAME IN (:region) AND WELFARE_NAME IN (:welfare_category)
+    </query>
+
+    <!-- 지역만 조회 -->
+    <query id="get_policy_by_region">
+        SELECT WELFARE_TITLE, WELFARE_CONTENT, WELFARE_PERIOD, WELFARE_URL
+        FROM TB_POLICY
+        WHERE REGION_NAME IN (:region)
+    </query>
+
+    <!-- 복지분류만 조회 -->
+    <query id="get_policy_by_category">
+        SELECT WELFARE_TITLE, WELFARE_CONTENT, WELFARE_PERIOD, WELFARE_URL
+        FROM TB_POLICY
+        WHERE WELFARE_NAME IN (:welfare_category)
+    </query>
+
+    <!-- 전체 정책 조회 -->
+    <query id="get_all_policies">
+        SELECT WELFARE_TITLE, WELFARE_CONTENT, WELFARE_PERIOD, WELFARE_URL
+        FROM TB_POLICY
+    </query>
+
+    <!-- 지역리스트 가져오기 -->
+    <query id="get_regions">
+        SELECT REGION_NAME
+        FROM TB_REGION
+    </query>
+</queries>

@@ -17,6 +17,9 @@
 <link rel="stylesheet" href="assets/css/policy.css" />
 </head>
 <body>
+
+	<%@ include file="Header.jsp" %>
+
 	<div class="container">
 		<div class="welfare-content">
 			<p class="welfare_header_title">취업 지원</p>
@@ -106,6 +109,7 @@
 		<!-- welfare-content -->
 	</div>
 	<!-- container -->
+	<%@ include file="Footer.jsp" %>
 	
 	<!-- 로딩 인디케이터 -->
 	<div id="loading" style="display: none;">
@@ -127,6 +131,10 @@
 	<script src="assets/js/ajax.js"></script>
 	
 	<script>
+	
+	
+
+
 	
 	/* main처럼 불러올 수 있는데, 그냥 이대로 두기 - 시간 있으면 수정  */
 	

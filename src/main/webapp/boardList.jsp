@@ -166,6 +166,7 @@ body {
 	BoardDAO dao = new BoardDAO();
 	List<BoardDTO> boardList = dao.boardList();
 	%>
+<%@ include file="Header.jsp"%>
 	<div class="container">
 		<!-- 상단 제목 -->
 		<div class="header">
@@ -235,7 +236,9 @@ body {
 				onclick="location.href='board-write.html'">글쓰기</button>
 		</div>
 	</div>
+	<%@ include file="Footer.jsp"%>
 	<script>
+		
 		// 로컬 스토리지에서 게시글 불러오기
 		document.addEventListener("DOMContentLoaded", function () {
 			const posts = JSON.parse(localStorage.getItem("posts")) || [];
@@ -270,6 +273,7 @@ body {
 	<!-- Bootstrap JS -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+		
 </body>
 
 </html>

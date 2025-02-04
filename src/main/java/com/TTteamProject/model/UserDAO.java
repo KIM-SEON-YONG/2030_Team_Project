@@ -81,7 +81,8 @@ public class UserDAO {
             return false;
         }
     }
-
+	
+	
  
 	// 회원탈퇴
 	public int Delete(String user_id, String user_pw) {
@@ -108,4 +109,86 @@ public class UserDAO {
 			    
 			    return user;
 			}
+	
+    public UserDTO getUserByEmail(String email) {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserDTO user = null;
+
+        try {
+            user = sqlSession.selectOne("UserMapper.getUserByEmail", email);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        return user;
+    }
+
+    // Google 사용자 자동 회원가입
+    public int registerGoogleUser(UserDTO user) {
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        int result = 0;
+
+        try {
+            result = sqlSession.insert("UserMapper.registerGoogleUser", user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        return result;
+    }
+
+    public int registerNaveruser(UserDTO user) {
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        int result = 0;
+
+        try {
+            result = sqlSession.insert("UserMapper.registerNaverUser", user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        return result;
+    }
+
+    // 아이디 찾기
+	public UserDTO findEmailByNameAndPhone(String user_name, String user_phone) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		UserDTO user = null;
+		
+		 try {
+			 // UserDTO 객체 생성 및 값 설정
+	            UserDTO searchUser = new UserDTO();
+	            searchUser.setUser_name(user_name);
+	            searchUser.setUser_phone(user_phone);
+	            
+			 user = sqlSession.selectOne("UserMapper.findEmailByNameAndPhone", new UserDTO(user_name, user_phone));
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        } finally {
+	            sqlSession.close();
+	        }
+
+	        return user;
+	    }
+
+	// 패스워드 찾기
+	public String findPasswordByEmail(String user_email) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+        String password = null;
+        
+        try {
+            // 쿼리 실행
+            password = sqlSession.selectOne("UserMapper.findPasswordByEmail", user_email);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        
+        return password;
+    }
+
 }

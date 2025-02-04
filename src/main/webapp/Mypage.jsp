@@ -2,17 +2,19 @@
 <%@ page import="com.TTteamProject.model.UserDTO"%>
 <%@ page import="com.TTteamProject.model.BoardDTO"%>
 <%@ page import="java.util.List"%>
+
+
 <%
-// 세션에서 사용자 정보 가져오기
-UserDTO user = (UserDTO) session.getAttribute("user");
-if (user == null) {
-	
+// 여기에 위치하는 이유 => 페이지가 로드되기 전에 로그인 유무를 확인하기 위함!
+// 로그인이 되어 있지 않으면 login.jsp 페이지로 이동
+UserDTO userInfo = (UserDTO) session.getAttribute("user"); /* Header.jsp에도 user변수로 가져오고 있어서 변수명 변경 */
+if (userInfo == null) {
 	response.sendRedirect("login.jsp"); // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
-	return;
-} else {
-	
+	return; // 더이상 아래 코드를 실행하지 않도록 종료
 }
 %>
+<!-- 해더  -->
+
 
 <!DOCTYPE html>
 <html>
@@ -127,6 +129,7 @@ if (user == null) {
 </style>
 </head>
 <body>
+	<%@ include file="Header.jsp"%>
 	<div class="container">
 		<!-- 메뉴 -->
 		<div class="menu">
@@ -142,21 +145,10 @@ if (user == null) {
 				<li><a href=Update.jsp>회원정보수정</a></li>
 				<li><a href="WelPoint.jsp">복지포인트</a></li>
 			</ul>
-			<!-- 로그아웃 버튼 -->
-			<button class="logout-btn" onclick="logout()">로그아웃</button>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+			<!-- 로그아웃 버튼  -->
+			<!-- <button class="logout-btn" onclick="logout()">로그아웃</button> -->
+			<br> <br> <br> <br> <br> <br> <br>
+			<br> <br> <br> <br> <br> <br>
 			<button class="delete-btn" onclick="delete()">회원탈퇴</button>
 		</div>
 
@@ -169,15 +161,15 @@ if (user == null) {
 				<!-- 사용자 정보 테이블 -->
 				<tr>
 					<th>보유포인트</th>
-					<td><%= user.getWel_point() %>P</td>
+					<td><%=user.getWel_point()%>P</td>
 					<th>내가쓴글</th>
-					<td><%=user.getPostCount()%></td>
+					<td><%=user.getPostcount()%></td>
 				</tr>
 				<tr>
 					<th>최종접속일시</th>
 					<td>2016-01-25 15:42:23</td>
 					<th>회원가입일시</th>
-					<td>2016-01-11 13:52:33</td>
+					<td><%=user.getJoin_dt()%></td>
 				</tr>
 				<tr>
 					<th>연락처</th>
@@ -221,13 +213,14 @@ if (user == null) {
 			</table>
 		</div>
 	</div>
-
+	<!-- 풋터 -->
+	<%@ include file="Footer.jsp"%>
 
 
 	<script>
-	function logout() {
-		   window.location.href = "logoutServlet"; // 로그아웃 서블릿 호출
-		}
-	</script>
+   function logout() {
+         window.location.href = "LogOutCon"; // 로그아웃 서블릿 호출
+      }
+   </script>
 </body>
 </html>

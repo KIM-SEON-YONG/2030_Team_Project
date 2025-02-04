@@ -29,7 +29,6 @@
 		VALUES
 		(TB_BOARD_SEQ.NEXTVAL, #{b_title}, #{b_content}, TO_DATE(SYSDATE,
 		'YYYY-MM-DD HH24:MI:SS'), 0, 0, #{user_id}, #{b_category})
-
 	</insert>
 
 	<!-- 게시글 수정 -->

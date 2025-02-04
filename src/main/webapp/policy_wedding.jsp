@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="assets/css/policy.css" />
 </head>
 <body>
+	<%@ include file="Header.jsp" %>
 	<div class="container">
 		<div class="welfare-content">
 			<p class="welfare_header_title">결혼 지원</p>
@@ -104,6 +105,7 @@
 		<!-- welfare-content -->
 	</div>
 	<!-- container -->
+	<%@ include file="Footer.jsp" %>
 
 	<!-- 로딩 인디케이터 -->
 	<div id="loading" style="display: none;">
@@ -125,7 +127,6 @@
 	<script src="assets/js/ajax.js"></script>
 	
 	<script>
-	
 	/* ***주의*** AJAX 코드는 해당 jsp 하단에 위치해야됨!!! 별도로 .js 파일로 빼지 않기!! */
 	
 	/* 지역 검색 후 결과 비동기통신 송출 */

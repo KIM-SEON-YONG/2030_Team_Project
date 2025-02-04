@@ -17,6 +17,18 @@ if (user == null) {
 } else {
 
 }
+
+// 비밀번호 일치하지 않으면 alert창 띄우기
+String message = (String) request.getAttribute("message");
+if(message != null){
+%>
+
+	<script type="text/javascript">
+		alert("<%= message %>");
+	</script>
+	
+<%
+}
 %>
 
 <!DOCTYPE html>
@@ -115,8 +127,9 @@ if (user == null) {
 }
 
 /* 정보 테이블 스타일 */
+
 .info-table {
-	width: 100%; /* 테이블 너비를 100%로 설정 */
+	width: 50%; /* 테이블 너비를 100%로 설정 */
 	border-collapse: collapse; /* 테두리 겹침 제거 */
 	margin-top: 20px; /* 위쪽 여백 */
 }
@@ -149,7 +162,7 @@ if (user == null) {
 				<li><a href="WelPoint.jsp">복지포인트</a></li>
 			</ul>
 			<!-- 로그아웃 버튼 -->
-			<button class="logout-btn" onclick="logout()">로그아웃</button>
+			<!-- <button class="logout-btn" onclick="logout()">로그아웃</button> -->
 			<br> <br> <br> <br> <br> <br> <br>
 			<br> <br> <br> <br> <br> <br>
 			<button class="delete-btn" onclick="delete()">회원탈퇴</button>
@@ -180,12 +193,12 @@ if (user == null) {
 					</tr>
 					<tr>
 						<th>비밀번호 수정</th>
-						<td><input type="password" id="password"
+						<td><input type="text" id="password" name="user_pw"
 							placeholder="새 비밀번호 입력"></td>
 					</tr>
 					<tr>
 						<th>비밀번호 재확인</th>
-						<td><input type="password" id="confirmPassword"
+						<td><input type="text" id="confirmPassword" name="user_pw_chk"
 							placeholder="비밀번호 확인"></td>
 					</tr>
 					<tr>
