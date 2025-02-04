@@ -84,6 +84,7 @@
 					<div class="welfare-card">
 						<a href="<%=weddingList.get(i).getWelfare_url() %>" target="_blank">
 							<span class="welfare_sort welfare_sort_wedding">결혼</span>
+							<span class="welfare_sort welfare_region"><%=weddingList.get(i).getRegion_name() %></span>
 							<p class="welfare_title welfare_title_wedding"><%=weddingList.get(i).getWelfare_title()%></p>
 							<p class="welfare_period welfare_perid_wedding"><%=weddingList.get(i).getWelfare_period()%></p>
 							<p class="welfare_content welfare_content_wedding"><%=weddingList.get(i).getWelfare_content()%></p>
@@ -189,6 +190,7 @@
 
 					    // 동적 텍스트 추가
 					    link.append($('<span>').addClass('welfare_sort welfare_sort_wedding').html('결혼'));
+					    link.append($('<span>').addClass('welfare_sort welfare_region').text(policy.region_name));
 					    link.append($('<p>').addClass('welfare_title welfare_title_wedding').text(policy.welfare_title));
 					    link.append($('<p>').addClass('welfare_period welfare_period_wedding').text(policy.welfare_period));
 					    link.append($('<p>').addClass('welfare_content welfare_content_wedding').text(policy.welfare_content));

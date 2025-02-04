@@ -174,6 +174,7 @@ function fetchData(contextPath, controllerUrl, dataContainerSelector, regionInpu
 						// 동적 텍스트 추가
 						link.append(
 							$('<span>').addClass('welfare_sort welfare_sort_job').html('취업'),
+							$('<span>').addClass('welfare_sort welfare_region').text(policy.region_name),
 							$('<p>').addClass('welfare_title welfare_title_job').text(policy.welfare_title),
 							$('<p>').addClass('welfare_period welfare_period_job').text(policy.welfare_period),
 							$('<p>').addClass('welfare_content welfare_content_job').text(policy.welfare_content)
@@ -219,6 +220,7 @@ function fetchData(contextPath, controllerUrl, dataContainerSelector, regionInpu
 							// 동적 텍스트 추가
 							link.append(
 								$('<span>').addClass('welfare_sort welfare_sort_wedding').html('결혼'),
+								$('<p>').addClass('welfare_sort welfare_region').text(policy.region_name),
 								$('<p>').addClass('welfare_title welfare_title_wedding').text(policy.welfare_title),
 								$('<p>').addClass('welfare_period welfare_period_wedding').text(policy.welfare_period),
 								$('<p>').addClass('welfare_content welfare_content_wedding').text(policy.welfare_content)
@@ -263,6 +265,7 @@ function fetchData(contextPath, controllerUrl, dataContainerSelector, regionInpu
 						// 동적 텍스트 추가
 						link.append(
 							$('<span>').addClass('welfare_sort welfare_sort_preg').html('출산'),
+							$('<p>').addClass('welfare_sort welfare_region').text(policy.region_name),
 							$('<p>').addClass('welfare_title welfare_title_preg').text(policy.welfare_title),
 							$('<p>').addClass('welfare_period welfare_period_preg').text(policy.welfare_period),
 							$('<p>').addClass('welfare_content welfare_content_preg').text(policy.welfare_content)
