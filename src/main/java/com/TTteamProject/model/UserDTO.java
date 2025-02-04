@@ -21,11 +21,11 @@ public class UserDTO {
 	    private String user_birthdate;      // 생년월일
 	    private String user_gender;       // 성별
 	    private String user_phone;        // 전화번호
+	    private String user_email;        // 이메일
 	    private String fav_welfare;       // 선호 복지
 	    private String fav_region;        // 선호 지역
 	    private int wel_point;        // 복지포인트
 	    private int postcount; // 예시로 게시글 수를 저장하는 필드
-	    private String user_email;        // 이메일
 	    private String join_dt;        // 이메일
 	    
 	    
@@ -107,12 +107,15 @@ public class UserDTO {
 			return null;
 		}
 		
-	// 비번 찾기
-		public UserDTO findPasswordByEmail(String user_email) {
+	// 비번 초기화 하기
+		
+		public String setUserPW(String setUserPW) {
 			return null;
 		}
+		
 
-
+		
+		
 }
 
 

@@ -6,41 +6,23 @@
 <%@ page language="java"%>
 <%@ page import="com.TTteamProject.model.UserDTO"%>
 <%@ page import="com.TTteamProject.model.BoardDTO"%>
+<%@ page import="javax.servlet.http.HttpSession"%>
 <%@ page import="java.util.List"%>
-<%
-// 세션에서 사용자 정보 가져오기
-UserDTO user = (UserDTO) session.getAttribute("user");
-if (user == null) {
-
-	response.sendRedirect("login.jsp"); // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
-	return;
-} else {
-
-}
-
-// 비밀번호 일치하지 않으면 alert창 띄우기
-String message = (String) request.getAttribute("message");
-if(message != null){
-%>
-
-	<script type="text/javascript">
-		alert("<%= message %>");
-	</script>
-	
-<%
-}
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>회원정보수정</title>
-<link rel="stylesheet" href="assets/css/common.css"><!-- 공용 -->
+<link rel="stylesheet" href="assets/css/common.css">
+<!-- 공용 -->
 <style type="text/css">
+.box{
+
+}
 /* 전체 레이아웃 */
 .container {
 	display: flex; /* Flexbox를 사용하여 자식 요소들을 배치 */
+	
 }
 
 /* 메뉴 스타일 */
@@ -69,7 +51,6 @@ if(message != null){
 }
 
 .nickname {
-	margin-top: 10px; /* 위쪽 여백 */
 	font-size: 16px; /* 폰트 크기 */
 	color: #333; /* 글자 색 */
 	font-weight: bold; /* 글자 굵기 */
@@ -82,11 +63,9 @@ if(message != null){
 	margin: 0; /* 외부 여백 제거 */
 	width: 100%; /* 메뉴 너비를 100%로 설정 */
 }
-
 .menu li {
 	margin: 10px 0; /* 메뉴 항목 간 여백 */
 }
-
 .menu a {
 	text-decoration: none; /* 링크의 밑줄 제거 */
 	color: #333; /* 링크 색상 */
@@ -98,36 +77,18 @@ if(message != null){
 	border-radius: 10px; /* 모서리 둥글게 처리 */
 	transition: background-color 0.3s; /* 배경색 변화에 애니메이션 효과 추가 */
 }
-
 .menu a:hover {
 	background-color: #C0B3DF; /* 호버 시 배경색 변화 */
 }
-
-.logout-btn {
-	background-color: #f24c59; /* 로그아웃 버튼 배경색 */
-	color: white; /* 버튼 글자색 */
-	border: none; /* 테두리 제거 */
-	padding: 10px 20px; /* 내부 여백 */
-	border-radius: 5px; /* 모서리 둥글게 */
-	cursor: pointer; /* 커서가 포인터로 변경 */
-	font-size: 16px; /* 폰트 크기 */
-	margin-top: 20px; /* 위쪽 여백 */
-	transition: background-color 0.3s; /* 배경색 변화에 애니메이션 효과 추가 */
-}
-
-.logout-btn:hover {
-	background-color: #e03e50; /* 호버 시 배경색 변화 */
-}
-
 /* 메인 콘텐츠 */
 .main-content {
 	flex-grow: 1; /* 남은 공간을 채우기 */
 	padding: 20px; /* 내부 여백 */
 	background-color: #f9f9f9; /* 배경색 설정 */
+	justify-items: center;
 }
 
 /* 정보 테이블 스타일 */
-
 .info-table {
 	width: 50%; /* 테이블 너비를 100%로 설정 */
 	border-collapse: collapse; /* 테두리 겹침 제거 */
@@ -139,99 +100,134 @@ if(message != null){
 	padding: 10px; /* 셀 내부 여백 */
 	text-align: left; /* 텍스트 왼쪽 정렬 */
 }
-
 .info-table th {
 	background-color: #f2f2f2; /* 테이블 헤더 배경색 */
+}
+/* 저장 버튼 스타일 */
+input[type="submit"] {
+    background-color: white; /* 버튼 배경색 */
+    color: black;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 350px; 
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #E6E6FA; /* 호버 시 색상 변화 */
 }
 </style>
 </head>
 <body>
-	<div class="container">
-		<!-- 메뉴 -->
-		<div class="menu">
-			<div class="profile-container">
-				<!-- 프로필 이미지 -->
-				<img id="profile-img" class="profile-img"
-					src="https://goodpokki.kr/common/img/default_profile.png"
-					alt="프로필 이미지">
-				<p class="nickname"><%=user.getUser_name()%></p>
+	<!-- 해더  -->
+	<%@ include file="Header.jsp"%>
+	
+	<% 
+		UserDTO updatedUser = (UserDTO) session.getAttribute("updatedUser"); // session에서 user 객체를 가져옴
+		if (user == null) {
+			// user 객체가 null인 경우 로그인 페이지로 리디렉션
+			response.sendRedirect("login.jsp");
+			return;
+		}
+	%>
+	
+	<!-- 회원 정보 수정 폼 -->
+	<form class="box" action="UpdateCon" method="post">
+		<div class="container">
+			<!-- 메뉴 -->
+			<div class="menu">
+				<div class="profile-container">
+					<!-- 프로필 이미지 -->
+					<img id="profile-img" class="profile-img"
+						src="https://goodpokki.kr/common/img/default_profile.png"
+						alt="프로필 이미지">
+					<p class="nickname"><%= user.getUser_name() %></p>
+				</div>
+				<div>
+					<ul>
+						<li><a href="Mypage.jsp">마이페이지</a></li>
+						<li><a href="WelPoint.jsp">복지포인트</a></li>
+					</ul>
+				</div>
 			</div>
-			<ul>
-				<!-- 메뉴 항목들 -->
-				<li><a href=Update.jsp>회원정보수정</a></li>
-				<li><a href="WelPoint.jsp">복지포인트</a></li>
-			</ul>
-			<!-- 로그아웃 버튼 -->
-			<!-- <button class="logout-btn" onclick="logout()">로그아웃</button> -->
-			<br> <br> <br> <br> <br> <br> <br>
-			<br> <br> <br> <br> <br> <br>
-			<button class="delete-btn" onclick="delete()">회원탈퇴</button>
-		</div>
-
-		<!-- 메인 콘텐츠 -->
-		<div class="main-content">
-
-			<!-- 정보 수정 폼 -->
-			<form action="UpdateCon" method="post">
+			
+			<!-- 메인 콘텐츠 -->
+			<div class="main-content">
 				<table class="info-table">
-					<!-- 사용자 정보 테이블 -->
 					<tr>
 						<th>이름</th>
-						<td><%=user.getUser_name()%></td>
+						<td><input type="text" name="USER_NAME" value="<%= user.getUser_name() %>" /></td>
 					</tr>
 					<tr>
 						<th>성별</th>
-						<td><%=user.getUser_gender()%></td>
+						<td><input type="text" name="USER_GENDER" value="<%= user.getUser_gender() %>" /></td>
 					</tr>
 					<tr>
 						<th>생년월일</th>
-						<td><%=user.getUser_birthdate()%></td>
+						<td><input type="text" name="USER_BIRTHDATE" value="<%= user.getUser_birthdate() %>" /></td>
 					</tr>
 					<tr>
 						<th>아이디</th>
-						<td><%=user.getUser_id()%></td>
+						<td><input type="text" name="USER_ID" value="<%= user.getUser_id() %>" disabled /></td>
 					</tr>
 					<tr>
 						<th>비밀번호 수정</th>
-						<td><input type="text" id="password" name="user_pw"
-							placeholder="새 비밀번호 입력"></td>
+						<td><input type="password" id="password" name="USER_PW" placeholder="새 비밀번호 입력" /></td>
 					</tr>
 					<tr>
 						<th>비밀번호 재확인</th>
-						<td><input type="text" id="confirmPassword" name="user_pw_chk"
-							placeholder="비밀번호 확인"></td>
+						<td><input type="password" id="confirmPassword" name="USER_PW_CHK" placeholder="비밀번호 확인" /></td>
 					</tr>
 					<tr>
 						<th>전화번호</th>
-						<td><input type="text" name="user_phone"
-							value="<%=user.getUser_phone()%>" placeholder="전화번호 입력"></td>
+						<td><input type="text" name="USER_PHONE" value="<%= user.getUser_phone() %>" placeholder="전화번호 ex)010-1234-5678" /></td>
+					</tr>
+					<tr>
+						<th>이메일</th>
+						<td><input type="text" name="USER_EMAIL" value="<%= user.getUser_email() %>" placeholder="이메일 ex)example@domain.com" /></td>
 					</tr>
 					<tr>
 						<th>관심분야</th>
-						<td><input type="text" name="fav_welfare"
-							value="<%=user.getUser_fav_welfare()%>" placeholder="관심 분야 입력"></td>
+						<td><input type="text" name="FAV_WELFARE" value="<%= user.getUser_fav_welfare() %>" placeholder="관심 분야 입력" /></td>
 					</tr>
 					<tr>
 						<th>관심지역</th>
-						<td><input type="text" name="fav_region"
-							value="<%=user.getUser_fav_region()%>" placeholder="관심 지역 입력"></td>
+						<td><input type="text" name="FAV_REGION" value="<%= user.getUser_fav_region() %>" placeholder="관심 지역 입력" /></td>
 					</tr>
-
-
 				</table>
+
 				<!-- 저장 버튼 -->
 				<input type="submit" value="저장" />
-			</form>
+			</div>
 		</div>
-	</div>
+	</form>
 
-
+	<!-- 풋터 -->
+	<%@ include file="Footer.jsp"%>
 
 	<script>
-	function logout() {
-		   window.location.href = "logoutServlet"; // 로그아웃 서블릿 호출
-		}
+	// 비밀번호 확인
+	document.getElementById("confirmPassword").addEventListener("input", function() {
+	    var password = document.getElementById("password").value;
+	    var confirmPassword = this.value;
+	    if (password !== confirmPassword) {
+	      this.setCustomValidity("비밀번호가 일치하지 않습니다.");
+	    } else {
+	      this.setCustomValidity(""); // 일치하면 유효성 검사를 통과
+	    }
+	  });
+	
+	// 전화번호 형식 지정
+	 document.getElementById("phone").addEventListener("input", function() {
+		    var phone = this.value;
+		    var formattedPhone = phone.replace(/[^0-9]/g, '').replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+		    this.value = formattedPhone;
+		  });
+	
 	</script>
-	
-	
+
+</body>
 </html>

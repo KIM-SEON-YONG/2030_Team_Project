@@ -165,11 +165,31 @@ public class UserDAO {
         }
     }
 
-    // 패스워드 찾기 (이메일로 비밀번호 찾기)
-    public UserDTO findPasswordByEmail(String user_email) {
-        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
-            // MyBatis 쿼리 호출
-            return sqlSession.selectOne("com.TTteamProject.database.UserMapper.findPasswordByEmail", user_email);
+    // 패스워드 초기화
+
+    private ResultSet rs;
+    
+ // 이메일로 비밀번호 찾기
+    public String findPasswordByEmail(String userEmail) {
+        String sql = "SELECT USER_PW FROM TB_USER WHERE USER_EMAIL = ?";
+        String userPassword = null;
+
+        try {
+            conn = getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, userEmail);
+            rs = pstmt.executeQuery();
+
+            // 결과 처리
+            if (rs.next()) {
+                userPassword = rs.getString("USER_PW"); // 비밀번호를 반환
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeResources();
         }
+
+        return userPassword; // 비밀번호 반환 (없으면 null)
     }
 }

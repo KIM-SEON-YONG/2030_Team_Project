@@ -78,22 +78,6 @@
 	background-color: #C0B3DF; /* 호버 시 배경색 변화 */
 }
 
-.logout-btn {
-	background-color: #f24c59; /* 로그아웃 버튼 배경색 */
-	color: white; /* 버튼 글자색 */
-	border: none; /* 테두리 제거 */
-	padding: 10px 20px; /* 내부 여백 */
-	border-radius: 5px; /* 모서리 둥글게 */
-	cursor: pointer; /* 커서가 포인터로 변경 */
-	font-size: 16px; /* 폰트 크기 */
-	margin-top: 20px; /* 위쪽 여백 */
-	transition: background-color 0.3s; /* 배경색 변화에 애니메이션 효과 추가 */
-}
-
-.logout-btn:hover {
-	background-color: #e03e50; /* 호버 시 배경색 변화 */
-}
-
 /* 메인 콘텐츠 */
 .main-content {
 	flex-grow: 1; /* 남은 공간을 채우기 */
@@ -140,8 +124,7 @@
 				<li><a href=Update.jsp>회원정보수정</a></li>
 				<li><a href="WelPoint.jsp">복지포인트</a></li>
 			</ul>
-			<!-- 로그아웃 버튼 -->
-			<button class="logout-btn" onclick="logout()">로그아웃</button>
+		
 			<br> <br> <br> <br> <br> <br> <br>
 			<br> <br> <br> <br> <br> <br>
 			<button class="delete-btn" onclick="delete()">회원탈퇴</button>

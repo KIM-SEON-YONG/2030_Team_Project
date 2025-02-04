@@ -86,7 +86,6 @@ if (userInfo == null) {
 .menu a:hover {
 	background-color: #C0B3DF; /* 호버 시 배경색 변화 */
 }
-
 .logout-btn {
 	background-color: #f24c59; /* 로그아웃 버튼 배경색 */
 	color: white; /* 버튼 글자색 */

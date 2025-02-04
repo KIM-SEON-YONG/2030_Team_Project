@@ -48,8 +48,7 @@
 	</select>
 
 	<!-- 회원정보 수정 -->
-	<update id="updateUser"
-		parameterType="com.TTteamProject.model.UserDTO">
+	<update id="updateUser" parameterType="com.TTteamProject.model.UserDTO">
 		UPDATE TB_USER
 		SET
        		USER_PW = #{user_pw},
@@ -91,8 +90,8 @@
 		  AND USER_PHONE = #{user_phone}
 	</select>
 	
-	<!-- 패스워드 찾기 -->
-	<select id="findPasswordByEmail" parameterType="String" resultType="String">
+	<!-- 패스워드 초기화 -->
+	<select id="setUserPW" parameterType="String" resultType="String">
 		SELECT USER_PW
 		FROM TB_USER
 		WHERE USER_EMAIL = #{user_email}

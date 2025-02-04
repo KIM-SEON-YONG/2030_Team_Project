@@ -43,25 +43,23 @@ public class UpdateCon extends HttpServlet {
 		
 		// 수정할 사용자 정보 받기
         String user_id = loggedInUser.getUser_id(); // 세션에서 가져온 사용자 ID
-        String user_pw = request.getParameter("user_pw");
-        String user_pw_chk = request.getParameter("user_pw_chk");  // 비밀번호 확인 입력 받기
+        String user_pw = request.getParameter("USER_PW");
+        String user_pw_chk = request.getParameter("USER_PW_CHK");  // 비밀번호 확인 입력 받기
         String user_name = loggedInUser.getUser_name(); // 세션에서 가져온 사용자 이름
         String user_birthdate = loggedInUser.getUser_birthdate(); // 세션에서 가져온 생일
         String user_gender = loggedInUser.getUser_gender();; // 세션에서 가져온 성별
-        String user_phone = request.getParameter("user_phone");
-        String fav_welfare = request.getParameter("fav_welfare");
-        String fav_region = request.getParameter("fav_region");
+        String user_phone = request.getParameter("USER_PHONE");
+        String user_email = loggedInUser.getUser_email();; 
+        String fav_welfare = request.getParameter("FAV_WELFARE");
+        String fav_region = request.getParameter("FAV_REGION");
 		
-        // 비밀번호 확인 처리 - 비밀번호 다를 시 alert창 띄우기
+        // 비밀번호 확인이 일치하지 않으면 포워딩
         if (user_pw != null && !user_pw.isEmpty() && !user_pw.equals(user_pw_chk)) {
             request.setAttribute("message", "비밀번호가 일치하지 않습니다.");
-            request.getRequestDispatcher("Update.jsp").forward(request, response);  // Update.jsp로 포워딩
-			/*
-			 * request.getRequestDispatcher("UpdateResult.jsp").forward(request, response);
-			 */
-            return;  // 비밀번호가 일치하지 않으면 수정 작업을 진행하지 않음
+            request.getRequestDispatcher("Update.jsp").forward(request, response);
+            return;  // 수정 작업을 진행하지 않음
         }
-
+        
 		 // 수정된 정보를 UserDTO 객체에 담기
         UserDTO updatedUser = new UserDTO();
         updatedUser.setUser_id(user_id); // 기존 사용자 ID는 수정하지 않음
@@ -69,6 +67,7 @@ public class UpdateCon extends HttpServlet {
         updatedUser.setUser_birthdate(user_birthdate); // 기존 생일은 수정하지 않음
         updatedUser.setUser_gender(user_gender); // 기존 성별은 수정하지 않음
         updatedUser.setUser_phone(user_phone); // 새로운 전화번호
+        updatedUser.setUser_email(user_email); 
         updatedUser.setFav_welfare(fav_welfare); // 새로운 선호 복지
         updatedUser.setFav_region(fav_region); // 새로운 선호 지역
 

@@ -33,9 +33,9 @@ import com.TTteamProject.model.UserDTO;
 		String user_birthdate = request.getParameter("USER_BIRTHDATE");
 		String user_gender = request.getParameter("USER_GENDER");
 		String user_phone = request.getParameter("USER_PHONE");
+		String user_email = request.getParameter("USER_EMAIL");
 		String fav_welfare = request.getParameter("FAV_WELFARE");
 		String fav_region = request.getParameter("FAV_REGION");
-		String user_email = request.getParameter("USER_EMAIL");
 		String join_dt = request.getParameter("JOIN_DT");
 		
 		// wel_point, postcount는 String으로 넘어오기 때문에 int로 변환 필요
@@ -57,7 +57,7 @@ import com.TTteamProject.model.UserDTO;
 
 		// 3. DAO의 메서드 호출
 		UserDAO dao = new UserDAO();
-		UserDTO dto = new UserDTO(user_id, user_pw,user_name, user_birthdate, user_gender, user_phone, fav_welfare, fav_region, wel_point, postcount, user_email,join_dt);
+		UserDTO dto = new UserDTO(user_id, user_pw,user_name, user_birthdate, user_gender, user_phone, user_email, fav_welfare, fav_region, wel_point, postcount, join_dt);
 		
 		int result = dao.joinList(dto);		
 		

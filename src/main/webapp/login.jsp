@@ -164,6 +164,8 @@
             </a>
         </div>
         <a href="join.jsp">회원가입</a>
+        <a href="FindId.jsp">아이디 찾기</a>
+        <a href="FindPw.jsp">비밀번호 찾기</a>
     </div>
 <% } %>
 
