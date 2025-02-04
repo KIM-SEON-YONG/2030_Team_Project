@@ -85,7 +85,8 @@ public class UserDAO {
             return false;
         }
     }
-
+	
+	
  
 	// 회원탈퇴
 	public int Delete(String user_id, String user_pw) {

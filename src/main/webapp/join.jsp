@@ -14,16 +14,21 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <style>
-body, html {
+/* body, html {
 	margin: 10px;
 	padding: 0;
 	height: 100%;
 	width: 100vw;
 	font-family: sans-serif;
+} */
+
+.join_container > h2 {
+	text-align: center;
+	margin-bottom: 50px;
 }
 
 /* 전체 폼을 감싸는 div */
-div {
+.input-container {
 	width: 400px;
 	margin: 0 auto; /* 가운데 정렬 */
 	padding: 20px;
@@ -66,6 +71,13 @@ input[type="radio"] {
 	justify-content: center; /* 가로축 중앙 정렬 */
 	gap: 10px; /* 버튼 간 간격 */
 	margin-top: 20px; /* 입력 필드와의 간격 */
+	
+	width: 400px;
+	margin: 0 auto; /* 가운데 정렬 */
+	padding: 20px;
+	background-color: #f9f9f9;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 </style>
 
@@ -74,33 +86,36 @@ input[type="radio"] {
 <body>
 	<!-- 해더  -->
 	<%@ include file="Header.jsp"%>
-	<h2 style="text-align: center;">회원가입</h2>
-	<table>
-		<form name="join" action="JoinCon" method="post" onsubmit="return sendIt();">
-			<div>
-				<input type="text" name="USER_NAME" size="20" placeholder="이름">
-				<input type="radio" name="USER_GENDER" value="m">남자 <input
-					type="radio" name="USER_GENDER" value="f">여자 <input
-					type="text" name="USER_BIRTHDATE" size="20" placeholder="생년월일">
-				<input type="text" name="USER_ID" id="USER_ID" size="20"placeholder="아이디">
-				<button type="button" class="btn" id="ID_CHECK"onclick="return checkId()">ID 중복 확인</button>
-				<input type="password" name="USER_PW" size="20" placeholder="비밀번호">
-				<input type="password" name="USER_PW_CHECK" size="20"placeholder="비밀번호확인"> 
-				<input type="text" name="USER_PHONE"size="20" placeholder="전화번호 ex)010-1234-5678"> 
-				<input type="text" name="USER_EMAIL" size="20" placeholder="이메일 ex)example@domain.com">
-				<input type="text"name="FAV_WELFARE" size="20" placeholder="관심분야"> 
-				<input type="text" name="FAV_REGION" size="20" placeholder="관심지역">
-			</div>
-			<div class="button-container">
-				<input type="submit" value="가입하기" class="btn">
-				<button type="button" class="btn"><a href="Main.jsp">취소하기</a></button>
-				
-			</div>
-			<div id="idCheckResult" style="display: none;"></div>
-		</form>
-	</table>
+	<div class="container join_container">
+		<h2>회원가입</h2>
+		<table>
+			<form name="join" action="JoinCon" method="post" onsubmit="return sendIt();">
+				<div class="input-container">
+					<input type="text" name="USER_NAME" size="20" placeholder="이름">
+					<input type="radio" name="USER_GENDER" value="m">남자 <input
+						type="radio" name="USER_GENDER" value="f">여자 <input
+						type="text" name="USER_BIRTHDATE" size="20" placeholder="생년월일">
+					<input type="text" name="USER_ID" id="USER_ID" size="20"placeholder="아이디">
+					<button type="button" class="btn" id="ID_CHECK"onclick="return checkId()">ID 중복 확인</button>
+					<input type="password" name="USER_PW" size="20" placeholder="비밀번호">
+					<input type="password" name="USER_PW_CHECK" size="20"placeholder="비밀번호확인"> 
+					<input type="text" name="USER_PHONE"size="20" placeholder="전화번호 ex)010-1234-5678"> 
+					<input type="text" name="USER_EMAIL" size="20" placeholder="이메일 ex)example@domain.com">
+					<input type="text"name="FAV_WELFARE" size="20" placeholder="관심분야"> 
+					<input type="text" name="FAV_REGION" size="20" placeholder="관심지역">
+				</div>
+				<div class="button-container">
+					<input type="submit" value="가입하기" class="btn">
+					<button type="button" class="btn"><a href="Main.jsp">취소하기</a></button>
+					
+				</div>
+				<div id="idCheckResult" style="display: none;"></div>
+			</form>
+		</table>
+	</div>
 <!-- 풋터 -->
 	<%@ include file="Footer.jsp"%>
+	
 	<script>
 	let idCheck = 0;// ID 중복 체크 상태 (0: 미확인, 1: 사용 가능)
 	

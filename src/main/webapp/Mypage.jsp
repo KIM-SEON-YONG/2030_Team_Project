@@ -4,6 +4,18 @@
 <%@ page import="java.util.List"%>
 
 
+<%
+// 여기에 위치하는 이유 => 페이지가 로드되기 전에 로그인 유무를 확인하기 위함!
+// 로그인이 되어 있지 않으면 login.jsp 페이지로 이동
+UserDTO userInfo = (UserDTO) session.getAttribute("user"); /* Header.jsp에도 user변수로 가져오고 있어서 변수명 변경 */
+if (userInfo == null) {
+	response.sendRedirect("login.jsp"); // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
+	return; // 더이상 아래 코드를 실행하지 않도록 종료
+}
+%>
+<!-- 해더  -->
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -117,20 +129,7 @@
 </style>
 </head>
 <body>
-	<!-- 해더  -->
 	<%@ include file="Header.jsp"%>
-
-	<%-- <%
-	// 세션에서 사용자 정보 가져오기
-	UserDTO user = (UserDTO) session.getAttribute("user");
-	if (user == null) {
-
-		response.sendRedirect("login.jsp"); // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
-		return;
-	} else {
-
-	}
-	%> --%>
 	<div class="container">
 		<!-- 메뉴 -->
 		<div class="menu">
@@ -146,8 +145,8 @@
 				<li><a href=Update.jsp>회원정보수정</a></li>
 				<li><a href="WelPoint.jsp">복지포인트</a></li>
 			</ul>
-			<!-- 로그아웃 버튼 -->
-			<button class="logout-btn" onclick="logout()">로그아웃</button>
+			<!-- 로그아웃 버튼  -->
+			<!-- <button class="logout-btn" onclick="logout()">로그아웃</button> -->
 			<br> <br> <br> <br> <br> <br> <br>
 			<br> <br> <br> <br> <br> <br>
 			<button class="delete-btn" onclick="delete()">회원탈퇴</button>
