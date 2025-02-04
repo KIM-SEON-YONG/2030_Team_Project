@@ -167,14 +167,35 @@ public class UserDAO {
     }
 
     // 패스워드 이메일로 찾기
-	    public UserDTO findUserByEmail(String user_email) {
-	        try (SqlSession sqlSession = sqlSessionFactory.openSession(true)) {
-	            return sqlSession.selectOne("findUserByEmail", user_email);
+	    public UserDTO setPassword(String user_email) {
+	    	// DB에서 이메일로 사용자 검색 후 반환
+	        // 예시: SELECT * FROM users WHERE email = ?
+	    }
+	    
+	    // 비밀번호 업데이트
+	    public void updatePassword(String email, String newPassword) {
+	        // DB에서 사용자의 비밀번호를 생년월일로 업데이트
+	        // 예시: UPDATE users SET password = ? WHERE email = ?
+	        Connection conn = null;
+	        PreparedStatement pstmt = null;
+	        try {
+	            // DB 연결 및 비밀번호 업데이트 쿼리 실행
+	            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+	            String sql = "UPDATE users SET password = ? WHERE email = ?";
+	            pstmt = conn.prepareStatement(sql);
+	            pstmt.setString(1, newPassword); // 생년월일을 비밀번호로 설정
+	            pstmt.setString(2, email);       // 이메일로 해당 사용자 찾기
+	            pstmt.executeUpdate();           // 쿼리 실행
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        } finally {
+	            // 자원 정리
+	            try {
+	                if (pstmt != null) pstmt.close();
+	                if (conn != null) conn.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
 	        }
 	    }
-	// 패스워드 초기화 후 발급
-		public void updatePassword(String user_email, String tempPassword) {
-			// TODO Auto-generated method stub
-		}
-	
-}
+	}

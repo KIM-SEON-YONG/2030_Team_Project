@@ -205,17 +205,52 @@ p {
 
 .modal.show { display: flex; } /* 클래스 추가 시 표시- 함수에서 추가 */
 
+/* 모달 내용 */
 .modal_body {
-	position: absolute;
-	top: 50%; /* 모달을 화면가운데 놓기 위함 */
-	width: 400px;
-	height: 600px;
-	padding: 40px;
-	text-align: center;
-	background-color: rgb(255, 255, 255);
-	border-radius: 10px;
-	box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15); /* 테두리 그림자 */
-	transform: translateY(-50%); /* 모듈창 열었을 때 위치설정 가운데로 */
+  position: absolute;
+  top: 50%;
+  width: 400px;
+  height: 600px;
+  padding: 40px;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15); /* 테두리 그림자 */
+  transform: translateY(-50%); /* 가운데 위치 */
+}
+
+/* 체크박스 리스트 스타일링 */
+.regionList {
+  display: grid; /* 그리드 레이아웃 사용 */
+  grid-template-columns: 1fr; /* 1열로 시작 */
+  gap: 10px; /* 항목 간격 */
+  list-style: none; /* 기본 리스트 스타일 없애기 */
+  padding: 0;
+  margin: 0;
+}
+
+/* 전체 선택 항목 스타일링 */
+.regionList .select-all {
+  grid-column: span 2; /* 전체 선택 항목을 3열로 넓게 설정 */
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.regionList li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 나머지 지역명 리스트를 3열로 배치 */
+.regionList {
+  grid-template-columns: repeat(3, 1fr); /* 3열로 배치 */
+}
+
+/* 체크박스 스타일 */
+.regionList input[type="checkbox"] {
+  margin-right: 10px; /* 체크박스와 텍스트 사이 간격 */
 }
 
 #modalBtn {

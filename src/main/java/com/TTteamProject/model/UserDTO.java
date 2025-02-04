@@ -92,8 +92,9 @@ public class UserDTO {
 			return null;
 		}
 		
-	// 비번 초기화 하기
-		public String findUserByEmail(String setUserPW) {
+	// 비번 초기화 하기(생년월일로)
+		public String setPassword(String 
+				user_pw) {
 			return null;
 		}
 }	

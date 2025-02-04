@@ -36,31 +36,32 @@
 				<div class="modal">
 					<div class="modal_body">
 						<div class="modalClose" onclick="modalClose()"></div>
-						<h2>모달창 제목</h2>
+						<h2>지역을 선택해주세요</h2>
 						<form action="">
 							<ul>
 								<li>전라도
 									<ul class="regionList">
-										<li><input type="checkbox" name="selectAll"
-											value="selectAll"><span id="selectAll">전체선택</span></li>
+										<!-- 전체 선택 항목을 맨 위로 배치 -->
+										<li class="select-all"><input type="checkbox"
+											name="selectAll" value="selectAll"> <span
+											id="selectAll">전체선택</span></li><br>
 										<%
 										/* 지역리스트 가져오기 */
 										RegionDAO regionDAO = new RegionDAO();
 										List<RegionDTO> regionList = regionDAO.regionList();
 										for (int i = 0; i < regionList.size(); i++) {
 										%>
-
+										<!-- 지역명 리스트 -->
 										<li><input type="checkbox" class="regionNm"
 											name="regionNm"
-											value="<%=regionList.get(i).getRegion_name()%>"><%=regionList.get(i).getRegion_name()%></li>
+											value="<%=regionList.get(i).getRegion_name()%>"> <%=regionList.get(i).getRegion_name()%>
+										</li>
 										<%
 										}
 										%>
-
 									</ul>
 								</li>
 							</ul>
-							<!-- <button id="modalBtn" onclick="getCheckboxValue()">선택 완료</button> -->
 							<button type="button" id="modalBtn">선택 완료</button>
 						</form>
 					</div>

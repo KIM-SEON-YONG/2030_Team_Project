@@ -90,13 +90,19 @@
 		  AND USER_PHONE = #{user_phone}
 	</select>
 	
-	<!-- 패스워드 초기화 -->
-	<select id="setUserPW" parameterType="String" resultType="String">
-		SELECT USER_PW
-		FROM TB_USER
-		WHERE USER_EMAIL = #{user_email}
-	</select>
+	<!-- 사용자의 이메일로 사용자 정보 찾기 -->
+    <select id="findUserByEmail" resultType="com.example.dto.UserDTO">
+        SELECT USER_EMAIL, USER_BIRTHDATE, USER_PW
+        FROM TB_USER
+        WHERE USER_EMAIL = #{user_email}
+    </select>
 
+    <!-- 비밀번호 업데이트 -->
+    <update id="updatePassword">
+        UPDATE users
+        SET USER_PW = #{user_pw}
+        WHERE USER_EMAIL = #{user_email}
+    </update>
 
 
 </mapper>
