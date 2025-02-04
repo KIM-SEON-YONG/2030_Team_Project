@@ -39,10 +39,11 @@ def get_policyList(region=None, welfare_category=None):
     conn = connect_to_db()
     cursor = conn.cursor()
 
-    # 지역과 복지 분류가 모두 없으면 전체 조회
+    # 지역과 복지 분류가 모두 없으면 전체 조회 
     if not region and not welfare_category:
-        query = get_query_from_xml('get_all_policies')
-        cursor.execute(query)  # 이 쿼리는 바인딩 변수를 필요로 하지 않음
+        return "전라남도 지역에 대해서만 취업, 결혼, 출산 복지 정보를 제공하고 있습니다."
+        """ query = get_query_from_xml('get_all_policies')
+        cursor.execute(query)  # 이 쿼리는 바인딩 변수를 필요로 하지 않음 """
     # 지역만 없으면, 복지 분류로만 조회
     elif not region:
         query = get_query_from_xml('get_policy_by_category')
