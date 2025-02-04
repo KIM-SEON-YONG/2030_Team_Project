@@ -1,7 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ page import="com.TTteamProject.model.UserDTO"%>
 <%@ page import="com.TTteamProject.model.BoardDTO"%>
+<%@ page import="com.TTteamProject.model.UserDTO"%>
 <%@ page import="java.util.List"%>
+<%
+    String userName = (String) session.getAttribute("userName");
+    String userId = (String) session.getAttribute("userId");
+    String welPoint = (String) session.getAttribute("welPoint");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,7 +102,8 @@
 	height: 730px;
 	width: 100%;
 }
-.point-conversion{
+
+.point-conversion {
 	border-style: solid;
 	justify-items: center;
 	height: 220;
@@ -107,6 +113,18 @@
 <body>
 	<!-- 해더  -->
 	<%@ include file="Header.jsp"%>
+
+	<%-- <%
+	// 세션에서 사용자 정보 가져오기
+	UserDTO user = (UserDTO) session.getAttribute("user");
+	if (user == null) {
+
+		response.sendRedirect("login.jsp"); // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
+		return;
+	} else {
+
+	}
+	%> --%>
 	<div class="container">
 		<!-- 메뉴 -->
 		<div class="menu">
@@ -135,15 +153,17 @@
 				<h2><%=user.getUser_id()%>님의 마이페이지
 				</h2>
 				<div>
-					<h3>나의 보유 포인트  <%=user.getWel_point()%>P</h3>
-				</div>					
+					<h3>
+						나의 보유 포인트
+						<%=user.getWel_point()%>P
+					</h3>
+				</div>
 				<div class="point-conversion">
 					<h5>포인트 전환하기</h5>
-					<input type="number" placeholder="전환할 포인트 입력" >
-					<br><br>
+					<input type="number" placeholder="전환할 포인트 입력"> <br> <br>
 					<input type="text" placeholder="포인트 사용할 지역 입력" class="point-region">
-					<br><br>
-					<button  type="submit">포인트 전환 신청하기</button>
+					<br> <br>
+					<button type="submit">포인트 전환 신청하기</button>
 				</div>
 				<div class="application">
 					<br>
@@ -153,11 +173,13 @@
 	</div>
 	<!-- 풋터 -->
 	<%@ include file="Footer.jsp"%>
+	
+	
 <script>
    function logout() {
          window.location.href = "LogOutCon"; // 로그아웃 서블릿 호출
       }
-   </script>
+</script>
 
 
 

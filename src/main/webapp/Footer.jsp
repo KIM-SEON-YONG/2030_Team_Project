@@ -88,7 +88,7 @@ footer {
     <div class="chat-container" id="chat-container">
         <div class="chat-header">💬 SPARK 챗봇</div>
         <div class="chat-box" id="chat-box">
-            <div class="bot-message chat-message">안녕하세요. SPARK 챗봇입니다. 어떤 복지 정책이 궁금하신가요?</div>
+            <div class="bot-message chat-message">안녕하세요. SPARK 챗봇입니다.<br>어떤 복지 정책이 궁금하신가요?<br>알고 싶은 지역과 복지 정책을 말씀해 주시면 상세한 답변이 가능합니다.</div>
         </div>
         <div class="chat-input">
             <input type="text" id="userMessage" placeholder="메시지를 입력하세요..." onkeypress="handleKeyPress(event)">
@@ -125,10 +125,5 @@ footer {
 		</div>
 	</footer>
 	<script src="assets/js/chatting.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-		rel="stylesheet">
-		
-	</script>
 </body>
 </html>
