@@ -85,6 +85,7 @@
 					<div class="welfare-card">
 						<a href="<%=pregList.get(i).getWelfare_url() %>" target="_blank">
 							<span class="welfare_sort welfare_sort_preg">출산</span>
+							<span class="welfare_sort welfare_region"><%=pregList.get(i).getRegion_name() %></span>
 							<p class="welfare_title welfare_title_preg"><%=pregList.get(i).getWelfare_title()%></p>
 							<p class="welfare_period welfare_period_preg"><%=pregList.get(i).getWelfare_period()%></p>
 							<p class="welfare_content welfare_content_preg"><%=pregList.get(i).getWelfare_content()%></p>
@@ -179,6 +180,7 @@
 						console.log("welfare_title:", policy.welfare_title);
 						console.log("welfare_period:", policy.welfare_period);
 						console.log("welfare_content:", policy.welfare_content);
+						console.log("region_name:", policy.region_name);
 						
 						
 						
@@ -191,6 +193,7 @@
 
 					    // 동적 텍스트 추가
 					    link.append($('<span>').addClass('welfare_sort welfare_sort_preg').html('출산'));
+					    link.append($('<span>').addClass('welfare_sort welfare_region').text(region_name));
 					    link.append($('<p>').addClass('welfare_title welfare_title_preg').text(policy.welfare_title));
 					    link.append($('<p>').addClass('welfare_period welfare_period_preg').text(policy.welfare_period));
 					    link.append($('<p>').addClass('welfare_content welfare_content_preg').text(policy.welfare_content));
