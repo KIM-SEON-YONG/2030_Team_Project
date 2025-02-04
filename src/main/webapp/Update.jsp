@@ -2,34 +2,38 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="javax.sql.*"%>
-<%@ page contentType="text/html; charset=UTF-8"%>
-<%@ page language="java"%>
 <%@ page import="com.TTteamProject.model.UserDTO"%>
 <%@ page import="com.TTteamProject.model.BoardDTO"%>
 <%@ page import="java.util.List"%>
-<%
+
+
+<% 
 // 세션에서 사용자 정보 가져오기
 UserDTO user = (UserDTO) session.getAttribute("user");
 if (user == null) {
-
-	response.sendRedirect("login.jsp"); // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
-	return;
-} else {
-
+    response.sendRedirect("login.jsp"); // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
+    return;
 }
-
-// 비밀번호 일치하지 않으면 alert창 띄우기
-String message = (String) request.getAttribute("message");
-if(message != null){
 %>
 
-	<script type="text/javascript">
-		alert("<%= message %>");
-	</script>
-	
+<%-- 비밀번호 일치하지 않으면 alert창 띄우기 --%>
+<%
+String pwdchkMessage = (String) request.getAttribute("pwdchkMessage");
+if (pwdchkMessage != null) {
+%>
+    <script type="text/javascript">
+        alert("<%= pwdchkMessage %>");
+    </script>
 <%
 }
+
+String updatedUserFail = (String) request.getAttribute("updatedUserFail");
+if (updatedUserFail != null) {
 %>
+    <script type="text/javascript">
+        alert("<%= updatedUserFail %>");
+    </script>
+<% } %>
 
 <!DOCTYPE html>
 <html>
@@ -193,12 +197,12 @@ if(message != null){
 					</tr>
 					<tr>
 						<th>비밀번호 수정</th>
-						<td><input type="text" id="password" name="user_pw"
+						<td><input type="password" id="password" name="user_pw"
 							placeholder="새 비밀번호 입력"></td>
 					</tr>
 					<tr>
 						<th>비밀번호 재확인</th>
-						<td><input type="text" id="confirmPassword" name="user_pw_chk"
+						<td><input type="password" id="confirmPassword" name="user_pw_chk"
 							placeholder="비밀번호 확인"></td>
 					</tr>
 					<tr>
@@ -233,5 +237,5 @@ if(message != null){
 		}
 	</script>
 	
-	
+</body>
 </html>

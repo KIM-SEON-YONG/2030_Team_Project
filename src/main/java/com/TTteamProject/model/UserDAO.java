@@ -52,35 +52,36 @@ public class UserDAO {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		// DB에서 사용자 정보 조회
 		UserDTO user = sqlSession.selectOne("loginCheck", user_id);
+		
 		sqlSession.close();
-		// 비밀번호 비교
-		if (user != null && user.getUser_pw().equals(user_pw)) {
-			return user; // 로그인 성공
-		}
-		return null; // 로그인 실패
+		
+		return user; // 로그인 성공
 	}
 
 	// 회원정보수정
-	public boolean Update(UserDTO updatedUser) {
-		 // SqlSession을 통해 데이터베이스와 연결
-        try (SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession()) {
-            // UserMapper를 통해 실제 쿼리 메소드 호출
-            UserMapper mapper = session.getMapper(UserMapper.class);
-            int result = mapper.updateUser(updatedUser);
-
-            // 회원 정보 업데이트 실행
-            if (result > 0) {
-                session.commit();  // 성공 시 트랜잭션 커밋
-                return true;
-            } else {
-                session.rollback();  // 실패 시 롤백
-                return false;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
+	public boolean updateUser(UserDTO updateUser) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true); // 자동 커밋 옵션을 활성화
+		
+		// 업데이트 쿼리 실행
+		int rowsAffected = sqlSession.update("updateUser", updateUser);
+		
+		sqlSession.close();
+		
+		// rowsAffected가 1이상이면 성공으로 간주, 아니면 실행
+		return rowsAffected > 0; // 업데이트된 행의 수가 1이상이면 true, 아니면 false
+	}
+	
+	/*
+	 * public boolean updateUser(UserDTO updatedUser) { // SqlSession을 통해 데이터베이스와 연결
+	 * try (SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession()) {
+	 * // UserMapper를 통해 실제 쿼리 메소드 호출 UserMapper mapper =
+	 * session.getMapper(UserMapper.class); int result =
+	 * mapper.updateUser(updatedUser);
+	 * 
+	 * // 회원 정보 업데이트 실행 if (result > 0) { session.commit(); // 성공 시 트랜잭션 커밋 return
+	 * true; } else { session.rollback(); // 실패 시 롤백 return false; } } catch
+	 * (Exception e) { e.printStackTrace(); return false; } }
+	 */
 	
 	
  

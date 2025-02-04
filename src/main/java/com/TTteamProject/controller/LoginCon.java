@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.TTteamProject.model.UserDAO;
 import com.TTteamProject.model.UserDTO;
 
@@ -33,11 +35,10 @@ public class LoginCon extends HttpServlet {
 		
 		
 		 // 로그인 결과에 따른 처리
-        if (user != null && user.getUser_pw().equals(user_pw)) {
+        if (user != null && (user.getUser_pw().equals(user_pw) || BCrypt.checkpw(user_pw, user.getUser_pw()) )) {
            // 로그인 성공 시 세션에 사용자 정보 저장
         	HttpSession session = request.getSession();
             session.setAttribute("user", user); // 로그인된 사용자 정보 세션에 저장
-       
            
            // 로그인 성공 시
            response.sendRedirect("Main.jsp");
