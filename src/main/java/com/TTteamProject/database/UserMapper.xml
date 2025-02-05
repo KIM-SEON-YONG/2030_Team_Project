@@ -91,7 +91,7 @@
 	</select>
 	
 	<!-- 사용자의 이메일로 사용자 정보 찾기 -->
-    <select id="findUserByEmail" resultType="com.example.dto.UserDTO">
+    <select id="findUserByEmail" resultType="com.TTteamProject.model.UserDTO">
         SELECT USER_EMAIL, USER_BIRTHDATE, USER_PW
         FROM TB_USER
         WHERE USER_EMAIL = #{user_email}
