@@ -27,11 +27,11 @@
 <!-- main-->
 <link rel="stylesheet" href="assets/css/Main.css">
 <!-- 취업,결혼,출산 -->
-<link rel="stylesheet" href="assets/css/policy.css" />
+<link rel="stylesheet" href="assets/css/policy.css">
 <!-- 커뮤니티 -->
-<link rel="stylesheet" href="assets/css/board.css" />
+<link rel="stylesheet" href="assets/css/board.css">
 <!-- 다크모드 -->
-<link rel="stylesheet" href="assets/css/DarkMode.css" />
+<link rel="stylesheet" href="assets/css/DarkMode.css">
 </head>
 
 <body>
@@ -145,6 +145,7 @@
 				<div class="welfare-card">
 					<a href="<%=jobList.get(i).getWelfare_url()%>" target="_blank">
 						<span class="welfare_sort welfare_sort_job">취업</span>
+						<span class="welfare_sort welfare_region"><%=jobList.get(i).getRegion_name() %></span>
 						<p class="welfare_title welfare_title_job"><%=jobList.get(i).getWelfare_title()%></p>
 						<p class="welfare_period welfare_period_job"><%=jobList.get(i).getWelfare_period()%></p>
 						<p class="welfare_content welfare_content_job"><%=jobList.get(i).getWelfare_content()%></p>
@@ -189,6 +190,7 @@
 					<div class="welfare-card">
 						<a href="<%=weddingList.get(i).getWelfare_url()%>" target="_blank">
 							<span class="welfare_sort welfare_sort_wedding">결혼</span>
+							<span class="welfare_sort welfare_region"><%=weddingList.get(i).getRegion_name() %></span>
 							<p class="welfare_title welfare_title_wedding"><%=weddingList.get(i).getWelfare_title()%></p>
 							<p class="welfare_period welfare_perid_wedding"><%=weddingList.get(i).getWelfare_period()%></p>
 							<p class="welfare_content welfare_content_wedding"><%=weddingList.get(i).getWelfare_content()%></p>
@@ -234,6 +236,7 @@
 					<div class="welfare-card">
 						<a href="<%=pregList.get(i).getWelfare_url()%>" target="_blank">
 							<span class="welfare_sort welfare_sort_preg">출산</span>
+							<span class="welfare_sort welfare_region"><%=pregList.get(i).getRegion_name() %></span>
 							<p class="welfare_title welfare_title_preg"><%=pregList.get(i).getWelfare_title()%></p>
 							<p class="welfare_period welfare_period_preg"><%=pregList.get(i).getWelfare_period()%></p>
 							<p class="welfare_content welfare_content_preg"><%=pregList.get(i).getWelfare_content()%></p>
